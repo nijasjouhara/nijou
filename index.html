@@ -3,350 +3,217 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#12251d" />
-  <title>Asif Nijas Faizy & Jouhara Fathima | Nikah</title>
+  <meta name="theme-color" content="#10251d" />
   <meta name="description" content="Wedding invitation of Asif Nijas Faizy and Jouhara Fathima, 21 September 2026." />
+  <title>Asif Nijas Faizy & Jouhara Fathima | Nikah</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      --green:#10251d;
+      --deep:#07130e;
+      --green2:#1d3b2e;
+      --ivory:#f8f1e5;
+      --cream:#fffaf1;
+      --paper:#fdf8ee;
+      --gold:#b8893e;
+      --gold2:#d8b36b;
+      --brown:#4b3824;
+      --muted:#7c6b54;
+      --line:#d9c6a5;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--brown);font-family:Montserrat,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.12;background-image:radial-gradient(#7d633b .55px,transparent .55px);background-size:18px 18px}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+
+    /* Opening screen */
+    .loader{position:fixed;inset:0;z-index:999;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 45%,#214434 0,#10251d 48%,#06110c 100%);color:#f0d39a;transition:opacity 1s ease,visibility 1s ease}
+    .loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+    .loader:before,.loader:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #d8b36b55;border-radius:50%;animation:rotate 18s linear infinite}
+    .loader:after{width:230px;height:230px;animation-direction:reverse;opacity:.55}
+    .loader-inner{position:relative;z-index:2;padding:28px}
+    .loader-small{font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:#d9c6a5;margin-bottom:24px}
+    .loader-arabic{font-family:'Amiri',serif;font-size:clamp(35px,8vw,64px);line-height:1.65;direction:rtl;text-shadow:0 0 25px #d8b36b33}
+    .loader-ornament{margin:18px auto 0;color:#d8b36b;font-size:22px;letter-spacing:10px}
+    @keyframes rotate{to{transform:rotate(360deg)}}
+
+    /* Music */
+    .music-btn{position:fixed;right:18px;top:18px;z-index:100;border:1px solid #d8b36b77;background:#10251ddd;color:#fff;padding:11px 16px;border-radius:999px;backdrop-filter:blur(12px);box-shadow:0 10px 30px #0003;cursor:pointer;display:flex;align-items:center;gap:8px;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+    .music-btn.playing{background:#b8893e;color:#fff;box-shadow:0 0 0 7px #b8893e22,0 10px 35px #0004}
+    .music-icon{font-size:16px;line-height:1}
+
+    /* Hero */
+    .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#fffdf8 0,#f2e7d5 48%,#d7c3a0 100%);border-bottom:1px solid #c6aa7b;isolation:isolate}
+    .hero:before{content:"";position:absolute;inset:0;opacity:.35;background:linear-gradient(90deg,transparent 0 9%,#fff8 9.2% 9.5%,transparent 9.7% 90.3%,#fff8 90.5% 90.8%,transparent 91%)}
+    .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(transparent,#9d815545);z-index:1}
+    .pattern{position:absolute;inset:0;opacity:.13;background-image:linear-gradient(30deg,#b8893e 12%,transparent 12.5%,transparent 87%,#b8893e 87.5%,#b8893e),linear-gradient(150deg,#b8893e 12%,transparent 12.5%,transparent 87%,#b8893e 87.5%,#b8893e),linear-gradient(30deg,#b8893e 12%,transparent 12.5%,transparent 87%,#b8893e 87.5%,#b8893e),linear-gradient(150deg,#b8893e 12%,transparent 12.5%,transparent 87%,#b8893e 87.5%,#b8893e);background-size:32px 56px;background-position:0 0,0 0,16px 28px,16px 28px;mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent)}
+    .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#b8893e .7px,transparent .7px);background-size:76px 76px,43px 43px;background-position:12px 18px,27px 11px;opacity:.23}
+    .hero-content{text-align:center;position:relative;z-index:6;padding:55px 20px 100px;max-width:850px}
+    .arabic{font-family:'Amiri',serif;font-size:clamp(30px,5vw,55px);color:#a87424;direction:rtl;line-height:1.5;text-shadow:0 2px 12px #fff8;margin-bottom:20px}
+    .eyebrow{letter-spacing:.28em;font-size:10px;color:var(--muted);font-weight:600;margin:0 0 12px}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,86px);line-height:.92;font-weight:500;margin:14px 0 18px;letter-spacing:-.02em}
+    .hero h1 span{display:block}
+    .hero h1 b{display:block;font-family:'Great Vibes',cursive;color:var(--gold);font-weight:400;font-size:.7em;margin:9px}
+    .invite{font-family:'Cormorant Garamond',serif;font-size:23px;margin:0;color:#66533a}
+    .ornament{color:var(--gold);font-size:26px;margin:14px}
+    .date{font-family:'Cormorant Garamond',serif;font-size:23px;letter-spacing:.16em;margin:0}.date i{font-style:normal;font-size:14px;margin-left:12px;letter-spacing:.03em}
+    .scroll-cue{display:inline-grid;place-items:center;width:46px;height:46px;border:1px solid var(--gold);border-radius:50%;margin-top:22px;font-size:24px;background:#fff6;animation:bob 2.2s ease-in-out infinite}
+    @keyframes bob{50%{transform:translateY(6px)}}
+
+    .arch{position:absolute;top:10%;height:74%;width:28%;border:10px solid #c59a54aa;border-bottom:0;border-radius:50% 50% 0 0;background:linear-gradient(90deg,#fff9 0,#d4b77d2b 50%,#fff9 100%);box-shadow:0 0 70px #fff inset,0 0 35px #b7893e18;z-index:2}
+    .arch:after{content:"";position:absolute;inset:16px;border:1px solid #b8893e44;border-bottom:0;border-radius:50% 50% 0 0}
+    .arch-left{left:-5%}.arch-right{right:-5%}
+    .lantern{position:absolute;top:8%;font-size:40px;color:#9a6d2d;filter:drop-shadow(0 8px 10px #8b6b3033);z-index:7;animation:swing 4s ease-in-out infinite}.lantern-left{left:4%}.lantern-right{right:4%;animation-delay:1.2s}
+    @keyframes swing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+
+    /* Vector couple */
+    .couple{position:absolute;bottom:-18px;z-index:5;width:240px;height:380px;opacity:.98;filter:drop-shadow(0 16px 20px #654d2b18)}
+    .couple-left{left:2%}.couple-right{right:2%}
+    .man-head,.woman-head{position:absolute;top:24px;left:76px;width:82px;height:92px;border-radius:48% 48% 42% 42%;background:linear-gradient(120deg,#c98b62,#8c583d);box-shadow:inset 13px -2px #70442f}
+    .man-head:before{content:"";position:absolute;left:-4px;top:-17px;width:91px;height:37px;background:#f5ead7;border-radius:50% 50% 22% 22%;border-bottom:5px solid #cdbb9e;box-shadow:0 4px 8px #80633b22}
+    .man-head:after{content:"";position:absolute;left:10px;top:46px;width:16px;height:7px;border-radius:50%;background:#4b2e22;box-shadow:43px 0 #4b2e22}
+    .man-body{position:absolute;top:108px;left:34px;width:170px;height:285px;border-radius:75px 75px 0 0;background:linear-gradient(90deg,#d9ccb7,#fffaf0 50%,#d0c0a4);border-top:1px solid #fff;box-shadow:inset -12px 0 22px #9b835d22}
+    .man-body:before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:3px;height:270px;background:#bca68144}
+    .woman-head{background:linear-gradient(120deg,#a8785d,#79503f)}
+    .woman-head:before{content:"";position:absolute;inset:-13px -13px -10px -14px;border-radius:50%;background:linear-gradient(135deg,#8d7d70,#4e4039);z-index:-1}
+    .woman-head:after{content:"";position:absolute;left:7px;top:-9px;width:72px;height:125px;border-radius:50%;background:linear-gradient(90deg,#c7b9aa,#8d8076);opacity:.96}
+    .woman-body{position:absolute;top:104px;left:26px;width:184px;height:292px;border-radius:82px 82px 0 0;background:linear-gradient(90deg,#918377,#efe6d8 50%,#9a8b7d);box-shadow:inset 14px 0 24px #5b4b4033}
+    .woman-body:after{content:"";position:absolute;top:25px;left:35px;right:35px;height:2px;background:#d8b36b77;box-shadow:0 22px #d8b36b44,0 44px #d8b36b33}
+    .floral{position:absolute;bottom:5%;color:#b7893e;font-size:48px;line-height:.6;z-index:8;text-shadow:0 4px 12px #80602b33}.floral-left{left:15%}.floral-right{right:15%}
+
+    /* Sections */
+    .section{padding:100px 7vw;text-align:center;position:relative}.section h2,.rsvp h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,62px);font-weight:500;margin:8px 0 42px}.countdown-section{background:var(--cream)}
+    .countdown{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fffdf8;box-shadow:0 22px 60px #70553312}.countdown div{padding:30px 10px;border-right:1px solid #ddceb4}.countdown div:last-child{border:0}.countdown strong{display:block;font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:500}.countdown span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    .events{background:linear-gradient(180deg,#f4ecdf,#e9ddca)}.event-grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}.card{padding:44px 32px;border:1px solid #cdbb9d;border-radius:24px;background:#fffaf2cc;box-shadow:0 24px 60px #6c543018;position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:10px;border:1px solid #b8893e2b;border-radius:18px;pointer-events:none}.icon{font-size:38px;color:var(--gold)}.card h3,.location-card h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;margin:8px 0 22px}.event-info{font-family:'Cormorant Garamond',serif;font-size:20px;margin:9px}.event-info span{color:var(--gold)}
+    .button{display:inline-block;margin-top:22px;background:var(--green);color:#fff;padding:14px 23px;border-radius:999px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 10px 24px #10251d22;transition:.25s ease}.button:hover{transform:translateY(-2px);box-shadow:0 14px 30px #10251d2c}
+    .moments{background:#fbf4e8}.gallery{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.gallery-item{height:235px;border-radius:18px;display:grid;place-items:center;font-size:62px;color:#e3c17e;background:linear-gradient(135deg,#17362a,#8d744d);box-shadow:inset 0 0 90px #0004;position:relative;overflow:hidden}.gallery-item:after{content:"";position:absolute;inset:14px;border:1px solid #fff4;border-radius:13px}.g2{background:linear-gradient(135deg,#7c5d38,#e8d3a9)}.g3{background:linear-gradient(135deg,#e8ddcb,#6d5c45)}.g4{background:linear-gradient(135deg,#132a21,#b18b4d)}.g5{background:linear-gradient(135deg,#a88d67,#eee1ca)}.g6{background:linear-gradient(135deg,#1e3b2d,#67523b)}.gallery-note{max-width:680px;margin:30px auto 0;font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.6}
+    .location{background:#f8f0e3}.location-card{max-width:900px;margin:16px auto;display:flex;align-items:center;justify-content:space-between;text-align:left;padding:30px 34px;border:1px solid #d2c1a5;border-radius:20px;background:#fffaf2;box-shadow:0 14px 35px #6c543010}.location-card p{margin:0;color:var(--muted);font-size:13px}.pin{font-size:25px;color:var(--gold)}.location-card .button{margin:0}
+    .rsvp{padding:125px 7vw;text-align:center;background:radial-gradient(circle at 50% 0,#31503d,#10241c 55%,#07140f);color:#fff;position:relative;overflow:hidden}.rsvp:before{content:"✦  ·  ✧  ·  ✦";position:absolute;top:35px;left:50%;transform:translateX(-50%);color:#d8b36b55;letter-spacing:14px}.rsvp .eyebrow{color:#d7bd8d}.rsvp h2{max-width:760px;margin:12px auto}.rsvp p{max-width:550px;margin:0 auto 22px;color:#ddd3c2;line-height:1.8}.moon{font-size:60px;color:#d8b36d}.gold{background:#b7893e}.rsvp .gold{color:#fff}
+    footer{text-align:center;padding:80px 20px;background:#08150f;color:#eadfcf;position:relative}.footer-arabic{font-family:'Amiri',serif;font-size:28px;color:#d8b36d;max-width:900px;margin:auto;line-height:1.8;direction:rtl}.footer-names{font-family:'Great Vibes',cursive;font-size:30px;color:#d8b36d;margin-top:28px}footer p{max-width:700px;margin:20px auto;line-height:1.8;font-family:'Cormorant Garamond',serif;font-size:20px}footer small{letter-spacing:.12em;color:#a99c89}
+    .reveal{opacity:0;transform:translateY(28px);transition:1s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:700px){
+      .music-btn{right:14px;top:14px;width:48px;height:48px;padding:0;justify-content:center}.music-btn .music-label{display:none}
+      .hero{min-height:780px}.arch{height:62%;width:45%;top:17%;border-width:8px}.couple{transform:scale(.70);transform-origin:bottom}.couple-left{left:-20%}.couple-right{right:-20%}.hero-content{padding:70px 15px 100px}.arabic{font-size:28px;margin-bottom:15px}.hero h1{font-size:45px}.invite{font-size:18px}.date{font-size:20px}.countdown strong{font-size:39px}.section{padding:78px 18px}.section h2{margin-bottom:32px}.event-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.gallery-item{height:165px;font-size:44px}.location-card{display:block;text-align:center;padding:26px 18px}.location-card .button{margin-top:18px}.loader-small{font-size:8px}.loader-arabic{font-size:34px}.footer-arabic{font-size:24px}
+    }
+  </style>
+</head>
 <body>
 
   <div class="loader" id="loader">
-    <div class="loader-mark">بِسْمِ اللَّهِ</div>
+    <div class="loader-inner">
+      <div class="loader-small">In the name of Allah</div>
+      <div class="loader-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+      <div class="loader-ornament">✦  ❦  ✦</div>
+    </div>
   </div>
 
-  <button class="music-btn" id="musicBtn" aria-label="Toggle music">
-    ♫ <span>Music</span>
+  <button class="music-btn" id="musicBtn" aria-label="Play wedding music">
+    <span class="music-icon">♫</span><span class="music-label">Play Music</span>
   </button>
 
-  <audio id="bgMusic" loop preload="none">
-    <source src="" type="audio/mpeg">
+  <audio id="bgMusic" loop preload="auto">
+    <source src="wedding-music.mp3" type="audio/mpeg">
   </audio>
 
   <main>
-
     <section class="hero">
+      <div class="pattern"></div>
       <div class="stars"></div>
-
-      <div class="arch arch-left"></div>
-      <div class="arch arch-right"></div>
-
-      <div class="lantern lantern-left">☾</div>
-      <div class="lantern lantern-right">☾</div>
+      <div class="arch arch-left"></div><div class="arch arch-right"></div>
+      <div class="lantern lantern-left">☾</div><div class="lantern lantern-right">☾</div>
 
       <div class="hero-content reveal">
-
-        <div class="arabic">
-          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-        </div>
-
-        <p class="eyebrow">
-          TOGETHER WITH THEIR FAMILIES
-        </p>
-
-        <h1>
-          <span>Asif Nijas Faizy</span>
-          <b>&amp;</b>
-          <span>Jouhara Fathima</span>
-        </h1>
-
-        <p class="invite">
-          invite you to celebrate their Nikah
-        </p>
-
+        <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+        <p class="eyebrow">TOGETHER WITH THEIR FAMILIES</p>
+        <h1><span>Asif Nijas Faizy</span><b>&amp;</b><span>Jouhara Fathima</span></h1>
+        <p class="invite">invite you to celebrate their Nikah</p>
         <div class="ornament">❦</div>
-
-        <p class="date">
-          21 · 09 · 2026 <i>Monday</i>
-        </p>
-
-        <a class="scroll-cue" href="#countdown">
-          ⌄
-        </a>
-
+        <p class="date">21 · 09 · 2026 <i>Monday</i></p>
+        <a class="scroll-cue" href="#countdown">⌄</a>
       </div>
 
-      <div class="couple couple-left">
-        <div class="man-head"></div>
-        <div class="man-body"></div>
-      </div>
-
-      <div class="couple couple-right">
-        <div class="woman-head"></div>
-        <div class="woman-body"></div>
-      </div>
-
-      <div class="floral floral-left">
-        ✦<br>❀
-      </div>
-
-      <div class="floral floral-right">
-        ❀<br>✦
-      </div>
-
+      <div class="couple couple-left"><div class="man-head"></div><div class="man-body"></div></div>
+      <div class="couple couple-right"><div class="woman-head"></div><div class="woman-body"></div></div>
+      <div class="floral floral-left">✦<br>❀</div><div class="floral floral-right">❀<br>✦</div>
     </section>
-
 
     <section class="section countdown-section" id="countdown">
-
-      <p class="eyebrow">
-        THE COUNTDOWN
-      </p>
-
-      <h2>
-        Counting Down to Our Big Day
-      </h2>
-
+      <p class="eyebrow">THE COUNTDOWN</p><h2>Counting Down to Our Big Day</h2>
       <div class="countdown" id="countdownGrid">
-
-        <div>
-          <strong id="days">00</strong>
-          <span>Days</span>
-        </div>
-
-        <div>
-          <strong id="hours">00</strong>
-          <span>Hours</span>
-        </div>
-
-        <div>
-          <strong id="minutes">00</strong>
-          <span>Minutes</span>
-        </div>
-
-        <div>
-          <strong id="seconds">00</strong>
-          <span>Seconds</span>
-        </div>
-
+        <div><strong id="days">00</strong><span>Days</span></div>
+        <div><strong id="hours">00</strong><span>Hours</span></div>
+        <div><strong id="minutes">00</strong><span>Minutes</span></div>
+        <div><strong id="seconds">00</strong><span>Seconds</span></div>
       </div>
-
     </section>
-
 
     <section class="section events">
-
-      <p class="eyebrow">
-        SAVE THE DATE
-      </p>
-
-      <h2>
-        Two Moments, One Beautiful Beginning
-      </h2>
-
+      <p class="eyebrow">SAVE THE DATE</p><h2>Two Moments, One Beautiful Beginning</h2>
       <div class="event-grid">
-
         <article class="card reveal">
-
-          <div class="icon">☪</div>
-
-          <p class="eyebrow">
-            THE NIKAH
-          </p>
-
-          <h3>
-            Chazhiyode Juma Masjid
-          </h3>
-
-          <div class="event-info">
-            <span>◷</span> 11:00 AM
-          </div>
-
-          <div class="event-info">
-            <span>◫</span> 21 September 2026
-          </div>
-
-          <a
-            class="button"
-            target="_blank"
-            href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">
-            View Location
-          </a>
-
+          <div class="icon">☪</div><p class="eyebrow">THE NIKAH</p><h3>Chazhiyode Juma Masjid</h3>
+          <div class="event-info"><span>◷</span> 11:00 AM</div><div class="event-info"><span>◫</span> 21 September 2026</div>
+          <a class="button" target="_blank" rel="noopener" href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">View Location</a>
         </article>
-
-
         <article class="card reveal">
-
-          <div class="icon">✦</div>
-
-          <p class="eyebrow">
-            THE RECEPTION
-          </p>
-
-          <h3>
-            Pleasent Auditorium, Pandikkad
-          </h3>
-
-          <div class="event-info">
-            <span>◷</span> 4:00 PM
-          </div>
-
-          <div class="event-info">
-            <span>◫</span> 21 September 2026
-          </div>
-
-          <a
-            class="button"
-            target="_blank"
-            href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">
-            View Location
-          </a>
-
+          <div class="icon">✦</div><p class="eyebrow">THE RECEPTION</p><h3>Pleasent Auditorium, Pandikkad</h3>
+          <div class="event-info"><span>◷</span> 4:00 PM</div><div class="event-info"><span>◫</span> 21 September 2026</div>
+          <a class="button" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">View Location</a>
         </article>
-
       </div>
-
     </section>
-
 
     <section class="section moments">
-
-      <p class="eyebrow">
-        A FEW DETAILS
-      </p>
-
-      <h2>
-        Our Moments
-      </h2>
-
-      <div class="gallery">
-
-        <div class="gallery-item g1">☾</div>
-        <div class="gallery-item g2">✦</div>
-        <div class="gallery-item g3">❦</div>
-        <div class="gallery-item g4">☪</div>
-        <div class="gallery-item g5">✧</div>
-        <div class="gallery-item g6">❀</div>
-
-      </div>
-
-      <p class="gallery-note">
-        The celebration begins with a Nikah and continues into an evening of joy, family and togetherness.
-      </p>
-
+      <p class="eyebrow">A FEW DETAILS</p><h2>Our Moments</h2>
+      <div class="gallery"><div class="gallery-item g1">☾</div><div class="gallery-item g2">✦</div><div class="gallery-item g3">❦</div><div class="gallery-item g4">☪</div><div class="gallery-item g5">✧</div><div class="gallery-item g6">❀</div></div>
+      <p class="gallery-note">The celebration begins with a Nikah and continues into an evening of joy, family and togetherness.</p>
     </section>
-
 
     <section class="section location">
-
-      <p class="eyebrow">
-        COME CELEBRATE WITH US
-      </p>
-
-      <h2>
-        Be Our Guest
-      </h2>
-
-
-      <div class="location-card">
-
-        <div>
-
-          <span class="pin">⌖</span>
-
-          <h3>
-            Chazhiyode Juma Masjid
-          </h3>
-
-          <p>
-            21 September 2026 · 11:00 AM
-          </p>
-
-        </div>
-
-        <a
-          class="button"
-          target="_blank"
-          href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">
-          Open in Google Maps
-        </a>
-
-      </div>
-
-
-      <div class="location-card">
-
-        <div>
-
-          <span class="pin">⌖</span>
-
-          <h3>
-            Pleasent Auditorium, Pandikkad
-          </h3>
-
-          <p>
-            21 September 2026 · 4:00 PM
-          </p>
-
-        </div>
-
-        <a
-          class="button"
-          target="_blank"
-          href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">
-          Open in Google Maps
-        </a>
-
-      </div>
-
+      <p class="eyebrow">COME CELEBRATE WITH US</p><h2>Be Our Guest</h2>
+      <div class="location-card"><div><span class="pin">⌖</span><h3>Chazhiyode Juma Masjid</h3><p>21 September 2026 · 11:00 AM</p></div><a class="button" target="_blank" rel="noopener" href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">Open in Google Maps</a></div>
+      <div class="location-card"><div><span class="pin">⌖</span><h3>Pleasent Auditorium, Pandikkad</h3><p>21 September 2026 · 4:00 PM</p></div><a class="button" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">Open in Google Maps</a></div>
     </section>
-
 
     <section class="rsvp">
-
-      <div class="moon">
-        ☾
-      </div>
-
-      <p class="eyebrow">
-        YOUR PRESENCE IS OUR GIFT
-      </p>
-
-      <h2>
-        We would love to have you with us.
-      </h2>
-
-      <p>
-        Kindly confirm your presence and share your blessings with the couple.
-      </p>
-
-      <a
-        class="button gold"
-        href="https://wa.me/919745556452?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20confirm%20my%20presence%20at%20the%20Nikah%20of%20Asif%20Nijas%20Faizy%20%26%20Jouhara%20Fathima."
-        target="_blank">
-        RSVP on WhatsApp
-      </a>
-
+      <div class="moon">☾</div><p class="eyebrow">YOUR PRESENCE IS OUR GIFT</p><h2>We would love to have you with us.</h2>
+      <p>Kindly confirm your presence and share your blessings with the couple.</p>
+      <a class="button gold" href="https://wa.me/919745556452?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20confirm%20my%20presence%20at%20the%20Nikah%20of%20Asif%20Nijas%20Faizy%20%26%20Jouhara%20Fathima." target="_blank" rel="noopener">RSVP on WhatsApp</a>
     </section>
 
-
     <footer>
-
-      <div class="footer-arabic">
-        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
-      </div>
-
-      <p>
-        “And among His signs is that He created for you spouses from among yourselves, so that you may find tranquility in them.”
-      </p>
-
-      <small>
-        Qur'an 30:21
-      </small>
-
-      <div class="footer-names">
-        Asif Nijas Faizy &amp; Jouhara Fathima
-      </div>
-
+      <div class="footer-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا</div>
+      <p>“And among His signs is that He created for you spouses from among yourselves, so that you may find tranquility in them.”</p>
+      <small>Qur'an 30:21</small>
+      <div class="footer-names">Asif Nijas Faizy &amp; Jouhara Fathima</div>
     </footer>
-
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    const weddingDate = new Date('2026-09-21T11:00:00+05:30').getTime();
+    function tick(){
+      const now=Date.now(), d=Math.max(0,weddingDate-now), day=86400000, hour=3600000, min=60000;
+      document.getElementById('days').textContent=String(Math.floor(d/day)).padStart(2,'0');
+      document.getElementById('hours').textContent=String(Math.floor(d%day/hour)).padStart(2,'0');
+      document.getElementById('minutes').textContent=String(Math.floor(d%hour/min)).padStart(2,'0');
+      document.getElementById('seconds').textContent=String(Math.floor(d%min/1000)).padStart(2,'0');
+    }
+    tick(); setInterval(tick,1000);
 
-</body>
-</html>
+    window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),1800));
+
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    const music=document.getElementById('bgMusic');
+    const btn=document.getElementById('musicBtn');
+    btn.addEventListener('click',async()=>{
+      try{
+        if(musi
