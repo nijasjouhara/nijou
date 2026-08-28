@@ -1,2168 +1,2124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10251d">
-  <meta name="description" content="Wedding invitation of Asif Nijas Faizy and Jouhara Fathima, 21 September 2026.">
-  <title>Asif Nijas Faizy & Jouhara Fathima | Nikah</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-
-    :root {
-      --green: #10251d;
-      --dark-green: #07130e;
-      --green-light: #294838;
-      --ivory: #faf4e9;
-      --cream: #fffaf1;
-      --gold: #b8893e;
-      --gold-light: #d9b66f;
-      --brown: #4c3925;
-      --muted: #7d6a50;
-      --border: #d9c6a5;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10251d">
+<meta name="description" content="Wedding invitation of Asif Nijas Faizy and Jouhara Fathima, 21 September 2026.">
+<title>Asif Nijas Faizy & Jouhara Fathima | Nikah</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --green:#10251d;
+  --deep:#07130e;
+  --ivory:#faf4e8;
+  --cream:#fffaf1;
+  --gold:#b8893e;
+  --gold2:#d9b66f;
+  --brown:#4a3825;
+  --muted:#7d6b53;
+  --line:#d9c6a5;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--ivory);
+  color:var(--brown);
+  font-family:"Montserrat",sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+
+/* =========================================
+   OPENING
+========================================= */
+
+.opening{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #294838 0%,
+      #10251d 48%,
+      #06110c 100%
+    );
+
+  color:var(--gold2);
+
+  animation:openingOut 3.8s ease forwards;
+}
+
+.opening::before{
+  content:"";
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  border:1px solid #d9b66f55;
+  border-radius:50%;
+
+  animation:rotate 20s linear infinite;
+}
+
+.opening::after{
+  content:"";
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  border:1px solid #d9b66f33;
+  border-radius:50%;
+
+  animation:rotateReverse 26s linear infinite;
+}
+
+.opening-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:25px;
+}
+
+.opening-small{
+  font-size:9px;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:#d9c6a5;
+  margin-bottom:22px;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+.opening-arabic{
+  direction:rtl;
+  font-family:"Amiri",serif;
 
-    html {
-      scroll-behavior: smooth;
-    }
+  font-size:clamp(35px,8vw,68px);
 
-    body {
-      background: var(--ivory);
-      color: var(--brown);
-      font-family: "Montserrat", sans-serif;
-      overflow-x: hidden;
-    }
+  line-height:1.8;
+  color:#e6c27b;
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  text-shadow:
+    0 0 20px #d9b66f33,
+    0 3px 18px #0005;
 
+  white-space:nowrap;
+}
 
-    /* ==============================
-       OPENING SCREEN
-    ============================== */
+.opening-decoration{
+  margin-top:18px;
+  color:#d9b66f;
+  font-size:21px;
+  letter-spacing:10px;
+}
 
-    .opening {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
+@keyframes openingOut{
+  0%,70%{
+    opacity:1;
+    visibility:visible;
+  }
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  100%{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+}
 
-      background:
-        radial-gradient(
-          circle at center,
-          #294838 0%,
-          #10251d 48%,
-          #06110c 100%
-        );
+@keyframes rotate{
+  to{
+    transform:rotate(360deg);
+  }
+}
 
-      color: var(--gold-light);
+@keyframes rotateReverse{
+  to{
+    transform:rotate(-360deg);
+  }
+}
 
-      animation: openingFade 3.8s ease forwards;
-    }
 
-    .opening::before {
-      content: "";
-      position: absolute;
+/* =========================================
+   HERO
+========================================= */
 
-      width: 250px;
-      height: 250px;
+.hero{
+  position:relative;
+  min-height:100svh;
 
-      border: 1px solid #d9b66f55;
-      border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      animation: rotate 20s linear infinite;
-    }
+  overflow:hidden;
 
-    .opening::after {
-      content: "";
-      position: absolute;
+  background:
+    radial-gradient(
+      ellipse at center 35%,
+      #fffefb 0%,
+      #f8efdf 48%,
+      #e5d1ac 100%
+    );
 
-      width: 320px;
-      height: 320px;
+  isolation:isolate;
+}
 
-      border: 1px solid #d9b66f33;
-      border-radius: 50%;
 
-      animation: rotateReverse 25s linear infinite;
-    }
+/* subtle Islamic pattern */
 
-    .opening-content {
-      position: relative;
-      z-index: 2;
+.hero-pattern{
+  position:absolute;
+  inset:0;
 
-      text-align: center;
+  opacity:.055;
 
-      padding: 25px;
-    }
+  background-image:
+    linear-gradient(30deg,#9e7738 12%,transparent 12.5%,transparent 87%,#9e7738 87.5%),
+    linear-gradient(150deg,#9e7738 12%,transparent 12.5%,transparent 87%,#9e7738 87.5%);
 
-    .opening-small {
-      font-size: 9px;
-      letter-spacing: .38em;
-      text-transform: uppercase;
+  background-size:55px 95px;
 
-      color: #d9c6a5;
+  pointer-events:none;
+}
 
-      margin-bottom: 24px;
-    }
 
-    .opening-arabic {
-      direction: rtl;
+/* central glow */
 
-      font-family: "Amiri", serif;
+.hero::before{
+  content:"";
 
-      font-size: clamp(36px, 8vw, 68px);
+  position:absolute;
 
-      line-height: 1.8;
+  width:75vw;
+  height:75vw;
 
-      color: #e4c17b;
+  max-width:900px;
+  max-height:900px;
 
-      text-shadow:
-        0 0 20px #d9b66f33,
-        0 3px 18px #0005;
+  border-radius:50%;
 
-      white-space: nowrap;
-    }
+  background:
+    radial-gradient(
+      circle,
+      #fffdf8 0%,
+      #fffdf800 70%
+    );
 
-    .opening-ornament {
-      margin-top: 20px;
+  z-index:1;
+}
 
-      color: var(--gold-light);
 
-      font-size: 22px;
+/* =========================================
+   ARCHITECTURE
+========================================= */
 
-      letter-spacing: 10px;
-    }
+.arch{
+  position:absolute;
 
-    @keyframes openingFade {
-      0% {
-        opacity: 1;
-        visibility: visible;
-      }
+  top:5%;
+  height:82%;
+  width:55%;
 
-      70% {
-        opacity: 1;
-        visibility: visible;
-      }
+  border:
+    7px solid #bd95525c;
 
-      100% {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
-    }
+  border-bottom:0;
 
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
+  border-radius:
+    50% 50% 0 0;
 
-      to {
-        transform: rotate(360deg);
-      }
-    }
+  z-index:2;
 
-    @keyframes rotateReverse {
-      from {
-        transform: rotate(360deg);
-      }
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ffffff2c 50%,
+      transparent
+    );
 
-      to {
-        transform: rotate(0deg);
-      }
-    }
+  box-shadow:
+    inset 0 0 70px #ffffffaa,
+    0 0 35px #b8893e14;
+}
 
+.arch::before{
+  content:"";
 
-    /* ==============================
-       HERO
-    ============================== */
+  position:absolute;
 
-    .hero {
-      min-height: 100svh;
+  inset:13px;
 
-      position: relative;
+  border:
+    1px solid #b8893e38;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  border-bottom:0;
 
-      overflow: hidden;
+  border-radius:
+    50% 50% 0 0;
+}
 
-      text-align: center;
+.arch-left{
+  left:-30%;
+}
 
-      background:
-        radial-gradient(
-          circle at 50% 32%,
-          #fffefb 0%,
-          #f4ead9 48%,
-          #d8c29c 100%
-        );
+.arch-right{
+  right:-30%;
+}
 
-      border-bottom: 1px solid #c6a66d;
 
-      isolation: isolate;
-    }
+/* side arches */
 
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
+.side-arch{
+  position:absolute;
 
-      opacity: .12;
+  top:18%;
+  width:18%;
+  height:62%;
 
-      background-image:
-        linear-gradient(
-          30deg,
-          var(--gold) 12%,
-          transparent 12.5%,
-          transparent 87%,
-          var(--gold) 87.5%
-        ),
-        linear-gradient(
-          150deg,
-          var(--gold) 12%,
-          transparent 12.5%,
-          transparent 87%,
-          var(--gold) 87.5%
-        );
+  border:
+    3px solid #b8893e25;
 
-      background-size: 36px 62px;
+  border-bottom:0;
 
-      pointer-events: none;
-    }
+  border-radius:
+    50% 50% 0 0;
 
-    .hero-stars {
-      position: absolute;
-      inset: 0;
+  z-index:2;
+}
 
-      opacity: .3;
+.side-left{
+  left:-7%;
+}
 
-      background-image:
-        radial-gradient(
-          #ffffff 1px,
-          transparent 1px
-        ),
-        radial-gradient(
-          #a87935 1px,
-          transparent 1px
-        );
+.side-right{
+  right:-7%;
+}
 
-      background-size:
-        80px 80px,
-        55px 55px;
 
-      background-position:
-        10px 20px,
-        25px 30px;
-    }
+/* =========================================
+   LANTERNS
+========================================= */
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
+.lantern{
+  position:absolute;
 
-      width: min(900px, 100%);
+  top:7%;
 
-      padding:
-        70px 22px
-        120px;
-    }
+  width:70px;
+  height:95px;
 
-    .hero-arabic {
-      direction: rtl;
+  z-index:7;
 
-      font-family: "Amiri", serif;
+  opacity:.9;
 
-      font-size: clamp(30px, 5vw, 54px);
+  animation:sway 5s ease-in-out infinite;
+}
 
-      color: #a87324;
+.lantern::before{
+  content:"";
 
-      line-height: 1.5;
+  position:absolute;
 
-      margin-bottom: 18px;
-    }
+  left:50%;
+  top:-30px;
 
-    .eyebrow {
-      font-size: 10px;
+  width:1px;
+  height:32px;
 
-      font-weight: 600;
+  background:#a77934;
+}
 
-      letter-spacing: .28em;
+.lantern-body{
+  position:absolute;
 
-      color: var(--muted);
+  left:12px;
+  top:10px;
 
-      margin-bottom: 13px;
-    }
+  width:46px;
+  height:65px;
 
-    .hero h1 {
-      font-family: "Cormorant Garamond", serif;
+  border:
+    2px solid #b8893e;
 
-      font-weight: 500;
+  border-radius:
+    45% 45% 38% 38%;
 
-      font-size: clamp(47px, 7vw, 88px);
+  background:
+    radial-gradient(
+      circle,
+      #f2d78f 0%,
+      #c2923f 35%,
+      #795522 75%
+    );
 
-      line-height: .88;
+  box-shadow:
+    0 0 25px #d8b36b66;
+}
 
-      letter-spacing: -.025em;
+.lantern-body::before,
+.lantern-body::after{
+  content:"";
 
-      margin: 15px 0 20px;
-    }
+  position:absolute;
 
-    .hero h1 span {
-      display: block;
-    }
+  left:50%;
 
-    .hero h1 .amp {
-      font-family: "Great Vibes", cursive;
+  transform:translateX(-50%);
 
-      color: var(--gold);
+  width:55px;
+  height:8px;
 
-      font-size: .72em;
+  border:
+    1px solid #b8893e;
 
-      line-height: 1.1;
+  border-radius:50%;
+}
 
-      margin: 10px 0;
-    }
+.lantern-body::before{
+  top:-5px;
+}
 
-    .hero-subtitle {
-      font-family: "Cormorant Garamond", serif;
+.lantern-body::after{
+  bottom:-5px;
+}
 
-      font-size: 23px;
+.lantern-left{
+  left:4%;
+}
 
-      color: #66533b;
-    }
+.lantern-right{
+  right:4%;
+  animation-delay:1.4s;
+}
 
-    .ornament {
-      color: var(--gold);
+@keyframes sway{
+  0%,100%{
+    transform:rotate(-3deg);
+  }
 
-      font-size: 28px;
+  50%{
+    transform:rotate(3deg);
+  }
+}
 
-      margin: 16px 0;
-    }
 
-    .hero-date {
-      font-family: "Cormorant Garamond", serif;
+/* =========================================
+   HERO CONTENT
+========================================= */
 
-      font-size: 23px;
+.hero-content{
+  position:relative;
+  z-index:10;
 
-      letter-spacing: .15em;
-    }
+  width:min(900px,100%);
 
-    .hero-date span {
-      font-size: 14px;
+  text-align:center;
 
-      letter-spacing: .04em;
+  padding:
+    70px 22px
+    120px;
+}
 
-      margin-left: 8px;
-    }
+.hero-bismillah{
+  direction:rtl;
 
-    .scroll-button {
-      display: inline-flex;
+  font-family:"Amiri",serif;
 
-      align-items: center;
-      justify-content: center;
+  font-size:clamp(29px,5vw,53px);
 
-      width: 46px;
-      height: 46px;
+  color:#a87528;
 
-      margin-top: 25px;
+  line-height:1.6;
 
-      border: 1px solid var(--gold);
+  margin-bottom:23px;
 
-      border-radius: 50%;
+  text-shadow:
+    0 2px 10px #fff;
+}
 
-      background: #fff7;
+.divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      color: var(--gold);
+  gap:13px;
 
-      font-size: 24px;
+  margin:10px auto 25px;
 
-      animation: float 2s ease-in-out infinite;
-    }
+  color:var(--gold);
+}
 
-    @keyframes float {
-      50% {
-        transform: translateY(6px);
-      }
-    }
+.divider span{
+  display:block;
 
+  width:55px;
+  height:1px;
 
-    /* ==============================
-       ARCHES
-    ============================== */
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold)
+    );
+}
 
-    .arch {
-      position: absolute;
+.divider span:last-child{
+  transform:rotate(180deg);
+}
 
-      top: 11%;
+.divider i{
+  font-style:normal;
+  font-size:13px;
+}
 
-      width: 29%;
-      height: 73%;
 
-      border:
-        9px solid #c29a5d88;
+.eyebrow{
+  font-size:10px;
 
-      border-bottom: 0;
+  font-weight:600;
 
-      border-radius:
-        50% 50% 0 0;
+  letter-spacing:.3em;
 
-      z-index: 2;
+  color:var(--muted);
 
-      background:
-        linear-gradient(
-          90deg,
-          #ffffff55,
-          #c8a96e12,
-          #ffffff55
-        );
+  margin-bottom:14px;
+}
 
-      box-shadow:
-        inset 0 0 60px #fff9,
-        0 0 35px #b7893e1c;
-    }
 
-    .arch::after {
-      content: "";
+.hero h1{
+  font-family:"Cormorant Garamond",serif;
 
-      position: absolute;
+  font-size:
+    clamp(47px,7.5vw,88px);
 
-      inset: 15px;
+  line-height:.86;
 
-      border:
-        1px solid #b8893e44;
+  font-weight:500;
 
-      border-bottom: 0;
+  letter-spacing:-.025em;
 
-      border-radius:
-        50% 50% 0 0;
-    }
+  color:#463321;
 
-    .arch-left {
-      left: -5%;
-    }
+  margin:10px 0 22px;
+}
 
-    .arch-right {
-      right: -5%;
-    }
+.hero h1 .name{
+  display:block;
+}
 
+.hero h1 .amp{
+  display:block;
 
-    /* ==============================
-       LANTERNS
-    ============================== */
+  font-family:"Great Vibes",cursive;
 
-    .lantern {
-      position: absolute;
+  font-size:.72em;
 
-      top: 8%;
+  color:var(--gold);
 
-      z-index: 12;
+  line-height:1.25;
 
-      color: #a37532;
+  margin:10px 0;
+}
 
-      font-size: 42px;
 
-      animation: swing 4s ease-in-out infinite;
-    }
+.hero-invite{
+  font-family:"Cormorant Garamond",serif;
 
-    .lantern-left {
-      left: 5%;
-    }
+  font-size:23px;
 
-    .lantern-right {
-      right: 5%;
+  color:#6a553b;
 
-      animation-delay: 1.2s;
-    }
+  margin-bottom:5px;
+}
 
-    @keyframes swing {
-      0%, 100% {
-        transform: rotate(-4deg);
-      }
+.hero-invite strong{
+  font-family:"Great Vibes",cursive;
 
-      50% {
-        transform: rotate(4deg);
-      }
-    }
+  font-size:1.45em;
 
+  font-weight:400;
 
-    /* ==============================
-       COUPLE
-    ============================== */
+  color:#b08032;
+}
 
-    .couple {
-      position: absolute;
 
-      bottom: -20px;
+.hero-date{
+  margin-top:23px;
 
-      width: 220px;
-      height: 360px;
+  font-family:"Cormorant Garamond",serif;
 
-      z-index: 8;
+  font-size:24px;
 
-      opacity: .98;
+  letter-spacing:.18em;
 
-      filter:
-        drop-shadow(
-          0 15px 18px #513d2418
-        );
-    }
+  color:#4e3b27;
+}
 
-    .groom {
-      left: 3%;
-    }
+.hero-date small{
+  font-family:"Montserrat",sans-serif;
 
-    .bride {
-      right: 3%;
-    }
+  font-size:10px;
 
-    .head {
-      position: absolute;
+  letter-spacing:.22em;
 
-      left: 69px;
-      top: 22px;
+  color:#8b6e42;
 
-      width: 82px;
-      height: 92px;
+  margin-left:9px;
+}
 
-      border-radius:
-        48% 48% 43% 43%;
 
-      background:
-        linear-gradient(
-          125deg,
-          #cc9068,
-          #8d583f
-        );
+/* =========================================
+   COUPLE ILLUSTRATIONS
+========================================= */
 
-      box-shadow:
-        inset 13px -2px 20px #6d422f;
-    }
+.couple{
+  position:absolute;
 
-    .groom .head::before {
-      content: "";
+  bottom:-20px;
 
-      position: absolute;
+  width:250px;
+  height:390px;
 
-      left: -4px;
-      top: -16px;
+  z-index:6;
 
-      width: 90px;
-      height: 37px;
+  pointer-events:none;
+}
 
-      border-radius:
-        50% 50% 20% 20%;
+.groom{
+  left:1%;
+}
 
-      background: #f4ead9;
+.bride{
+  right:1%;
+}
 
-      border-bottom:
-        5px solid #cbbb9f;
-    }
 
-    .groom .head::after {
-      content: "";
+/* groom */
 
-      position: absolute;
+.groom-head{
+  position:absolute;
 
-      left: 11px;
-      top: 47px;
+  left:82px;
+  top:30px;
 
-      width: 15px;
-      height: 7px;
+  width:75px;
+  height:87px;
 
-      border-radius: 50%;
+  border-radius:
+    48% 48% 45% 45%;
 
-      background: #4a2d20;
+  background:
+    linear-gradient(
+      135deg,
+      #d39a72,
+      #87533b
+    );
+}
 
-      box-shadow:
-        43px 0 #4a2d20;
-    }
+.groom-cap{
+  position:absolute;
 
-    .body-shape {
-      position: absolute;
+  left:-6px;
+  top:-16px;
 
-      left: 29px;
-      top: 105px;
+  width:88px;
+  height:34px;
 
-      width: 165px;
-      height: 275px;
+  border-radius:
+    50% 50% 25% 25%;
 
-      border-radius:
-        78px 78px 0 0;
+  background:
+    linear-gradient(
+      135deg,
+      #f8f0df,
+      #d2c0a0
+    );
 
-      background:
-        linear-gradient(
-          90deg,
-          #d4c6b2,
-          #fffaf0 50%,
-          #cdbb9e
-        );
+  border-bottom:
+    4px solid #bca17a;
+}
 
-      box-shadow:
-        inset -15px 0 25px #8e795a22;
-    }
+.groom-body{
+  position:absolute;
 
-    .body-shape::before {
-      content: "";
+  left:45px;
+  top:116px;
 
-      position: absolute;
+  width:165px;
+  height:290px;
 
-      left: 50%;
+  border-radius:
+    80px 80px 0 0;
 
-      top: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #cfc0aa,
+      #fffaf0 50%,
+      #c6b69e
+    );
 
-      width: 3px;
-      height: 270px;
+  box-shadow:
+    inset -15px 0 30px #806c5020;
+}
 
-      transform:
-        translateX(-50%);
+.groom-body::before{
+  content:"";
 
-      background: #bca68144;
-    }
+  position:absolute;
 
-    .bride .head {
-      background:
-        linear-gradient(
-          125deg,
-          #a8785c,
-          #79503e
-        );
-    }
+  left:50%;
 
-    .bride .head::before {
-      content: "";
+  top:0;
 
-      position: absolute;
+  width:2px;
+  height:275px;
 
-      inset:
-        -14px -14px -10px;
+  transform:translateX(-50%);
 
-      border-radius: 50%;
+  background:#b29a7144;
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          #918278,
-          #4e4039
-        );
 
-      z-index: -1;
-    }
+/* bride */
 
-    .bride .head::after {
-      content: "";
+.bride-head{
+  position:absolute;
 
-      position: absolute;
+  left:87px;
+  top:31px;
 
-      left: 8px;
-      top: -8px;
+  width:73px;
+  height:87px;
 
-      width: 70px;
-      height: 124px;
+  border-radius:
+    48% 48% 45% 45%;
 
-      border-radius: 50%;
+  background:
+    linear-gradient(
+      135deg,
+      #b78363,
+      #76503e
+    );
+}
 
-      background:
-        linear-gradient(
-          90deg,
-          #c6b8a9,
-          #8d8076
-        );
-    }
+.bride-hijab{
+  position:absolute;
 
-    .bride .body-shape {
-      left: 20px;
+  left:-17px;
+  top:-19px;
 
-      width: 180px;
+  width:107px;
+  height:137px;
 
-      background:
-        linear-gradient(
-          90deg,
-          #8f8175,
-          #eee5d8 50%,
-          #97897b
-        );
-    }
+  border-radius:
+    50% 50% 45% 45%;
 
-    .bride .body-shape::after {
-      content: "";
+  background:
+    linear-gradient(
+      135deg,
+      #d5c8b7,
+      #81756a
+    );
 
-      position: absolute;
+  z-index:-1;
 
-      left: 35px;
-      right: 35px;
+  box-shadow:
+    inset -10px 0 18px #5b504933;
+}
 
-      top: 30px;
+.bride-body{
+  position:absolute;
 
-      height: 2px;
+  left:30px;
+  top:115px;
 
-      background: #d8b36b77;
+  width:185px;
+  height:292px;
 
-      box-shadow:
-        0 23px #d8b36b44,
-        0 46px #d8b36b33;
-    }
+  border-radius:
+    85px 85px 0 0;
 
+  background:
+    linear-gradient(
+      90deg,
+      #8c7e72,
+      #eee6d9 50%,
+      #958679
+    );
 
-    /* ==============================
-       FLORAL DECORATION
-    ============================== */
+  box-shadow:
+    inset 15px 0 30px #5b4b4022;
+}
 
-    .floral {
-      position: absolute;
+.bride-body::after{
+  content:"";
 
-      bottom: 6%;
+  position:absolute;
 
-      z-index: 15;
+  top:30px;
 
-      color: var(--gold);
+  left:38px;
+  right:38px;
 
-      font-size: 48px;
+  height:2px;
 
-      line-height: .65;
-    }
+  background:#d8b36b88;
 
-    .floral-left {
-      left: 15%;
-    }
+  box-shadow:
+    0 24px #d8b36b55,
+    0 48px #d8b36b44;
+}
 
-    .floral-right {
-      right: 15%;
-    }
 
+/* =========================================
+   SCROLL
+========================================= */
 
-    /* ==============================
-       SECTIONS
-    ============================== */
+.scroll{
+  display:flex;
 
-    .section {
-      padding:
-        100px 7vw;
+  align-items:center;
+  justify-content:center;
 
-      text-align: center;
-    }
+  width:47px;
+  height:47px;
 
-    .section h2,
-    .rsvp h2 {
-      font-family:
-        "Cormorant Garamond",
-        serif;
+  margin:
+    24px auto 0;
 
-      font-size:
-        clamp(40px, 5vw, 63px);
+  border:
+    1px solid var(--gold);
 
-      font-weight: 500;
+  border-radius:50%;
 
-      line-height: 1;
+  color:var(--gold);
 
-      margin-bottom: 42px;
-    }
+  font-size:23px;
 
+  background:#fff7;
 
-    /* ==============================
-       COUNTDOWN
-    ============================== */
+  animation:bounce 2s ease-in-out infinite;
+}
 
-    .countdown-section {
-      background: var(--cream);
-    }
+@keyframes bounce{
+  50%{
+    transform:translateY(6px);
+  }
+}
 
-    .countdown {
-      max-width: 900px;
 
-      margin: auto;
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
 
-      display: grid;
+.section{
+  padding:
+    100px 7vw;
 
-      grid-template-columns:
-        repeat(4, 1fr);
+  text-align:center;
+}
 
-      border:
-        1px solid var(--border);
+.section h2{
+  font-family:"Cormorant Garamond",serif;
 
-      border-radius: 24px;
+  font-size:
+    clamp(40px,5vw,63px);
 
-      overflow: hidden;
+  line-height:.95;
 
-      background: #fffdf9;
+  font-weight:500;
 
-      box-shadow:
-        0 20px 55px #70553312;
-    }
+  margin:
+    8px 0 42px;
+}
 
-    .countdown-box {
-      padding: 32px 10px;
 
-      border-right:
-        1px solid #dfcfb5;
-    }
+/* =========================================
+   COUNTDOWN
+========================================= */
 
-    .countdown-box:last-child {
-      border-right: 0;
-    }
+.countdown-section{
+  background:var(--cream);
+}
 
-    .countdown-box strong {
-      display: block;
+.countdown{
+  max-width:900px;
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
+  margin:auto;
 
-      font-size: 58px;
+  display:grid;
 
-      font-weight: 500;
+  grid-template-columns:
+    repeat(4,1fr);
 
-      color: var(--brown);
-    }
+  border:
+    1px solid var(--line);
 
-    .countdown-box span {
-      font-size: 10px;
+  border-radius:24px;
 
-      letter-spacing: .2em;
+  overflow:hidden;
 
-      text-transform: uppercase;
+  background:#fffdf9;
 
-      color: var(--muted);
-    }
+  box-shadow:
+    0 25px 60px #70553312;
+}
 
+.count-box{
+  padding:32px 10px;
 
-    /* ==============================
-       EVENTS
-    ============================== */
+  border-right:
+    1px solid #dfcfb5;
+}
 
-    .events {
-      background:
-        linear-gradient(
-          180deg,
-          #f3eadc,
-          #e8dcc9
-        );
-    }
+.count-box:last-child{
+  border-right:0;
+}
 
-    .event-grid {
-      max-width: 1080px;
+.count-box strong{
+  display:block;
 
-      margin: auto;
+  font-family:"Cormorant Garamond",serif;
 
-      display: grid;
+  font-size:59px;
 
-      grid-template-columns:
-        repeat(2, 1fr);
+  font-weight:500;
+}
 
-      gap: 28px;
-    }
+.count-box span{
+  font-size:9px;
 
-    .card {
-      position: relative;
+  letter-spacing:.2em;
 
-      overflow: hidden;
+  text-transform:uppercase;
 
-      padding: 46px 32px;
+  color:var(--muted);
+}
 
-      border:
-        1px solid #cdbb9c;
 
-      border-radius: 25px;
+/* =========================================
+   EVENTS
+========================================= */
 
-      background:
-        #fffaf1dd;
+.events{
+  background:
+    linear-gradient(
+      180deg,
+      #f3eadc,
+      #e7d9c4
+    );
+}
 
-      box-shadow:
-        0 24px 60px #6c543018;
-    }
+.event-grid{
+  max-width:1080px;
 
-    .card::before {
-      content: "";
+  margin:auto;
 
-      position: absolute;
+  display:grid;
 
-      inset: 10px;
+  grid-template-columns:
+    repeat(2,1fr);
 
-      border:
-        1px solid #b8893e2b;
+  gap:28px;
+}
 
-      border-radius: 18px;
+.event-card{
+  position:relative;
 
-      pointer-events: none;
-    }
+  padding:
+    48px 32px;
 
-    .card-icon {
-      font-size: 38px;
+  overflow:hidden;
 
-      color: var(--gold);
+  border:
+    1px solid #cdbb9d;
 
-      margin-bottom: 5px;
-    }
+  border-radius:26px;
 
-    .card h3 {
-      font-family:
-        "Cormorant Garamond",
-        serif;
+  background:#fffaf2e8;
 
-      font-size: 32px;
+  box-shadow:
+    0 24px 60px #6c543018;
+}
 
-      font-weight: 600;
+.event-card::before{
+  content:"";
 
-      margin:
-        8px 0 22px;
-    }
+  position:absolute;
 
-    .event-info {
-      font-family:
-        "Cormorant Garamond",
-        serif;
+  inset:10px;
 
-      font-size: 20px;
+  border:
+    1px solid #b8893e2d;
 
-      margin: 9px;
-    }
+  border-radius:19px;
 
-    .event-info span {
-      color: var(--gold);
-    }
+  pointer-events:none;
+}
 
-    .button {
-      display: inline-flex;
+.event-symbol{
+  font-size:38px;
 
-      align-items: center;
-      justify-content: center;
+  color:var(--gold);
 
-      margin-top: 18px;
+  margin-bottom:4px;
+}
 
-      padding:
-        13px 23px;
+.event-card h3{
+  font-family:"Cormorant Garamond",serif;
 
-      border-radius: 999px;
+  font-size:33px;
 
-      background: var(--green);
+  font-weight:600;
 
-      color: white;
+  margin:
+    9px 0 23px;
+}
 
-      font-size: 10px;
+.event-info{
+  font-family:"Cormorant Garamond",serif;
 
-      font-weight: 500;
+  font-size:20px;
 
-      letter-spacing: .1em;
+  margin:9px;
+}
 
-      text-transform: uppercase;
+.event-info b{
+  color:var(--gold);
 
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-    }
+  margin-right:5px;
+}
 
-    .button:hover {
-      transform: translateY(-2px);
+.button{
+  display:inline-flex;
 
-      box-shadow:
-        0 10px 25px #10251d33;
-    }
+  align-items:center;
+  justify-content:center;
 
+  padding:
+    13px 23px;
 
-    /* ==============================
-       MOMENTS
-    ============================== */
+  margin-top:18px;
 
-    .moments {
-      background: var(--cream);
-    }
+  border-radius:999px;
 
-    .gallery {
-      max-width: 1050px;
+  background:var(--green);
 
-      margin: auto;
+  color:white;
 
-      display: grid;
+  font-size:10px;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+  letter-spacing:.1em;
 
-      gap: 16px;
-    }
+  text-transform:uppercase;
 
-    .gallery-item {
-      height: 220px;
+  transition:.3s ease;
+}
 
-      display: grid;
+.button:hover{
+  transform:translateY(-2px);
 
-      place-items: center;
+  box-shadow:
+    0 10px 25px #10251d33;
+}
 
-      border:
-        1px solid #b8893e55;
 
-      border-radius: 20px;
+/* =========================================
+   DETAILS
+========================================= */
 
-      color: #f3d99e;
+.details{
+  background:var(--cream);
+}
 
-      font-size: 56px;
+.detail-box{
+  max-width:780px;
 
-      background:
-        radial-gradient(
-          circle at center,
-          #735c3a,
-          #211c16 72%
-        );
+  margin:auto;
 
-      box-shadow:
-        inset 0 0 50px #0005;
+  padding:
+    45px 30px;
 
-      transition:
-        transform .4s ease;
-    }
+  border:
+    1px solid var(--line);
 
-    .gallery-item:hover {
-      transform:
-        translateY(-5px);
-    }
+  border-radius:25px;
 
-    .gallery-item:nth-child(2) {
-      background:
-        radial-gradient(
-          circle at center,
-          #31503d,
-          #0b1711 72%
-        );
-    }
+  background:#fffdf8;
 
-    .gallery-item:nth-child(3) {
-      background:
-        radial-gradient(
-          circle at center,
-          #8e7250,
-          #241c14 72%
-        );
-    }
+  box-shadow:
+    0 20px 50px #70553312;
+}
 
-    .gallery-item:nth-child(4) {
-      background:
-        radial-gradient(
-          circle at center,
-          #536653,
-          #101812 72%
-        );
-    }
+.detail-arabic{
+  direction:rtl;
 
-    .gallery-item:nth-child(5) {
-      background:
-        radial-gradient(
-          circle at center,
-          #b08b56,
-          #2a2117 72%
-        );
-    }
+  font-family:"Amiri",serif;
 
-    .gallery-item:nth-child(6) {
-      background:
-        radial-gradient(
-          circle at center,
-          #6f5b42,
-          #1b1712 72%
-        );
-    }
+  font-size:34px;
 
-    .gallery-note {
-      max-width: 680px;
+  color:var(--gold);
 
-      margin:
-        30px auto 0;
+  line-height:1.8;
+}
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
+.detail-text{
+  max-width:600px;
 
-      font-size: 21px;
+  margin:20px auto 0;
 
-      line-height: 1.6;
-    }
+  font-family:"Cormorant Garamond",serif;
 
+  font-size:21px;
 
-    /* ==============================
-       LOCATION
-    ============================== */
+  line-height:1.6;
 
-    .location {
-      background: #f8f0e3;
-    }
+  color:#67543b;
+}
 
-    .location-card {
-      max-width: 900px;
 
-      margin: 16px auto;
+/* =========================================
+   LOCATION
+========================================= */
 
-      padding:
-        30px 34px;
+.location{
+  background:#f8f0e3;
+}
 
-      display: flex;
+.location-card{
+  max-width:900px;
 
-      align-items: center;
+  margin:16px auto;
 
-      justify-content: space-between;
+  padding:
+    30px 34px;
 
-      gap: 25px;
+  display:flex;
 
-      text-align: left;
+  align-items:center;
 
-      border:
-        1px solid #d2c1a5;
+  justify-content:space-between;
 
-      border-radius: 20px;
+  gap:25px;
 
-      background: #fffaf2;
+  text-align:left;
 
-      box-shadow:
-        0 14px 35px #6c543010;
-    }
+  border:
+    1px solid #d2c1a5;
 
-    .location-icon {
-      font-size: 25px;
+  border-radius:21px;
 
-      color: var(--gold);
-    }
+  background:#fffaf2;
 
-    .location-card h3 {
-      font-family:
-        "Cormorant Garamond",
-        serif;
+  box-shadow:
+    0 15px 35px #6c543010;
+}
 
-      font-size: 32px;
+.location-card h3{
+  font-family:"Cormorant Garamond",serif;
 
-      font-weight: 600;
+  font-size:31px;
 
-      margin: 5px 0 5px;
-    }
+  font-weight:600;
 
-    .location-card p {
-      font-size: 13px;
+  margin:
+    4px 0 5px;
+}
 
-      color: var(--muted);
-    }
+.location-card p{
+  font-size:13px;
 
-    .location-card .button {
-      margin-top: 0;
+  color:var(--muted);
+}
 
-      white-space: nowrap;
-    }
+.pin{
+  font-size:24px;
 
+  color:var(--gold);
+}
 
-    /* ==============================
-       RSVP
-    ============================== */
+.location-card .button{
+  margin:0;
 
-    .rsvp {
-      padding:
-        125px 7vw;
+  white-space:nowrap;
+}
 
-      text-align: center;
 
-      color: white;
+/* =========================================
+   RSVP
+========================================= */
 
-      background:
-        radial-gradient(
-          circle at 50% 0,
-          #31503d,
-          #10241c 55%,
-          #07140f
-        );
+.rsvp{
+  position:relative;
 
-      position: relative;
+  padding:
+    125px 7vw;
 
-      overflow: hidden;
-    }
+  text-align:center;
 
-    .rsvp::before {
-      content:
-        "✦  ·  ✧  ·  ✦";
+  color:white;
 
-      position: absolute;
+  overflow:hidden;
 
-      top: 35px;
-      left: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      #31503d,
+      #10241c 55%,
+      #07140f
+    );
+}
 
-      transform:
-        translateX(-50%);
+.rsvp::before{
+  content:"✦   ·   ✧   ·   ✦";
 
-      color: #d8b36b55;
+  position:absolute;
 
-      letter-spacing: 14px;
-    }
+  top:38px;
+  left:50%;
 
-    .rsvp .eyebrow {
-      color: #d7bd8d;
-    }
+  transform:translateX(-50%);
 
-    .rsvp h2 {
-      max-width: 750px;
+  color:#d8b36b55;
 
-      margin:
-        12px auto 18px;
-    }
+  letter-spacing:10px;
+}
 
-    .rsvp-description {
-      max-width: 560px;
+.rsvp .eyebrow{
+  color:#d8c18f;
+}
 
-      margin:
-        0 auto 20px;
+.moon{
+  font-size:61px;
 
-      color: #ddd3c2;
+  color:var(--gold2);
 
-      line-height: 1.8;
-    }
+  margin-bottom:8px;
+}
 
-    .moon {
-      font-size: 62px;
+.rsvp h2{
+  max-width:760px;
 
-      color: var(--gold-light);
+  margin:
+    12px auto 20px;
+}
 
-      margin-bottom: 10px;
-    }
+.rsvp-text{
+  max-width:560px;
 
-    .gold-button {
-      background: var(--gold);
+  margin:auto;
 
-      color: white;
-    }
+  color:#ded5c7;
 
+  line-height:1.8;
+}
 
-    /* ==============================
-       FOOTER
-    ============================== */
+.gold-button{
+  background:var(--gold);
+}
 
-    footer {
-      padding:
-        80px 20px;
 
-      text-align: center;
+/* =========================================
+   FOOTER
+========================================= */
 
-      background: #08150f;
+footer{
+  padding:
+    80px 20px;
 
-      color: #eadfcf;
-    }
+  text-align:center;
 
-    .footer-arabic {
-      direction: rtl;
+  background:#08150f;
 
-      font-family:
-        "Amiri",
-        serif;
+  color:#eadfcf;
+}
 
-      font-size: 29px;
+.footer-arabic{
+  direction:rtl;
 
-      line-height: 1.8;
+  font-family:"Amiri",serif;
 
-      color: var(--gold-light);
+  font-size:29px;
 
-      max-width: 900px;
+  line-height:1.8;
 
-      margin: auto;
-    }
+  color:var(--gold2);
 
-    footer p {
-      max-width: 700px;
+  max-width:900px;
 
-      margin:
-        20px auto;
+  margin:auto;
+}
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
+footer p{
+  max-width:700px;
 
-      font-size: 20px;
+  margin:
+    20px auto;
 
-      line-height: 1.8;
-    }
+  font-family:"Cormorant Garamond",serif;
 
-    footer small {
-      color: #a99c89;
+  font-size:20px;
 
-      letter-spacing: .12em;
-    }
+  line-height:1.8;
+}
 
-    .footer-names {
-      margin-top: 28px;
+footer small{
+  color:#a99c89;
 
-      font-family:
-        "Great Vibes",
-        cursive;
+  letter-spacing:.12em;
+}
 
-      font-size: 31px;
+.footer-names{
+  margin-top:28px;
 
-      color: var(--gold-light);
-    }
+  font-family:"Great Vibes",cursive;
 
+  font-size:32px;
 
-    /* ==============================
-       MOBILE
-    ============================== */
+  color:var(--gold2);
+}
 
-    @media (max-width: 700px) {
 
-      .opening-arabic {
-        font-size: 31px;
+/* =========================================
+   MOBILE
+========================================= */
 
-        white-space: normal;
-      }
+@media(max-width:700px){
 
-      .opening::before {
-        width: 190px;
-        height: 190px;
-      }
+  .opening-arabic{
+    font-size:31px;
 
-      .opening::after {
-        width: 245px;
-        height: 245px;
-      }
+    white-space:normal;
+  }
 
-      .hero {
-        min-height: 780px;
-      }
+  .opening::before{
+    width:185px;
+    height:185px;
+  }
 
-      .hero-content {
-        padding:
-          70px 15px 105px;
-      }
+  .opening::after{
+    width:245px;
+    height:245px;
+  }
 
-      .hero-arabic {
-        font-size: 27px;
-      }
+  .hero{
+    min-height:790px;
+  }
 
-      .hero h1 {
-        font-size: 45px;
-      }
+  .hero-content{
+    padding:
+      75px 14px
+      120px;
+  }
 
-      .hero-subtitle {
-        font-size: 18px;
-      }
+  .hero-bismillah{
+    font-size:27px;
 
-      .hero-date {
-        font-size: 20px;
-      }
+    margin-bottom:18px;
+  }
 
-      .arch {
-        width: 47%;
+  .hero h1{
+    font-size:44px;
+  }
 
-        height: 61%;
+  .hero-invite{
+    font-size:19px;
+  }
 
-        top: 18%;
+  .hero-date{
+    font-size:20px;
+  }
 
-        border-width: 7px;
-      }
+  .hero-date small{
+    font-size:8px;
+  }
 
-      .couple {
-        transform:
-          scale(.68);
+  .arch{
+    width:75%;
 
-        transform-origin:
-          bottom center;
-      }
+    height:67%;
 
-      .groom {
-        left: -22%;
-      }
+    top:17%;
 
-      .bride {
-        right: -22%;
-      }
+    border-width:6px;
+  }
 
-      .floral-left {
-        left: 13%;
-      }
+  .arch-left{
+    left:-48%;
+  }
 
-      .floral-right {
-        right: 13%;
-      }
+  .arch-right{
+    right:-48%;
+  }
 
-      .countdown {
-        border-radius: 18px;
-      }
+  .side-arch{
+    display:none;
+  }
 
-      .countdown-box {
-        padding:
-          25px 5px;
-      }
+  .lantern{
+    transform:scale(.7);
+  }
 
-      .countdown-box strong {
-        font-size: 38px;
-      }
+  .lantern-left{
+    left:-1%;
+  }
 
-      .countdown-box span {
-        font-size: 8px;
+  .lantern-right{
+    right:-1%;
+  }
 
-        letter-spacing: .1em;
-      }
+  .couple{
+    transform:scale(.61);
 
-      .section {
-        padding:
-          78px 18px;
-      }
+    transform-origin:
+      bottom center;
+  }
 
-      .section h2 {
-        margin-bottom: 32px;
-      }
+  .groom{
+    left:-24%;
+  }
 
-      .event-grid {
-        grid-template-columns: 1fr;
-      }
+  .bride{
+    right:-24%;
+  }
 
-      .gallery {
-        grid-template-columns:
-          1fr 1fr;
-      }
+  .countdown{
+    border-radius:18px;
+  }
 
-      .gallery-item {
-        height: 165px;
+  .count-box{
+    padding:
+      25px 4px;
+  }
 
-        font-size: 43px;
-      }
+  .count-box strong{
+    font-size:39px;
+  }
 
-      .location-card {
-        display: block;
+  .count-box span{
+    font-size:7px;
+    letter-spacing:.08em;
+  }
 
-        text-align: center;
+  .section{
+    padding:
+      78px 18px;
+  }
 
-        padding:
-          28px 18px;
-      }
+  .event-grid{
+    grid-template-columns:1fr;
+  }
 
-      .location-card .button {
-        margin-top: 18px;
-      }
+  .event-card{
+    padding:
+      42px 22px;
+  }
 
-      .location-card h3 {
-        font-size: 28px;
-      }
+  .event-card h3{
+    font-size:29px;
+  }
 
-      .rsvp {
-        padding:
-          105px 20px;
-      }
+  .location-card{
+    display:block;
 
-      .footer-arabic {
-        font-size: 23px;
-      }
+    text-align:center;
 
-      .footer-names {
-        font-size: 27px;
-      }
-    }
+    padding:
+      28px 18px;
+  }
 
-  </style>
+  .location-card h3{
+    font-size:28px;
+  }
+
+  .location-card .button{
+    margin-top:18px;
+  }
+
+  .detail-arabic{
+    font-size:27px;
+  }
+
+  .detail-text{
+    font-size:19px;
+  }
+
+  .rsvp{
+    padding:
+      105px 20px;
+  }
+
+  .footer-arabic{
+    font-size:23px;
+  }
+
+  .footer-names{
+    font-size:28px;
+  }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ==============================
-       OPENING SCREEN
-  ============================== -->
+<!-- =========================================
+     OPENING
+========================================= -->
 
-  <div class="opening" id="opening">
+<div class="opening" id="opening">
 
-    <div class="opening-content">
+  <div class="opening-content">
 
-      <div class="opening-small">
-        In the name of Allah
-      </div>
+    <div class="opening-small">
+      In the name of Allah
+    </div>
 
-      <div class="opening-arabic">
-        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-      </div>
+    <div class="opening-arabic">
+      بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+    </div>
 
-      <div class="opening-ornament">
-        ✦ &nbsp; ❦ &nbsp; ✦
-      </div>
-
+    <div class="opening-decoration">
+      ✦ &nbsp; ❦ &nbsp; ✦
     </div>
 
   </div>
 
+</div>
 
-  <!-- ==============================
-       MAIN
-  ============================== -->
 
-  <main>
+<!-- =========================================
+     MAIN
+========================================= -->
 
+<main>
 
-    <!-- ==============================
-         HERO
-    ============================== -->
 
-    <section class="hero">
+<!-- =========================================
+     HERO
+========================================= -->
 
-      <div class="hero-pattern"></div>
+<section class="hero">
 
-      <div class="hero-stars"></div>
+  <div class="hero-pattern"></div>
 
-      <div class="arch arch-left"></div>
+  <div class="hero::before"></div>
 
-      <div class="arch arch-right"></div>
+  <div class="arch arch-left"></div>
+  <div class="arch arch-right"></div>
 
-      <div class="lantern lantern-left">
-        ☾
-      </div>
+  <div class="side-arch side-left"></div>
+  <div class="side-arch side-right"></div>
 
-      <div class="lantern lantern-right">
-        ☾
-      </div>
 
+  <!-- Left lantern -->
 
-      <div class="hero-content">
+  <div class="lantern lantern-left">
+    <div class="lantern-body"></div>
+  </div>
 
-        <div class="hero-arabic">
-          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-        </div>
 
-        <p class="eyebrow">
-          TOGETHER WITH THEIR FAMILIES
-        </p>
+  <!-- Right lantern -->
 
+  <div class="lantern lantern-right">
+    <div class="lantern-body"></div>
+  </div>
 
-        <h1>
 
-          <span>
-            Asif Nijas Faizy
-          </span>
+  <!-- HERO CONTENT -->
 
-          <span class="amp">
-            &amp;
-          </span>
+  <div class="hero-content">
 
-          <span>
-            Jouhara Fathima
-          </span>
+    <div class="hero-bismillah">
+      بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+    </div>
 
-        </h1>
 
+    <div class="divider">
+      <span></span>
+      <i>✦</i>
+      <span></span>
+    </div>
 
-        <p class="hero-subtitle">
-          invite you to celebrate their Nikah
-        </p>
 
-        <div class="ornament">
-          ❦
-        </div>
+    <p class="eyebrow">
+      TOGETHER WITH OUR FAMILIES
+    </p>
 
-        <p class="hero-date">
 
-          21 · 09 · 2026
+    <h1>
 
-          <span>
-            Monday
-          </span>
+      <span class="name">
+        Asif Nijas Faizy
+      </span>
 
-        </p>
+      <span class="amp">
+        &amp;
+      </span>
 
+      <span class="name">
+        Jouhara Fathima
+      </span>
 
-        <a
-          href="#countdown"
-          class="scroll-button">
+    </h1>
 
-          ⌄
 
-        </a>
+    <p class="hero-invite">
+      invite you to celebrate
+      <strong>our Nikah</strong>
+    </p>
 
-      </div>
 
+    <div class="divider">
+      <span></span>
+      <i>❦</i>
+      <span></span>
+    </div>
 
-      <!-- Groom -->
 
-      <div class="couple groom">
+    <p class="hero-date">
 
-        <div class="head"></div>
+      21 · 09 · 2026
 
-        <div class="body-shape"></div>
+      <small>
+        MONDAY
+      </small>
 
-      </div>
+    </p>
 
 
-      <!-- Bride -->
+    <a
+      href="#countdown"
+      class="scroll">
 
-      <div class="couple bride">
+      ⌄
 
-        <div class="head"></div>
+    </a>
 
-        <div class="body-shape"></div>
+  </div>
 
-      </div>
 
+  <!-- GROOM -->
 
-      <div class="floral floral-left">
-        ✦<br>❀
-      </div>
+  <div class="couple groom">
 
-      <div class="floral floral-right">
-        ❀<br>✦
-      </div>
+    <div class="groom-head">
+      <div class="groom-cap"></div>
+    </div>
 
-    </section>
+    <div class="groom-body"></div>
 
+  </div>
 
-    <!-- ==============================
-         COUNTDOWN
-    ============================== -->
 
-    <section
-      class="section countdown-section"
-      id="countdown">
+  <!-- BRIDE -->
 
-      <p class="eyebrow">
-        THE COUNTDOWN
-      </p>
+  <div class="couple bride">
 
-      <h2>
-        Counting Down to Our Big Day
-      </h2>
+    <div class="bride-head">
+      <div class="bride-hijab"></div>
+    </div>
 
+    <div class="bride-body"></div>
 
-      <div class="countdown">
+  </div>
 
-        <div class="countdown-box">
+</section>
 
-          <strong id="days">
-            00
-          </strong>
 
-          <span>
-            Days
-          </span>
+<!-- =========================================
+     COUNTDOWN
+========================================= -->
 
-        </div>
+<section
+  class="section countdown-section"
+  id="countdown">
 
+  <p class="eyebrow">
+    THE COUNTDOWN
+  </p>
 
-        <div class="countdown-box">
+  <h2>
+    Counting Down to Our Big Day
+  </h2>
 
-          <strong id="hours">
-            00
-          </strong>
 
-          <span>
-            Hours
-          </span>
+  <div class="countdown">
 
-        </div>
+    <div class="count-box">
+      <strong id="days">00</strong>
+      <span>Days</span>
+    </div>
 
+    <div class="count-box">
+      <strong id="hours">00</strong>
+      <span>Hours</span>
+    </div>
 
-        <div class="countdown-box">
+    <div class="count-box">
+      <strong id="minutes">00</strong>
+      <span>Minutes</span>
+    </div>
 
-          <strong id="minutes">
-            00
-          </strong>
+    <div class="count-box">
+      <strong id="seconds">00</strong>
+      <span>Seconds</span>
+    </div>
 
-          <span>
-            Minutes
-          </span>
+  </div>
 
-        </div>
+</section>
 
 
-        <div class="countdown-box">
+<!-- =========================================
+     EVENTS
+========================================= -->
 
-          <strong id="seconds">
-            00
-          </strong>
+<section class="section events">
 
-          <span>
-            Seconds
-          </span>
+  <p class="eyebrow">
+    SAVE THE DATE
+  </p>
 
-        </div>
+  <h2>
+    Two Moments,<br>
+    One Beautiful Beginning
+  </h2>
 
-      </div>
 
-    </section>
+  <div class="event-grid">
 
 
-    <!-- ==============================
-         EVENTS
-    ============================== -->
+    <!-- NIKAH -->
 
-    <section class="section events">
+    <article class="event-card">
 
-      <p class="eyebrow">
-        SAVE THE DATE
-      </p>
-
-      <h2>
-        Two Moments, One Beautiful Beginning
-      </h2>
-
-
-      <div class="event-grid">
-
-
-        <!-- NIKAH -->
-
-        <article class="card">
-
-          <div class="card-icon">
-            ☪
-          </div>
-
-          <p class="eyebrow">
-            THE NIKAH
-          </p>
-
-          <h3>
-            Chazhiyode Juma Masjid
-          </h3>
-
-
-          <div class="event-info">
-            <span>◷</span>
-            11:00 AM
-          </div>
-
-
-          <div class="event-info">
-            <span>◫</span>
-            21 September 2026
-          </div>
-
-
-          <a
-            class="button"
-            target="_blank"
-            rel="noopener"
-            href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">
-
-            View Location
-
-          </a>
-
-        </article>
-
-
-        <!-- RECEPTION -->
-
-        <article class="card">
-
-          <div class="card-icon">
-            ✦
-          </div>
-
-          <p class="eyebrow">
-            THE RECEPTION
-          </p>
-
-          <h3>
-            Pleasent Auditorium, Pandikkad
-          </h3>
-
-
-          <div class="event-info">
-            <span>◷</span>
-            4:00 PM
-          </div>
-
-
-          <div class="event-info">
-            <span>◫</span>
-            21 September 2026
-          </div>
-
-
-          <a
-            class="button"
-            target="_blank"
-            rel="noopener"
-            href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">
-
-            View Location
-
-          </a>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- ==============================
-         MOMENTS
-    ============================== -->
-
-    <section class="section moments">
-
-      <p class="eyebrow">
-        A FEW DETAILS
-      </p>
-
-      <h2>
-        Our Moments
-      </h2>
-
-
-      <div class="gallery">
-
-        <div class="gallery-item">
-          ☾
-        </div>
-
-        <div class="gallery-item">
-          ✦
-        </div>
-
-        <div class="gallery-item">
-          ❦
-        </div>
-
-        <div class="gallery-item">
-          ☪
-        </div>
-
-        <div class="gallery-item">
-          ✧
-        </div>
-
-        <div class="gallery-item">
-          ❀
-        </div>
-
-      </div>
-
-
-      <p class="gallery-note">
-
-        The celebration begins with a Nikah and continues into an evening of joy, family and togetherness.
-
-      </p>
-
-    </section>
-
-
-    <!-- ==============================
-         LOCATION
-    ============================== -->
-
-    <section class="section location">
-
-      <p class="eyebrow">
-        COME CELEBRATE WITH US
-      </p>
-
-      <h2>
-        Be Our Guest
-      </h2>
-
-
-      <!-- NIKAH LOCATION -->
-
-      <div class="location-card">
-
-        <div>
-
-          <div class="location-icon">
-            ⌖
-          </div>
-
-          <h3>
-            Chazhiyode Juma Masjid
-          </h3>
-
-          <p>
-            21 September 2026 · 11:00 AM
-          </p>
-
-        </div>
-
-
-        <a
-          class="button"
-          target="_blank"
-          rel="noopener"
-          href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">
-
-          Open in Google Maps
-
-        </a>
-
-      </div>
-
-
-      <!-- RECEPTION LOCATION -->
-
-      <div class="location-card">
-
-        <div>
-
-          <div class="location-icon">
-            ⌖
-          </div>
-
-          <h3>
-            Pleasent Auditorium, Pandikkad
-          </h3>
-
-          <p>
-            21 September 2026 · 4:00 PM
-          </p>
-
-        </div>
-
-
-        <a
-          class="button"
-          target="_blank"
-          rel="noopener"
-          href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">
-
-          Open in Google Maps
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==============================
-         RSVP
-    ============================== -->
-
-    <section class="rsvp">
-
-      <div class="moon">
-        ☾
+      <div class="event-symbol">
+        ☪
       </div>
 
       <p class="eyebrow">
-        YOUR PRESENCE IS OUR GIFT
+        THE NIKAH
       </p>
 
+      <h3>
+        Chazhiyode Juma Masjid
+      </h3>
 
-      <h2>
-        We would love to have you with us.
-      </h2>
+      <div class="event-info">
+        <b>◷</b>
+        11:00 AM
+      </div>
 
-
-      <p class="rsvp-description">
-
-        Kindly confirm your presence and share your blessings with the couple.
-
-      </p>
+      <div class="event-info">
+        <b>◫</b>
+        21 September 2026
+      </div>
 
 
       <a
-        class="button gold-button"
+        class="button"
         target="_blank"
         rel="noopener"
-        href="https://wa.me/919745556452?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20confirm%20my%20presence%20at%20the%20Nikah%20of%20Asif%20Nijas%20Faizy%20%26%20Jouhara%20Fathima.">
+        href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">
 
-        RSVP on WhatsApp
+        View Location
 
       </a>
 
-    </section>
+    </article>
 
 
-    <!-- ==============================
-         FOOTER
-    ============================== -->
+    <!-- RECEPTION -->
 
-    <footer>
+    <article class="event-card">
 
-      <div class="footer-arabic">
-
-        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
-
+      <div class="event-symbol">
+        ✦
       </div>
 
-
-      <p>
-
-        “And among His signs is that He created for you spouses from among yourselves, so that you may find tranquility in them.”
-
+      <p class="eyebrow">
+        THE RECEPTION
       </p>
 
+      <h3>
+        Pleasent Auditorium, Pandikkad
+      </h3>
 
-      <small>
-        Qur'an 30:21
-      </small>
-
-
-      <div class="footer-names">
-
-        Asif Nijas Faizy &amp; Jouhara Fathima
-
+      <div class="event-info">
+        <b>◷</b>
+        4:00 PM
       </div>
 
-    </footer>
+      <div class="event-info">
+        <b>◫</b>
+        21 September 2026
+      </div>
 
 
-  </main>
+      <a
+        class="button"
+        target="_blank"
+        rel="noopener"
+        href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">
+
+        View Location
+
+      </a>
+
+    </article>
 
 
-  <!-- ==============================
-       JAVASCRIPT
-  ============================== -->
+  </div>
 
-  <script>
-
-    /* ==========================
-       OPENING SCREEN
-    ========================== */
-
-    window.addEventListener(
-      "load",
-      function () {
-
-        const opening =
-          document.getElementById(
-            "opening"
-          );
-
-        setTimeout(
-          function () {
-
-            if (opening) {
-              opening.style.opacity = "0";
-              opening.style.visibility = "hidden";
-              opening.style.pointerEvents = "none";
-            }
-
-          },
-          3000
-        );
-
-      }
-    );
+</section>
 
 
-    /* ==========================
-       COUNTDOWN
-    ========================== */
+<!-- =========================================
+     ISLAMIC VERSE
+========================================= -->
 
-    const weddingDate =
-      new Date(
-        "2026-09-21T11:00:00+05:30"
-      ).getTime();
+<section class="section details">
 
+  <p class="eyebrow">
+    A BEAUTIFUL BEGINNING
+  </p>
 
-    function updateCountdown() {
-
-      const now =
-        new Date().getTime();
-
-      const difference =
-        weddingDate - now;
+  <h2>
+    With Love &amp; Blessings
+  </h2>
 
 
-      if (difference <= 0) {
+  <div class="detail-box">
 
-        document.getElementById(
-          "days"
-        ).textContent = "00";
+    <div class="detail-arabic">
 
-        document.getElementById(
-          "hours"
-        ).textContent = "00";
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
 
-        document.getElementById(
-          "minutes"
-        ).textContent = "00";
-
-        document.getElementById(
-          "seconds"
-        ).textContent = "00";
-
-        return;
-
-      }
+    </div>
 
 
-      const days =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60 * 24)
-        );
+    <p class="detail-text">
+
+      “And among His signs is that He created for you spouses from among yourselves, so that you may find tranquility in them.”
+
+    </p>
+
+  </div>
+
+</section>
 
 
-      const hours =
-        Math.floor(
-          (difference %
-            (1000 * 60 * 60 * 24)) /
-          (1000 * 60 * 60)
-        );
+<!-- =========================================
+     LOCATION
+========================================= -->
+
+<section class="section location">
+
+  <p class="eyebrow">
+    COME CELEBRATE WITH US
+  </p>
+
+  <h2>
+    Be Our Guest
+  </h2>
 
 
-      const minutes =
-        Math.floor(
-          (difference %
-            (1000 * 60 * 60)) /
-          (1000 * 60)
-        );
+  <!-- NIKAH LOCATION -->
+
+  <div class="location-card">
+
+    <div>
+
+      <div class="pin">
+        ⌖
+      </div>
+
+      <h3>
+        Chazhiyode Juma Masjid
+      </h3>
+
+      <p>
+        21 September 2026 · 11:00 AM
+      </p>
+
+    </div>
 
 
-      const seconds =
-        Math.floor(
-          (difference %
-            (1000 * 60)) /
-          1000
-        );
+    <a
+      class="button"
+      target="_blank"
+      rel="noopener"
+      href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac">
+
+      Open in Google Maps
+
+    </a>
+
+  </div>
 
 
-      document.getElementById(
-        "days"
-      ).textContent =
-        String(days).padStart(
-          2,
-          "0"
-        );
+  <!-- RECEPTION LOCATION -->
+
+  <div class="location-card">
+
+    <div>
+
+      <div class="pin">
+        ⌖
+      </div>
+
+      <h3>
+        Pleasent Auditorium, Pandikkad
+      </h3>
+
+      <p>
+        21 September 2026 · 4:00 PM
+      </p>
+
+    </div>
 
 
-      document.getElementById(
-        "hours"
-      ).textContent =
-        String(hours).padStart(
-          2,
-          "0"
-        );
+    <a
+      class="button"
+      target="_blank"
+      rel="noopener"
+      href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad">
+
+      Open in Google Maps
+
+    </a>
+
+  </div>
+
+</section>
 
 
-      document.getElementById(
-        "minutes"
-      ).textContent =
-        String(minutes).padStart(
-          2,
-          "0"
-        );
+<!-- =========================================
+     RSVP
+========================================= -->
+
+<section class="rsvp">
+
+  <div class="moon">
+    ☾
+  </div>
 
 
-      document.getElementById(
-        "seconds"
-      ).textContent =
-        String(seconds).padStart(
-          2,
-          "0"
-        );
+  <p class="eyebrow">
+    YOUR PRESENCE IS OUR GIFT
+  </p>
+
+
+  <h2>
+    We would love to have you with us.
+  </h2>
+
+
+  <p class="rsvp-text">
+
+    Kindly confirm your presence and share your blessings with the couple.
+
+  </p>
+
+
+  <a
+    class="button gold-button"
+    target="_blank"
+    rel="noopener"
+    href="https://wa.me/919745556452?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20confirm%20my%20presence%20at%20the%20Nikah%20of%20Asif%20Nijas%20Faizy%20%26%20Jouhara%20Fathima.">
+
+    RSVP on WhatsApp
+
+  </a>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+  <div class="footer-arabic">
+
+    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+
+  </div>
+
+
+  <p>
+
+    “And among His signs is that He created for you spouses from among yourselves, so that you may find tranquility in them.”
+
+  </p>
+
+
+  <small>
+    Qur'an 30:21
+  </small>
+
+
+  <div class="footer-names">
+
+    Asif Nijas Faizy &amp; Jouhara Fathima
+
+  </div>
+
+</footer>
+
+
+</main>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+/* =========================================
+   OPENING SCREEN
+========================================= */
+
+window.addEventListener("load", function(){
+
+  const opening =
+    document.getElementById("opening");
+
+  setTimeout(function(){
+
+    if(opening){
+
+      opening.style.opacity = "0";
+      opening.style.visibility = "hidden";
+      opening.style.pointerEvents = "none";
 
     }
 
+  }, 3000);
 
-    updateCountdown();
+});
 
-    setInterval(
-      updateCountdown,
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+const weddingDate =
+  new Date(
+    "2026-09-21T11:00:00+05:30"
+  ).getTime();
+
+
+function updateCountdown(){
+
+  const now =
+    new Date().getTime();
+
+  const distance =
+    weddingDate - now;
+
+
+  if(distance <= 0){
+
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+
+    return;
+
+  }
+
+
+  const days =
+    Math.floor(
+      distance /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  const hours =
+    Math.floor(
+      (distance %
+      (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
+    );
+
+
+  const minutes =
+    Math.floor(
+      (distance %
+      (1000 * 60 * 60)) /
+      (1000 * 60)
+    );
+
+
+  const seconds =
+    Math.floor(
+      (distance %
+      (1000 * 60)) /
       1000
     );
 
-  </script>
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+</script>
 
 
 </body>
