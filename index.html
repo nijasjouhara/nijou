@@ -47,14 +47,1458 @@
 
 
   <!-- =====================================================
-       EXTERNAL CSS
-       All design/styling is inside style.css
+       ALL CSS
   ====================================================== -->
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <style>
+
+    :root {
+      --green: #10241c;
+      --green2: #17362a;
+      --deep: #07140f;
+
+      --ivory: #f7f1e5;
+      --cream: #fffaf1;
+      --paper: #fffdf8;
+
+      --gold: #b7893e;
+      --gold2: #d8b36d;
+
+      --brown: #513d25;
+      --muted: #806f56;
+
+      --line: #d6c4a4;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--brown);
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+    }
+
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: .055;
+      background-image:
+        radial-gradient(
+          #7d633b .55px,
+          transparent .55px
+        );
+      background-size: 18px 18px;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    button {
+      font-family: inherit;
+    }
+
+
+    /* =====================================================
+       OPENING SCREEN
+    ====================================================== */
+
+    .opening {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #214434 0%,
+          #10251d 50%,
+          #06110c 100%
+        );
+
+      color: #e6c27b;
+
+      transition:
+        opacity .8s ease,
+        visibility .8s ease;
+    }
+
+
+    .opening.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+
+    .opening-ring {
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      border:
+        1px solid #d8b36b55;
+
+      border-radius: 50%;
+
+      animation:
+        ringRotate 35s linear infinite;
+    }
+
+
+    .opening-ring::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 25px;
+
+      border:
+        1px solid #d8b36b33;
+
+      border-radius: 50%;
+    }
+
+
+    .opening-ring-2 {
+      width: 320px;
+      height: 320px;
+
+      opacity: .55;
+
+      animation-direction: reverse;
+    }
+
+
+    @keyframes ringRotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    .opening-content {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      padding: 30px;
+    }
+
+
+    .opening-small {
+      font-size: 9px;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+
+      color: #d9c6a5;
+
+      margin-bottom: 25px;
+    }
+
+
+    .opening-bismillah {
+      font-family: "Amiri", serif;
+
+      direction: rtl;
+
+      font-size:
+        clamp(
+          35px,
+          10vw,
+          58px
+        );
+
+      line-height: 1.7;
+
+      color: #e6c27b;
+
+      text-shadow:
+        0 0 25px #d8b36b44,
+        0 3px 25px #0006;
+    }
+
+
+    .opening-line {
+      width: 150px;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #d8b36b,
+          transparent
+        );
+
+      margin: 20px auto;
+    }
+
+
+    .opening-ornament {
+      font-size: 20px;
+      color: #d8b36b;
+    }
+
+
+    /* =====================================================
+       MUSIC BUTTON
+    ====================================================== */
+
+    .music-btn {
+      position: fixed;
+
+      top: 18px;
+      right: 18px;
+
+      z-index: 500;
+
+      width: 56px;
+      height: 56px;
+
+      border:
+        1px solid #d8b36b88;
+
+      border-radius: 50%;
+
+      background:
+        rgba(
+          16,
+          37,
+          29,
+          .92
+        );
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 35px #0004;
+
+      backdrop-filter:
+        blur(12px);
+
+      transition:
+        .3s ease;
+    }
+
+
+    .music-btn:hover {
+      transform: scale(1.06);
+    }
+
+
+    .music-btn.playing {
+      background: var(--gold);
+
+      box-shadow:
+        0 0 0 7px #b8893e22,
+        0 12px 35px #0005;
+
+      animation:
+        musicPulse 1.8s ease-in-out infinite;
+    }
+
+
+    .music-icon {
+      font-size: 21px;
+      line-height: 1;
+    }
+
+
+    @keyframes musicPulse {
+      50% {
+        transform: scale(1.06);
+      }
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+      position: relative;
+
+      width: 100%;
+      height: 100svh;
+      min-height: 650px;
+
+      background: #f8f0e2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+
+    /*
+      IMPORTANT:
+      The invitation image is displayed fully.
+
+      We use contain instead of cover so the image
+      does NOT become excessively zoomed/cropped.
+    */
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+      object-position: center;
+
+      display: block;
+
+      background: #f8f0e2;
+    }
+
+
+    .hero-bottom-fade {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 130px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(
+            16,
+            37,
+            29,
+            .15
+          )
+        );
+
+      pointer-events: none;
+    }
+
+
+    .hero-scroll {
+      position: absolute;
+
+      left: 50%;
+      bottom: 24px;
+
+      transform:
+        translateX(-50%);
+
+      width: 48px;
+      height: 48px;
+
+      border:
+        1px solid var(--gold);
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        rgba(
+          255,
+          250,
+          241,
+          .82
+        );
+
+      color: #9d702b;
+
+      font-size: 24px;
+
+      z-index: 10;
+
+      animation:
+        heroBob 2s ease-in-out infinite;
+    }
+
+
+    @keyframes heroBob {
+
+      50% {
+        transform:
+          translateX(-50%)
+          translateY(7px);
+      }
+
+    }
+
+
+    /* =====================================================
+       COMMON SECTION
+    ====================================================== */
+
+    .section {
+      position: relative;
+
+      padding:
+        100px 7vw;
+
+      text-align: center;
+    }
+
+
+    .eyebrow {
+      margin:
+        0 0 12px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        .28em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    .section h2,
+    .rsvp h2 {
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(
+          40px,
+          6vw,
+          64px
+        );
+
+      line-height:
+        1;
+
+      font-weight:
+        500;
+
+      margin:
+        8px 0 42px;
+    }
+
+
+    /* =====================================================
+       COUNTDOWN
+    ====================================================== */
+
+    .countdown-section {
+      background:
+        linear-gradient(
+          180deg,
+          #fffaf1,
+          #f4e9d7
+        );
+    }
+
+
+    .countdown-section::before {
+      content: "✦";
+
+      position:
+        absolute;
+
+      top: 45px;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      color:
+        var(--gold);
+
+      font-size:
+        22px;
+    }
+
+
+    .countdown {
+      max-width: 900px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          4,
+          1fr
+        );
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        24px;
+
+      overflow:
+        hidden;
+
+      background:
+        var(--paper);
+
+      box-shadow:
+        0 25px 70px #70553315;
+    }
+
+
+    .countdown-box {
+      padding:
+        32px 10px;
+
+      border-right:
+        1px solid #ddceb4;
+    }
+
+
+    .countdown-box:last-child {
+      border-right: 0;
+    }
+
+
+    .countdown strong {
+      display: block;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(
+          40px,
+          6vw,
+          64px
+        );
+
+      line-height: 1;
+
+      font-weight: 500;
+    }
+
+
+    .countdown span {
+      display: block;
+
+      margin-top: 8px;
+
+      color:
+        var(--muted);
+
+      font-size: 9px;
+
+      letter-spacing: .2em;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =====================================================
+       EVENTS
+    ====================================================== */
+
+    .events {
+      background:
+        linear-gradient(
+          180deg,
+          #f1e5d4,
+          #e8dac4
+        );
+    }
+
+
+    .event-grid {
+      max-width: 1080px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          1fr
+        );
+
+      gap: 28px;
+    }
+
+
+    .card {
+      position: relative;
+
+      padding:
+        48px 32px;
+
+      border:
+        1px solid #cdbb9d;
+
+      border-radius:
+        26px;
+
+      background:
+        rgba(
+          255,
+          250,
+          242,
+          .88
+        );
+
+      box-shadow:
+        0 25px 65px #6c543018;
+
+      overflow: hidden;
+    }
+
+
+    .card::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 10px;
+
+      border:
+        1px solid #b8893e30;
+
+      border-radius:
+        19px;
+
+      pointer-events: none;
+    }
+
+
+    .icon {
+      color:
+        var(--gold);
+
+      font-size:
+        38px;
+
+      margin-bottom:
+        5px;
+    }
+
+
+    .card h3 {
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        34px;
+
+      line-height:
+        1.05;
+
+      font-weight:
+        600;
+
+      margin:
+        10px 0 22px;
+    }
+
+
+    .event-info {
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        20px;
+
+      margin:
+        10px;
+    }
+
+
+    .event-info span {
+      color:
+        var(--gold);
+    }
+
+
+    /* =====================================================
+       BUTTON
+    ====================================================== */
+
+    .button {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      margin-top:
+        18px;
+
+      padding:
+        14px 23px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        .12em;
+
+      text-transform:
+        uppercase;
+
+      transition:
+        .3s ease;
+    }
+
+
+    .button:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 28px #10251d33;
+    }
+
+
+    /* =====================================================
+       OUR MOMENTS
+    ====================================================== */
+
+    .moments {
+      background:
+        var(--cream);
+    }
+
+
+    .gallery {
+      max-width:
+        1050px;
+
+      margin:
+        auto;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          1fr
+        );
+
+      gap:
+        16px;
+    }
+
+
+    .gallery-item {
+      height:
+        220px;
+
+      border-radius:
+        20px;
+
+      border:
+        1px solid #b8893e55;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      font-size:
+        55px;
+
+      color:
+        #f4dba7;
+
+      box-shadow:
+        inset 0 0 60px #0005;
+
+      transition:
+        .4s ease;
+    }
+
+
+    .gallery-item:hover {
+      transform:
+        translateY(-5px)
+        scale(1.015);
+    }
+
+
+    .g1 {
+      background:
+        radial-gradient(
+          circle at center,
+          #816b4a,
+          #211c16 70%
+        );
+    }
+
+
+    .g2 {
+      background:
+        radial-gradient(
+          circle at center,
+          #31503d,
+          #091610 70%
+        );
+    }
+
+
+    .g3 {
+      background:
+        radial-gradient(
+          circle at center,
+          #9a7b50,
+          #251d14 70%
+        );
+    }
+
+
+    .g4 {
+      background:
+        radial-gradient(
+          circle at center,
+          #566955,
+          #101811 70%
+        );
+    }
+
+
+    .g5 {
+      background:
+        radial-gradient(
+          circle at center,
+          #b08b56,
+          #2a2117 70%
+        );
+    }
+
+
+    .g6 {
+      background:
+        radial-gradient(
+          circle at center,
+          #725d43,
+          #1a1611 70%
+        );
+    }
+
+
+    .gallery-note {
+      max-width:
+        680px;
+
+      margin:
+        32px auto 0;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        22px;
+
+      line-height:
+        1.55;
+    }
+
+
+    /* =====================================================
+       LOCATION
+    ====================================================== */
+
+    .location {
+      background:
+        #f8f0e3;
+    }
+
+
+    .location-card {
+      max-width:
+        900px;
+
+      margin:
+        16px auto;
+
+      padding:
+        30px 34px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        25px;
+
+      text-align:
+        left;
+
+      border:
+        1px solid #d2c1a5;
+
+      border-radius:
+        22px;
+
+      background:
+        #fffaf2;
+
+      box-shadow:
+        0 15px 40px #6c543012;
+    }
+
+
+    .location-icon {
+      color:
+        var(--gold);
+
+      font-size:
+        27px;
+    }
+
+
+    .location-card h3 {
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        31px;
+
+      line-height:
+        1.05;
+
+      margin:
+        7px 0 8px;
+    }
+
+
+    .location-card p {
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+    }
+
+
+    .location-card .button {
+      margin:
+        0;
+
+      flex-shrink:
+        0;
+    }
+
+
+    /* =====================================================
+       RSVP
+    ====================================================== */
+
+    .rsvp {
+      position:
+        relative;
+
+      padding:
+        125px 7vw;
+
+      text-align:
+        center;
+
+      color:
+        white;
+
+      overflow:
+        hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 0,
+          #31503d 0%,
+          #10241c 55%,
+          #07140f 100%
+        );
+    }
+
+
+    .rsvp::before {
+      content:
+        "✦  ·  ✧  ·  ✦";
+
+      position:
+        absolute;
+
+      top:
+        35px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      color:
+        #d8b36b;
+
+      font-size:
+        22px;
+
+      letter-spacing:
+        8px;
+    }
+
+
+    .rsvp .eyebrow {
+      color:
+        #d9c6a5;
+    }
+
+
+    .rsvp h2 {
+      max-width:
+        700px;
+
+      margin:
+        10px auto 18px;
+
+      color:
+        white;
+    }
+
+
+    .rsvp-text {
+      max-width:
+        600px;
+
+      margin:
+        0 auto;
+
+      color:
+        #dfd3bf;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        22px;
+
+      line-height:
+        1.5;
+    }
+
+
+    .moon {
+      font-size:
+        42px;
+
+      color:
+        #d8b36b;
+
+      margin-bottom:
+        20px;
+    }
+
+
+    .gold {
+      background:
+        linear-gradient(
+          135deg,
+          #b8893e,
+          #d8b36b
+        );
+
+      color:
+        #fff;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+      padding:
+        70px 7vw;
+
+      text-align:
+        center;
+
+      background:
+        #07130e;
+
+      color:
+        #d8ccb9;
+    }
+
+
+    .footer-arabic {
+      max-width:
+        900px;
+
+      margin:
+        0 auto 18px;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      direction:
+        rtl;
+
+      font-size:
+        clamp(
+          25px,
+          4vw,
+          38px
+        );
+
+      line-height:
+        1.8;
+
+      color:
+        #d8b36b;
+    }
+
+
+    footer p {
+      max-width:
+        680px;
+
+      margin:
+        0 auto 10px;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        20px;
+
+      line-height:
+        1.5;
+
+      color:
+        #cfc3b1;
+    }
+
+
+    footer small {
+      color:
+        #8d8170;
+    }
+
+
+    .footer-names {
+      margin-top:
+        28px;
+
+      padding-top:
+        25px;
+
+      border-top:
+        1px solid #d8b36b25;
+
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:
+        30px;
+
+      color:
+        #d8b36b;
+    }
+
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ====================================================== */
+
+    .reveal {
+      opacity:
+        0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity .9s ease,
+        transform .9s ease;
+    }
+
+
+    .reveal.visible {
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ====================================================== */
+
+    @media (max-width: 700px) {
+
+      .music-btn {
+        top: 14px;
+        right: 14px;
+
+        width: 50px;
+        height: 50px;
+      }
+
+
+      /*
+        On mobile, contain is kept so the wedding
+        invitation is not unnecessarily cropped.
+      */
+
+      .hero {
+        min-height:
+          100svh;
+
+        height:
+          100svh;
+      }
+
+
+      .hero-image {
+        width:
+          100%;
+
+        height:
+          100%;
+
+        object-fit:
+          contain;
+
+        object-position:
+          center;
+      }
+
+
+      .section {
+        padding:
+          82px 20px;
+      }
+
+
+      .section h2,
+      .rsvp h2 {
+        font-size:
+          43px;
+
+        margin-bottom:
+          34px;
+      }
+
+
+      .countdown {
+        border-radius:
+          18px;
+      }
+
+
+      .countdown-box {
+        padding:
+          23px 5px;
+      }
+
+
+      .countdown strong {
+        font-size:
+          40px;
+      }
+
+
+      .countdown span {
+        font-size:
+          7px;
+
+        letter-spacing:
+          .12em;
+      }
+
+
+      .event-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .card {
+        padding:
+          42px 24px;
+      }
+
+
+      .card h3 {
+        font-size:
+          31px;
+      }
+
+
+      .gallery {
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+
+        gap:
+          12px;
+      }
+
+
+      .gallery-item {
+        height:
+          160px;
+
+        font-size:
+          45px;
+      }
+
+
+      .gallery-note {
+        font-size:
+          20px;
+      }
+
+
+      .location-card {
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+        padding:
+          27px 23px;
+      }
+
+
+      .location-card h3 {
+        font-size:
+          29px;
+      }
+
+
+      .location-card .button {
+        width:
+          100%;
+      }
+
+
+      .rsvp {
+        padding:
+          100px 20px;
+      }
+
+
+      .rsvp-text {
+        font-size:
+          20px;
+      }
+
+
+      .opening-bismillah {
+        font-size:
+          clamp(
+            35px,
+            10vw,
+            58px
+          );
+      }
+
+
+      .opening-ring {
+        width:
+          200px;
+
+        height:
+          200px;
+      }
+
+
+      .opening-ring-2 {
+        width:
+          285px;
+
+        height:
+          285px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -102,7 +1546,6 @@
   </div>
 
 
-
   <!-- ===================================================
        MUSIC BUTTON
   ==================================================== -->
@@ -125,12 +1568,11 @@
   </button>
 
 
-
   <!-- ===================================================
        BACKGROUND MUSIC
 
-       weddingmusic.mp3 must be in the same folder
-       as index.html
+       Put weddingmusic.mp3 in the same folder
+       as this index.html file.
   ==================================================== -->
 
   <audio
@@ -147,9 +1589,8 @@
   </audio>
 
 
-
   <!-- ===================================================
-       MAIN CONTENT
+       MAIN
   ==================================================== -->
 
   <main>
@@ -185,7 +1626,6 @@
       </a>
 
     </section>
-
 
 
     <!-- =================================================
@@ -267,7 +1707,6 @@
     </section>
 
 
-
     <!-- =================================================
          EVENTS
     ================================================== -->
@@ -335,7 +1774,6 @@
         </div>
 
 
-
         <!-- RECEPTION -->
 
         <div class="card reveal">
@@ -384,7 +1822,6 @@
       </div>
 
     </section>
-
 
 
     <!-- =================================================
@@ -464,7 +1901,6 @@
     </section>
 
 
-
     <!-- =================================================
          LOCATION
     ================================================== -->
@@ -521,7 +1957,6 @@
       </div>
 
 
-
       <!-- RECEPTION VENUE -->
 
       <div
@@ -559,7 +1994,6 @@
       </div>
 
     </section>
-
 
 
     <!-- =================================================
@@ -609,13 +2043,11 @@
   </main>
 
 
-
   <!-- ===================================================
        FOOTER
   ==================================================== -->
 
   <footer>
-
 
     <div class="footer-arabic">
 
@@ -644,18 +2076,769 @@
 
     </div>
 
-
   </footer>
 
 
-
   <!-- ===================================================
-       EXTERNAL JAVASCRIPT
-
-       All functionality is inside script.js
+       ALL JAVASCRIPT
   ==================================================== -->
 
-  <script src="script.js"></script>
+  <script>
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const opening =
+      document.getElementById("opening");
+
+    const music =
+      document.getElementById("bgMusic");
+
+    const musicBtn =
+      document.getElementById("musicBtn");
+
+    const musicIcon =
+      document.getElementById("musicIcon");
+
+    const heroScroll =
+      document.querySelector(".hero-scroll");
+
+
+    /* =====================================================
+       MUSIC
+    ===================================================== */
+
+    let musicPlaying = false;
+
+
+    function updateMusicButton() {
+
+      if (!musicBtn || !musicIcon) {
+        return;
+      }
+
+
+      if (musicPlaying) {
+
+        musicBtn.classList.add("playing");
+
+        musicIcon.textContent = "❚❚";
+
+        musicBtn.setAttribute(
+          "aria-label",
+          "Pause wedding music"
+        );
+
+        musicBtn.setAttribute(
+          "title",
+          "Pause music"
+        );
+
+      }
+
+      else {
+
+        musicBtn.classList.remove("playing");
+
+        musicIcon.textContent = "♫";
+
+        musicBtn.setAttribute(
+          "aria-label",
+          "Play wedding music"
+        );
+
+        musicBtn.setAttribute(
+          "title",
+          "Play music"
+        );
+
+      }
+
+    }
+
+
+    async function startMusic() {
+
+      if (!music) {
+        return;
+      }
+
+
+      try {
+
+        await music.play();
+
+        musicPlaying = true;
+
+        updateMusicButton();
+
+      }
+
+      catch (error) {
+
+        musicPlaying = false;
+
+        updateMusicButton();
+
+        console.log(
+          "Music playback requires user interaction."
+        );
+
+      }
+
+    }
+
+
+    function stopMusic() {
+
+      if (!music) {
+        return;
+      }
+
+
+      music.pause();
+
+      musicPlaying = false;
+
+      updateMusicButton();
+
+    }
+
+
+    if (music) {
+
+      music.addEventListener(
+        "play",
+        () => {
+
+          musicPlaying = true;
+
+          updateMusicButton();
+
+        }
+      );
+
+
+      music.addEventListener(
+        "pause",
+        () => {
+
+          musicPlaying = false;
+
+          updateMusicButton();
+
+        }
+      );
+
+
+      music.addEventListener(
+        "error",
+        () => {
+
+          musicPlaying = false;
+
+          updateMusicButton();
+
+          console.log(
+            "Unable to load weddingmusic.mp3"
+          );
+
+        }
+      );
+
+    }
+
+
+    /*
+      IMPORTANT:
+
+      Music is NOT started when the user touches
+      somewhere on the website.
+
+      Only the music button starts/stops music.
+    */
+
+    if (musicBtn) {
+
+      musicBtn.addEventListener(
+        "click",
+        async (event) => {
+
+          event.stopPropagation();
+
+
+          if (musicPlaying) {
+
+            stopMusic();
+
+          }
+
+          else {
+
+            await startMusic();
+
+          }
+
+        }
+      );
+
+    }
+
+
+    updateMusicButton();
+
+
+    /* =====================================================
+       OPENING SCREEN
+    ===================================================== */
+
+    let openingClosed = false;
+
+
+    function closeOpening() {
+
+      if (openingClosed) {
+        return;
+      }
+
+
+      openingClosed = true;
+
+
+      if (opening) {
+
+        opening.classList.add("hide");
+
+      }
+
+    }
+
+
+    /*
+      Opening screen remains visible for 3 seconds.
+    */
+
+    setTimeout(
+      () => {
+
+        closeOpening();
+
+      },
+      3000
+    );
+
+
+    /*
+      Tapping the opening screen closes it immediately.
+
+      It does NOT start music.
+    */
+
+    if (opening) {
+
+      opening.addEventListener(
+        "click",
+        () => {
+
+          closeOpening();
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    /*
+      21 September 2026
+      11:00 AM
+      India Standard Time
+    */
+
+    const weddingDate =
+      new Date(
+        "2026-09-21T11:00:00+05:30"
+      ).getTime();
+
+
+    const DAY =
+      24 * 60 * 60 * 1000;
+
+    const HOUR =
+      60 * 60 * 1000;
+
+    const MINUTE =
+      60 * 1000;
+
+    const SECOND =
+      1000;
+
+
+    const daysElement =
+      document.getElementById("days");
+
+    const hoursElement =
+      document.getElementById("hours");
+
+    const minutesElement =
+      document.getElementById("minutes");
+
+    const secondsElement =
+      document.getElementById("seconds");
+
+
+    function pad(number) {
+
+      return String(number).padStart(
+        2,
+        "0"
+      );
+
+    }
+
+
+    function updateCountdown() {
+
+      let difference =
+        weddingDate - Date.now();
+
+
+      if (difference < 0) {
+        difference = 0;
+      }
+
+
+      const days =
+        Math.floor(
+          difference / DAY
+        );
+
+
+      const hours =
+        Math.floor(
+          (difference % DAY) / HOUR
+        );
+
+
+      const minutes =
+        Math.floor(
+          (difference % HOUR) / MINUTE
+        );
+
+
+      const seconds =
+        Math.floor(
+          (difference % MINUTE) / SECOND
+        );
+
+
+      if (daysElement) {
+
+        daysElement.textContent =
+          pad(days);
+
+      }
+
+
+      if (hoursElement) {
+
+        hoursElement.textContent =
+          pad(hours);
+
+      }
+
+
+      if (minutesElement) {
+
+        minutesElement.textContent =
+          pad(minutes);
+
+      }
+
+
+      if (secondsElement) {
+
+        secondsElement.textContent =
+          pad(seconds);
+
+      }
+
+    }
+
+
+    updateCountdown();
+
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+
+    /* =====================================================
+       REVEAL ANIMATIONS
+    ===================================================== */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
+      );
+
+
+    if (
+      "IntersectionObserver" in window
+    ) {
+
+      const revealObserver =
+        new IntersectionObserver(
+          (entries) => {
+
+            entries.forEach(
+              (entry) => {
+
+                if (
+                  entry.isIntersecting
+                ) {
+
+                  entry.target.classList.add(
+                    "visible"
+                  );
+
+                  revealObserver.unobserve(
+                    entry.target
+                  );
+
+                }
+
+              }
+            );
+
+          },
+          {
+            threshold: 0.12
+          }
+        );
+
+
+      revealElements.forEach(
+        (element) => {
+
+          revealObserver.observe(
+            element
+          );
+
+        }
+      );
+
+    }
+
+    else {
+
+      revealElements.forEach(
+        (element) => {
+
+          element.classList.add(
+            "visible"
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       CONTINUOUS AUTO SCROLL
+    ===================================================== */
+
+    let autoScroll = false;
+
+    const scrollSpeed = 0.75;
+
+    let resumeTimer = null;
+
+
+    function continuousAutoScroll() {
+
+      if (autoScroll) {
+
+        const maxScroll =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+        const currentScroll =
+          window.scrollY;
+
+
+        if (
+          currentScroll <
+          maxScroll - 2
+        ) {
+
+          window.scrollBy(
+            0,
+            scrollSpeed
+          );
+
+        }
+
+        else {
+
+          autoScroll = false;
+
+        }
+
+      }
+
+
+      requestAnimationFrame(
+        continuousAutoScroll
+      );
+
+    }
+
+
+    requestAnimationFrame(
+      continuousAutoScroll
+    );
+
+
+    /*
+      Start automatic scrolling after
+      the opening screen has disappeared.
+    */
+
+    setTimeout(
+      () => {
+
+        if (!openingClosed) {
+          return;
+        }
+
+        autoScroll = true;
+
+      },
+      3400
+    );
+
+
+    /* =====================================================
+       PAUSE AUTO SCROLL WHEN USER INTERACTS
+    ===================================================== */
+
+    function pauseAutoScroll() {
+
+      autoScroll = false;
+
+
+      clearTimeout(
+        resumeTimer
+      );
+
+
+      resumeTimer =
+        setTimeout(
+          () => {
+
+            const maxScroll =
+              document.documentElement.scrollHeight -
+              window.innerHeight;
+
+
+            if (
+              window.scrollY <
+              maxScroll - 10
+            ) {
+
+              autoScroll = true;
+
+            }
+
+          },
+          4000
+        );
+
+    }
+
+
+    /*
+      Do not treat clicking the music button
+      as a reason to pause the page scroll.
+    */
+
+    window.addEventListener(
+      "touchstart",
+      (event) => {
+
+        if (
+          event.target.closest &&
+          event.target.closest("#musicBtn")
+        ) {
+          return;
+        }
+
+        pauseAutoScroll();
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    window.addEventListener(
+      "touchmove",
+      pauseAutoScroll,
+      {
+        passive: true
+      }
+    );
+
+
+    window.addEventListener(
+      "wheel",
+      pauseAutoScroll,
+      {
+        passive: true
+      }
+    );
+
+
+    window.addEventListener(
+      "mousedown",
+      (event) => {
+
+        if (
+          event.target.closest &&
+          event.target.closest("#musicBtn")
+        ) {
+          return;
+        }
+
+        pauseAutoScroll();
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =====================================================
+       STOP AT BOTTOM
+    ===================================================== */
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        const maxScroll =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+
+        if (
+          window.scrollY >=
+          maxScroll - 5
+        ) {
+
+          autoScroll = false;
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =====================================================
+       HERO SCROLL BUTTON
+    ===================================================== */
+
+    if (heroScroll) {
+
+      heroScroll.addEventListener(
+        "click",
+        (event) => {
+
+          event.preventDefault();
+
+
+          autoScroll = false;
+
+
+          clearTimeout(
+            resumeTimer
+          );
+
+
+          const countdownSection =
+            document.getElementById(
+              "countdown"
+            );
+
+
+          if (countdownSection) {
+
+            countdownSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+
+
+          resumeTimer =
+            setTimeout(
+              () => {
+
+                const maxScroll =
+                  document.documentElement.scrollHeight -
+                  window.innerHeight;
+
+
+                if (
+                  window.scrollY <
+                  maxScroll - 10
+                ) {
+
+                  autoScroll = true;
+
+                }
+
+              },
+              4500
+            );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       PAGE VISIBILITY
+    ===================================================== */
+
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+
+        /*
+          We intentionally do not restart music
+          when returning to the page.
+        */
+
+      }
+    );
+
+  </script>
 
 
 </body>
