@@ -1774,7 +1774,197 @@
       }
     );
 
+/* =========================================
+   PREMIUM AUTO SCROLL
+========================================= */
 
+(function () {
+
+  let autoScroll = true;
+  let pausedByUser = false;
+  let resumeTimer = null;
+
+  const sections = Array.from(
+    document.querySelectorAll(
+      ".hero, .countdown-section, .events, .moments, .location, .rsvp, footer"
+    )
+  );
+
+  let currentSection = 0;
+
+  /*
+    Initial delay after opening.
+    The visitor gets time to see the hero.
+  */
+
+  setTimeout(function () {
+
+    if (opening && !opening.classList.contains("hide")) {
+      return;
+    }
+
+    startAutoScroll();
+
+  }, 6500);
+
+
+  function startAutoScroll() {
+
+    if (!autoScroll || pausedByUser) {
+      return;
+    }
+
+    if (currentSection >= sections.length - 1) {
+      autoScroll = false;
+      return;
+    }
+
+    currentSection++;
+
+    const target =
+      sections[currentSection];
+
+    if (!target) {
+      return;
+    }
+
+    /*
+      Smoothly move to the next section.
+    */
+
+    window.scrollTo({
+      top:
+        target.offsetTop,
+      behavior:
+        "smooth"
+    });
+
+
+    /*
+      Stay on each section for a few seconds.
+    */
+
+    setTimeout(function () {
+
+      if (!pausedByUser) {
+        startAutoScroll();
+      }
+
+    }, 5500);
+
+  }
+
+
+  /*
+    Detect manual interaction.
+    Auto-scroll pauses immediately.
+  */
+
+  function userInteraction() {
+
+    pausedByUser = true;
+
+    clearTimeout(resumeTimer);
+
+    /*
+      Resume after the visitor stops interacting.
+    */
+
+    resumeTimer =
+      setTimeout(function () {
+
+        pausedByUser = false;
+
+        /*
+          Find the section currently closest
+          to the visitor's viewport.
+        */
+
+        let closest = 0;
+        let smallestDistance = Infinity;
+
+        sections.forEach(function (
+          section,
+          index
+        ) {
+
+          const distance =
+            Math.abs(
+              section.offsetTop -
+              window.scrollY
+            );
+
+          if (
+            distance <
+            smallestDistance
+          ) {
+
+            smallestDistance =
+              distance;
+
+            closest =
+              index;
+
+          }
+
+        });
+
+        currentSection = closest;
+
+        startAutoScroll();
+
+      }, 7000);
+
+  }
+
+
+  /*
+    Touch interaction
+  */
+
+  window.addEventListener(
+    "touchstart",
+    userInteraction,
+    { passive: true }
+  );
+
+
+  /*
+    Mouse wheel
+  */
+
+  window.addEventListener(
+    "wheel",
+    userInteraction,
+    { passive: true }
+  );
+
+
+  /*
+    Mouse / trackpad
+  */
+
+  window.addEventListener(
+    "mousedown",
+    userInteraction
+  );
+
+
+  /*
+    Keyboard scrolling
+  */
+
+  window.addEventListener(
+    "keydown",
+    function () {
+
+      userInteraction();
+
+    }
+  );
+
+
+})();
   </script>
 
 </body>
