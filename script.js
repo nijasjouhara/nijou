@@ -1,0 +1,6 @@
+const weddingDate = new Date('2026-09-21T11:00:00+05:30').getTime();
+function tick(){const now=Date.now(), d=Math.max(0,weddingDate-now), day=86400000, hour=3600000, min=60000; document.getElementById('days').textContent=String(Math.floor(d/day)).padStart(2,'0'); document.getElementById('hours').textContent=String(Math.floor(d%day/hour)).padStart(2,'0'); document.getElementById('minutes').textContent=String(Math.floor(d%hour/min)).padStart(2,'0'); document.getElementById('seconds').textContent=String(Math.floor(d%min/1000)).padStart(2,'0')}
+setInterval(tick,1000);tick();
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),900));
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const music=document.getElementById('bgMusic'), btn=document.getElementById('musicBtn'); btn.addEventListener('click',()=>{if(!music.src){alert('Music placeholder ready. Add your MP3 file and set its path in index.html.');return} music.paused?(music.play(),btn.innerHTML='♫ <span>Pause</span>'):(music.pause(),btn.innerHTML='♫ <span>Music</span>')});
