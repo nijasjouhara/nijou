@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,6 +11,14 @@
 <title>Asif Nijas Faizy & Jouhara Fathima</title>
 
 <meta name="theme-color" content="#0d241d">
+
+<meta name="description"
+      content="Wedding Invitation of Asif Nijas Faizy & Jouhara Fathima">
+
+
+<!-- =====================================================
+     GOOGLE FONTS
+===================================================== -->
 
 <link rel="preconnect"
       href="https://fonts.googleapis.com">
@@ -25,23 +34,32 @@
 <style>
 
 /* =====================================================
-   ROOT
+   ROOT COLORS
 ===================================================== */
 
 :root{
 
     --green:#0d2a21;
+
     --green-dark:#081b16;
+
     --green-soft:#12352b;
 
+
     --cream:#f8f0e2;
+
     --cream-light:#fbf6ec;
 
+
     --gold:#b8944d;
+
     --gold-light:#d5b76f;
+
     --gold-pale:#e2cf9e;
 
+
     --dark-text:#142820;
+
     --soft-text:#827564;
 
 }
@@ -52,14 +70,22 @@
 ===================================================== */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
 
+
 html{
+
     scroll-behavior:smooth;
+
 }
+
 
 body{
 
@@ -100,6 +126,7 @@ body{
 
     padding:25px;
 
+
     background:
 
         radial-gradient(
@@ -110,12 +137,14 @@ body{
 
         var(--green);
 
+
     transition:
 
         opacity 1s ease,
         visibility 1s ease;
 
 }
+
 
 .opening.hide{
 
@@ -127,6 +156,7 @@ body{
 
 }
 
+
 .opening-content{
 
     width:100%;
@@ -137,6 +167,7 @@ body{
         openingFade 1.6s ease;
 
 }
+
 
 .bismillah{
 
@@ -155,6 +186,7 @@ body{
 
 }
 
+
 .opening-ayah{
 
     font-family:"Amiri",serif;
@@ -168,7 +200,12 @@ body{
 
     direction:rtl;
 
+    text-shadow:
+        0 2px 18px
+        rgba(0,0,0,.25);
+
 }
+
 
 .opening-reference{
 
@@ -184,6 +221,7 @@ body{
 
 }
 
+
 .opening-line{
 
     width:65px;
@@ -195,6 +233,7 @@ body{
     margin:28px auto 0;
 
 }
+
 
 @keyframes openingFade{
 
@@ -236,12 +275,10 @@ body{
     border-radius:50%;
 
     border:
-
         1px solid
         rgba(184,148,77,.8);
 
     background:
-
         rgba(13,42,33,.96);
 
     color:var(--gold-light);
@@ -253,7 +290,6 @@ body{
     cursor:pointer;
 
     box-shadow:
-
         0 5px 25px
         rgba(0,0,0,.22);
 
@@ -262,6 +298,7 @@ body{
     transition:.25s;
 
 }
+
 
 .music-btn:active{
 
@@ -292,6 +329,7 @@ body{
 
 }
 
+
 .hero-image{
 
     display:block;
@@ -311,6 +349,7 @@ body{
     padding:0;
 
 }
+
 
 .hero-scroll{
 
@@ -349,6 +388,7 @@ body{
 
 }
 
+
 @keyframes scrollBounce{
 
     0%,100%{
@@ -369,7 +409,7 @@ body{
 
 
 /* =====================================================
-   COMMON SECTION
+   COMMON
 ===================================================== */
 
 .section{
@@ -379,6 +419,7 @@ body{
     text-align:center;
 
 }
+
 
 .section-inner{
 
@@ -392,7 +433,7 @@ body{
 
 
 /* =====================================================
-   COUNTDOWN
+   COUNTDOWN SECTION
 ===================================================== */
 
 .countdown-section{
@@ -403,18 +444,20 @@ body{
 
     padding:
 
-        72px 22px
-        86px;
+        58px 22px
+        72px;
 
 }
 
+
 .countdown-intro{
 
-    max-width:700px;
+    max-width:720px;
 
     margin:auto;
 
 }
+
 
 .countdown-label{
 
@@ -428,9 +471,10 @@ body{
 
     text-transform:uppercase;
 
-    margin-bottom:18px;
+    margin-bottom:17px;
 
 }
+
 
 .countdown-title{
 
@@ -447,9 +491,10 @@ body{
 
     color:var(--dark-text);
 
-    margin-bottom:25px;
+    margin-bottom:22px;
 
 }
+
 
 .small-ornament{
 
@@ -457,17 +502,17 @@ body{
 
     font-size:25px;
 
-    margin-bottom:27px;
+    margin-bottom:25px;
 
 }
+
 
 .countdown-description{
 
     max-width:650px;
 
     margin:
-
-        0 auto 48px;
+        0 auto 42px;
 
     color:var(--soft-text);
 
@@ -478,7 +523,7 @@ body{
     font-size:
         clamp(14px,3.8vw,18px);
 
-    line-height:1.9;
+    line-height:1.85;
 
 }
 
@@ -502,9 +547,10 @@ body{
 
 }
 
+
 .time-box{
 
-    min-height:152px;
+    min-height:150px;
 
     display:flex;
 
@@ -533,6 +579,7 @@ body{
 
 }
 
+
 .time-number{
 
     font-family:
@@ -549,6 +596,7 @@ body{
     color:var(--dark-text);
 
 }
+
 
 .time-label{
 
@@ -568,14 +616,14 @@ body{
 
 
 /* =====================================================
-   SAVE THE DATE TRANSITION
+   SAVE THE DATE
 ===================================================== */
 
 .save-date{
 
-    min-height:205px;
+    min-height:190px;
 
-    padding:75px 25px;
+    padding:65px 25px;
 
     display:flex;
 
@@ -592,6 +640,7 @@ body{
     overflow:hidden;
 
 }
+
 
 .save-date::after{
 
@@ -615,6 +664,7 @@ body{
 
 }
 
+
 .save-date-content{
 
     position:relative;
@@ -622,6 +672,7 @@ body{
     z-index:2;
 
 }
+
 
 .save-date-label{
 
@@ -648,10 +699,11 @@ body{
 
     padding:
 
-        82px 20px
-        90px;
+        78px 20px
+        88px;
 
 }
+
 
 .section-label{
 
@@ -668,6 +720,7 @@ body{
     margin-bottom:16px;
 
 }
+
 
 .section-title{
 
@@ -686,6 +739,7 @@ body{
 
 }
 
+
 .gold-line{
 
     width:65px;
@@ -703,7 +757,7 @@ body{
 
 
 /* =====================================================
-   EVENT GRID
+   EVENTS GRID
 ===================================================== */
 
 .events{
@@ -721,10 +775,10 @@ body{
 
 }
 
+
 .event-card{
 
     padding:
-
         42px 25px;
 
     border:
@@ -736,6 +790,7 @@ body{
 
 }
 
+
 .event-symbol{
 
     color:var(--gold-light);
@@ -745,6 +800,7 @@ body{
     margin-bottom:12px;
 
 }
+
 
 .event-title{
 
@@ -761,6 +817,7 @@ body{
     margin-bottom:18px;
 
 }
+
 
 .event-date{
 
@@ -780,6 +837,7 @@ body{
 
 }
 
+
 .event-time{
 
     font-size:27px;
@@ -789,6 +847,7 @@ body{
     color:var(--cream);
 
 }
+
 
 .event-place{
 
@@ -802,6 +861,7 @@ body{
 
 }
 
+
 .map-btn{
 
     display:inline-block;
@@ -809,7 +869,6 @@ body{
     margin-top:26px;
 
     padding:
-
         12px 23px;
 
     border:
@@ -832,6 +891,7 @@ body{
 
 }
 
+
 .map-btn:hover{
 
     background:var(--gold);
@@ -842,7 +902,7 @@ body{
 
 
 /* =====================================================
-   MOMENTS
+   OUR MOMENTS
 ===================================================== */
 
 .moments-section{
@@ -853,10 +913,11 @@ body{
 
     padding:
 
-        82px 20px
-        90px;
+        80px 20px
+        88px;
 
 }
+
 
 .moments-section .section-label{
 
@@ -864,11 +925,13 @@ body{
 
 }
 
+
 .moments-section .section-title{
 
     color:var(--dark-text);
 
 }
+
 
 .moment-grid{
 
@@ -884,6 +947,7 @@ body{
     margin:auto;
 
 }
+
 
 .moment{
 
@@ -908,6 +972,7 @@ body{
         );
 
 }
+
 
 .moment span{
 
@@ -934,10 +999,11 @@ body{
 
     padding:
 
-        85px 20px
-        95px;
+        82px 20px
+        92px;
 
 }
+
 
 .rsvp-text{
 
@@ -955,12 +1021,12 @@ body{
 
 }
 
+
 .whatsapp-btn{
 
     display:inline-block;
 
     padding:
-
         15px 30px;
 
     background:var(--gold);
@@ -983,6 +1049,7 @@ body{
 
 }
 
+
 .whatsapp-btn:hover{
 
     background:var(--gold-light);
@@ -1000,14 +1067,15 @@ body{
 
     padding:
 
-        90px 20px
-        100px;
+        88px 20px
+        98px;
 
     text-align:center;
 
     color:var(--cream);
 
 }
+
 
 .dua-ornament{
 
@@ -1020,6 +1088,7 @@ body{
     margin-bottom:30px;
 
 }
+
 
 .dua{
 
@@ -1040,12 +1109,12 @@ body{
 
 }
 
+
 .dua-meaning{
 
     max-width:650px;
 
     margin:
-
         22px auto 0;
 
     font-size:17px;
@@ -1057,6 +1126,7 @@ body{
     font-style:italic;
 
 }
+
 
 .amin{
 
@@ -1087,6 +1157,7 @@ footer{
 
 }
 
+
 .footer-ayah{
 
     direction:rtl;
@@ -1100,6 +1171,7 @@ footer{
     color:var(--gold-light);
 
 }
+
 
 .footer-reference{
 
@@ -1117,7 +1189,7 @@ footer{
 
 
 /* =====================================================
-   REVEAL
+   REVEAL ANIMATION
 ===================================================== */
 
 .reveal{
@@ -1133,6 +1205,7 @@ footer{
         transform .9s ease;
 
 }
+
 
 .reveal.show{
 
@@ -1153,17 +1226,18 @@ footer{
     .countdown-section{
 
         padding:
-
-            58px 18px
-            68px;
+            55px 18px
+            65px;
 
     }
+
 
     .countdown-description{
 
-        margin-bottom:38px;
+        margin-bottom:36px;
 
     }
+
 
     .countdown{
 
@@ -1176,19 +1250,22 @@ footer{
 
     }
 
+
     .time-box{
 
         min-height:135px;
 
     }
 
+
     .save-date{
 
-        min-height:180px;
+        min-height:175px;
 
-        padding:60px 20px;
+        padding:58px 20px;
 
     }
+
 
     .events{
 
@@ -1198,11 +1275,14 @@ footer{
 
     }
 
+
     .event-card{
 
-        padding:35px 18px;
+        padding:
+            35px 18px;
 
     }
+
 
     .moment-grid{
 
@@ -1211,11 +1291,20 @@ footer{
 
     }
 
+
+    .dua-section{
+
+        padding:
+            78px 18px
+            90px;
+
+    }
+
 }
 
 
 /* =====================================================
-   VERY SMALL SCREEN
+   VERY SMALL MOBILE
 ===================================================== */
 
 @media(max-width:370px){
@@ -1226,17 +1315,20 @@ footer{
 
     }
 
+
     .time-box{
 
         min-height:125px;
 
     }
 
+
     .time-number{
 
         font-size:38px;
 
     }
+
 
     .time-label{
 
@@ -1278,12 +1370,15 @@ footer{
 
 
 <!-- =====================================================
-     OPENING
+     OPENING SCREEN
 ===================================================== -->
 
-<div class="opening" id="opening">
+<div
+    class="opening"
+    id="opening">
 
     <div class="opening-content">
+
 
         <div class="bismillah">
 
@@ -1309,13 +1404,14 @@ footer{
 
         <div class="opening-line"></div>
 
+
     </div>
 
 </div>
 
 
 <!-- =====================================================
-     MUSIC
+     AUDIO
 ===================================================== -->
 
 <audio
@@ -1330,10 +1426,14 @@ footer{
 </audio>
 
 
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
 <button
     class="music-btn"
     id="musicBtn"
-    aria-label="Music">
+    aria-label="Play or pause music">
 
     ♪
 
@@ -1347,6 +1447,7 @@ footer{
 <section
     class="hero"
     id="home">
+
 
     <img
         class="hero-image"
@@ -1366,6 +1467,7 @@ footer{
 
     </button>
 
+
 </section>
 
 
@@ -1376,7 +1478,9 @@ footer{
 <section
     class="section countdown-section">
 
-    <div class="section-inner countdown-intro reveal">
+
+    <div
+        class="section-inner countdown-intro reveal">
 
 
         <div class="countdown-label">
@@ -1422,6 +1526,7 @@ footer{
 
                 </span>
 
+
                 <span class="time-label">
 
                     Days
@@ -1440,6 +1545,7 @@ footer{
                     00
 
                 </span>
+
 
                 <span class="time-label">
 
@@ -1460,6 +1566,7 @@ footer{
 
                 </span>
 
+
                 <span class="time-label">
 
                     Minutes
@@ -1479,6 +1586,7 @@ footer{
 
                 </span>
 
+
                 <span class="time-label">
 
                     Seconds
@@ -1490,7 +1598,9 @@ footer{
 
         </div>
 
+
     </div>
+
 
 </section>
 
@@ -1501,7 +1611,10 @@ footer{
 
 <section class="save-date">
 
-    <div class="save-date-content reveal">
+
+    <div
+        class="save-date-content reveal">
+
 
         <div class="save-date-label">
 
@@ -1509,7 +1622,9 @@ footer{
 
         </div>
 
+
     </div>
+
 
 </section>
 
@@ -1521,10 +1636,12 @@ footer{
 <section
     class="section events-section">
 
+
     <div class="section-inner">
 
 
         <div class="reveal">
+
 
             <div class="section-label">
 
@@ -1542,15 +1659,19 @@ footer{
 
             <div class="gold-line"></div>
 
+
         </div>
 
 
         <div class="events">
 
 
-            <!-- NIKAH -->
+            <!-- =================================================
+                 NIKAH
+            ================================================== -->
 
             <div class="event-card reveal">
+
 
                 <div class="event-symbol">
 
@@ -1597,12 +1718,16 @@ footer{
 
                 </a>
 
+
             </div>
 
 
-            <!-- RECEPTION -->
+            <!-- =================================================
+                 RECEPTION
+            ================================================== -->
 
             <div class="event-card reveal">
+
 
                 <div class="event-symbol">
 
@@ -1650,12 +1775,15 @@ footer{
 
                 </a>
 
+
             </div>
 
 
         </div>
 
+
     </div>
+
 
 </section>
 
@@ -1667,7 +1795,9 @@ footer{
 <section
     class="section moments-section">
 
-    <div class="section-inner moments-content reveal">
+
+    <div
+        class="section-inner moments-content reveal">
 
 
         <div class="section-label">
@@ -1758,7 +1888,9 @@ footer{
 
         </div>
 
+
     </div>
+
 
 </section>
 
@@ -1770,7 +1902,9 @@ footer{
 <section
     class="section rsvp-section">
 
-    <div class="section-inner rsvp-content reveal">
+
+    <div
+        class="section-inner rsvp-content reveal">
 
 
         <div class="section-label">
@@ -1811,6 +1945,7 @@ footer{
 
     </div>
 
+
 </section>
 
 
@@ -1820,6 +1955,7 @@ footer{
 
 <section
     class="dua-section">
+
 
     <div class="dua-ornament">
 
@@ -1856,6 +1992,7 @@ footer{
 
     </div>
 
+
 </section>
 
 
@@ -1864,6 +2001,7 @@ footer{
 ===================================================== -->
 
 <footer>
+
 
     <div class="footer-ayah">
 
@@ -1878,6 +2016,7 @@ footer{
 
     </div>
 
+
 </footer>
 
 
@@ -1885,7 +2024,7 @@ footer{
 <script>
 
 /* =====================================================
-   OPENING
+   OPENING SCREEN
 ===================================================== */
 
 const opening =
@@ -1904,7 +2043,7 @@ function closeOpening(){
 
 
 /*
-   Opening automatically disappears
+   Automatically close opening
    after 3 seconds.
 */
 
@@ -1921,6 +2060,7 @@ setTimeout(
 const music =
     document.getElementById("weddingMusic");
 
+
 const musicBtn =
     document.getElementById("musicBtn");
 
@@ -1929,8 +2069,12 @@ let musicStarted = false;
 
 
 /*
-   First touch anywhere on the page
-   attempts to start the music.
+   Start music after user interaction.
+
+   IMPORTANT:
+   This function is called from the
+   actual pointer interaction, allowing
+   the browser to treat it as user-initiated.
 */
 
 async function startMusic(){
@@ -1957,7 +2101,7 @@ async function startMusic(){
     catch(error){
 
         console.log(
-            "Music waiting for user interaction."
+            "Music requires user interaction."
         );
 
     }
@@ -1965,9 +2109,9 @@ async function startMusic(){
 }
 
 
-/*
-   FIRST TOUCH / CLICK ANYWHERE
-*/
+/* =====================================================
+   ANY FIRST TOUCH / CLICK
+===================================================== */
 
 document.addEventListener(
     "pointerdown",
@@ -1981,35 +2125,15 @@ document.addEventListener(
 
     },
     {
-        passive:true
+        passive:true,
+        once:true
     }
 );
 
 
-/*
-   Extra support for mobile touch.
-*/
-
-document.addEventListener(
-    "touchstart",
-    function(){
-
-        closeOpening();
-
-        startMusic();
-
-        requestWakeLock();
-
-    },
-    {
-        passive:true
-    }
-);
-
-
-/*
-   Music button.
-*/
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
 
 musicBtn.addEventListener(
     "click",
@@ -2049,9 +2173,9 @@ musicBtn.addEventListener(
 );
 
 
-/*
-   Keep button synchronized.
-*/
+/* =====================================================
+   MUSIC STATE SYNC
+===================================================== */
 
 music.addEventListener(
     "play",
@@ -2074,28 +2198,31 @@ music.addEventListener(
 
 
 /* =====================================================
-   HERO SCROLL
+   HERO SCROLL BUTTON
 ===================================================== */
 
-document
-    .getElementById("heroScroll")
-    .addEventListener(
-        "click",
-        function(event){
+const heroScroll =
+    document.getElementById("heroScroll");
 
-            event.stopPropagation();
 
-            window.scrollBy({
+heroScroll.addEventListener(
+    "click",
+    function(event){
 
-                top:
-                    window.innerHeight * .85,
+        event.stopPropagation();
 
-                behavior:"smooth"
 
-            });
+        window.scrollBy({
 
-        }
-    );
+            top:
+                window.innerHeight * 0.85,
+
+            behavior:"smooth"
+
+        });
+
+    }
+);
 
 
 /* =====================================================
@@ -2193,7 +2320,9 @@ setInterval(
 ===================================================== */
 
 const revealElements =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(
+        ".reveal"
+    );
 
 
 const observer =
@@ -2271,7 +2400,7 @@ async function requestWakeLock(){
 
 
 /*
-   Re-enable when page becomes visible.
+   Request again when page becomes visible.
 */
 
 document.addEventListener(
@@ -2301,14 +2430,15 @@ let resumeTimer = null;
 
 
 /*
-   Slow continuous scrolling.
+   Very slow continuous scrolling.
 */
 
 const scrollSpeed = 0.65;
 
 
 /*
-   Pause when visitor interacts.
+   Pause automatic scrolling
+   when user interacts manually.
 */
 
 function pauseAutoScroll(){
@@ -2323,7 +2453,7 @@ function pauseAutoScroll(){
 
     /*
        Resume after 4 seconds
-       without interaction.
+       without manual interaction.
     */
 
     resumeTimer =
@@ -2339,9 +2469,9 @@ function pauseAutoScroll(){
 }
 
 
-/*
-   Manual touch / scrolling
-*/
+/* =====================================================
+   USER INTERACTION PAUSES AUTO SCROLL
+===================================================== */
 
 window.addEventListener(
     "touchstart",
@@ -2371,7 +2501,9 @@ window.addEventListener(
 
 
 /*
-   Pointer interaction.
+   Pointer events are intentionally
+   kept here for mouse/touch/pen
+   interaction.
 */
 
 window.addEventListener(
@@ -2383,9 +2515,9 @@ window.addEventListener(
 );
 
 
-/*
-   Automatic scrolling loop.
-*/
+/* =====================================================
+   AUTO SCROLL LOOP
+===================================================== */
 
 function autoScroll(){
 
@@ -2440,10 +2572,9 @@ function autoScroll(){
 }
 
 
-/*
-   Wait 5 seconds before
-   automatic scrolling starts.
-*/
+/* =====================================================
+   START AUTO SCROLL
+===================================================== */
 
 setTimeout(
     function(){
@@ -2462,4 +2593,5 @@ setTimeout(
 
 
 </body>
+
 </html>
