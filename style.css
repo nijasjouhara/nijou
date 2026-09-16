@@ -1,0 +1,36 @@
+/* =====================================================
+   PRE HERO — ELEGANT CALLIGRAPHY NAMES
+===================================================== */
+
+.pre-hero-name{
+    font-family:"Pinyon Script",cursive;
+
+    font-size:
+        clamp(52px,13vw,92px);
+
+    font-weight:400;
+
+    line-height:.95;
+
+    letter-spacing:1px;
+
+    color:var(--gold-light);
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 2px 16px rgba(184,148,77,.14);
+}
+
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .pre-hero-name{
+        font-size:clamp(48px,13vw,72px);
+
+        letter-spacing:.5px;
+    }
+
+}
