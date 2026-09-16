@@ -1,36 +1,1392 @@
 /* =====================================================
-   PRE HERO — ELEGANT CALLIGRAPHY NAMES
+   ROOT
 ===================================================== */
 
-.pre-hero-name{
-    font-family:"Pinyon Script",cursive;
+:root{
 
-    font-size:
-        clamp(52px,13vw,92px);
+    --green:#0d2a21;
+    --green-dark:#081b16;
+    --green-soft:#12352b;
 
-    font-weight:400;
+    --cream:#f8f0e2;
+    --cream-light:#fbf6ec;
 
-    line-height:.95;
+    --gold:#b8944d;
+    --gold-light:#d5b76f;
+    --gold-pale:#e2cf9e;
 
-    letter-spacing:1px;
+    --dark-text:#142820;
+    --soft-text:#827564;
 
-    color:var(--gold-light);
-
-    white-space:nowrap;
-
-    text-shadow:
-        0 2px 16px rgba(184,148,77,.14);
 }
 
 
-/* MOBILE */
+/* =====================================================
+   RESET
+===================================================== */
 
-@media(max-width:480px){
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    .pre-hero-name{
-        font-size:clamp(48px,13vw,72px);
+html{
+    scroll-behavior:smooth;
+}
 
-        letter-spacing:.5px;
+body{
+
+    margin:0;
+
+    background:var(--cream);
+
+    color:var(--dark-text);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    overflow-x:hidden;
+
+}
+
+
+/* =====================================================
+   OPENING SCREEN
+===================================================== */
+
+.opening{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(184,148,77,.13),
+            transparent 48%
+        ),
+
+        var(--green);
+
+    transition:
+
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+.opening.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+.opening-content{
+
+    width:100%;
+
+    max-width:760px;
+
+    animation:
+        openingFade 1.6s ease;
+
+}
+
+.bismillah{
+
+    font-family:"Amiri",serif;
+
+    font-size:
+        clamp(27px,7vw,50px);
+
+    line-height:1.7;
+
+    color:var(--gold-light);
+
+    margin-bottom:22px;
+
+    direction:rtl;
+
+}
+
+.opening-ayah{
+
+    font-family:"Amiri",serif;
+
+    font-size:
+        clamp(20px,5.2vw,36px);
+
+    line-height:2;
+
+    color:var(--cream);
+
+    direction:rtl;
+
+}
+
+.opening-reference{
+
+    margin-top:14px;
+
+    color:var(--gold-light);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+}
+
+.opening-line{
+
+    width:65px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:28px auto 0;
+
+}
+
+@keyframes openingFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-btn{
+
+    position:fixed;
+
+    top:18px;
+
+    right:18px;
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    border:
+
+        1px solid
+        rgba(184,148,77,.8);
+
+    background:
+
+        rgba(13,42,33,.96);
+
+    color:var(--gold-light);
+
+    z-index:9998;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    box-shadow:
+
+        0 5px 25px
+        rgba(0,0,0,.22);
+
+    backdrop-filter:blur(10px);
+
+    transition:.25s;
+
+}
+
+.music-btn:active{
+
+    transform:scale(.92);
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:auto;
+
+    min-height:0;
+
+    overflow:hidden;
+
+    background:var(--cream);
+
+    line-height:0;
+
+}
+
+.hero-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:none;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.hero-scroll{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:20px;
+
+    transform:
+        translateX(-50%);
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(184,148,77,.65);
+
+    background:
+        rgba(13,42,33,.70);
+
+    color:#fff;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    animation:
+        scrollBounce 1.8s infinite;
+
+}
+
+@keyframes scrollBounce{
+
+    0%,100%{
+
+        transform:
+            translate(-50%,0);
+
+    }
+
+    50%{
+
+        transform:
+            translate(-50%,8px);
+
+    }
+
+}
+
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+.section{
+
+    position:relative;
+
+    text-align:center;
+
+}
+
+.section-inner{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section{
+
+    background:var(--cream);
+
+    color:var(--dark-text);
+
+    padding:
+
+        72px 22px
+        86px;
+
+}
+
+.countdown-intro{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.countdown-label{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+
+}
+
+.countdown-title{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(43px,10vw,68px);
+
+    line-height:1;
+
+    font-weight:500;
+
+    color:var(--dark-text);
+
+    margin-bottom:25px;
+
+}
+
+.small-ornament{
+
+    color:var(--gold);
+
+    font-size:25px;
+
+    margin-bottom:27px;
+
+}
+
+.countdown-description{
+
+    max-width:650px;
+
+    margin:
+
+        0 auto 48px;
+
+    color:var(--soft-text);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        clamp(14px,3.8vw,18px);
+
+    line-height:1.9;
+
+}
+
+
+/* =====================================================
+   COUNTDOWN BOXES
+===================================================== */
+
+.countdown{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+
+.time-box{
+
+    min-height:152px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:
+        1px solid
+        rgba(184,148,77,.48);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.55),
+            rgba(245,235,216,.35)
+        );
+
+    box-shadow:
+
+        0 10px 35px
+        rgba(95,73,40,.06);
+
+}
+
+.time-number{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(36px,8vw,54px);
+
+    line-height:1;
+
+    font-weight:600;
+
+    color:var(--dark-text);
+
+}
+
+.time-label{
+
+    margin-top:13px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:var(--soft-text);
+
+    text-transform:uppercase;
+
+}
+
+
+/* =====================================================
+   SAVE THE DATE TRANSITION
+===================================================== */
+
+.save-date{
+
+    min-height:205px;
+
+    padding:75px 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--green);
+
+    color:var(--cream);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.save-date::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+
+    height:330px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(184,148,77,.18);
+
+    right:-165px;
+
+    top:-90px;
+
+}
+
+.save-date-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.save-date-label{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold-light);
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+.events-section{
+
+    background:var(--green);
+
+    color:var(--cream);
+
+    padding:
+
+        82px 20px
+        90px;
+
+}
+
+.section-label{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold-light);
+
+    text-transform:uppercase;
+
+    margin-bottom:16px;
+
+}
+
+.section-title{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(40px,9vw,62px);
+
+    font-weight:500;
+
+    color:var(--gold-light);
+
+    line-height:1.1;
+
+}
+
+.gold-line{
+
+    width:65px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:
+
+        25px auto
+        40px;
+
+}
+
+
+/* =====================================================
+   EVENT GRID
+===================================================== */
+
+.events{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.event-card{
+
+    padding:
+
+        42px 25px;
+
+    border:
+        1px solid
+        rgba(184,148,77,.42);
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+.event-symbol{
+
+    color:var(--gold-light);
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+.event-title{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:37px;
+
+    font-weight:500;
+
+    color:var(--gold-light);
+
+    margin-bottom:18px;
+
+}
+
+.event-date{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+
+    color:var(--cream);
+
+    opacity:.78;
+
+    margin-bottom:17px;
+
+}
+
+.event-time{
+
+    font-size:27px;
+
+    margin-bottom:18px;
+
+    color:var(--cream);
+
+}
+
+.event-place{
+
+    font-size:19px;
+
+    line-height:1.6;
+
+    color:var(--cream);
+
+    opacity:.82;
+
+}
+
+.map-btn{
+
+    display:inline-block;
+
+    margin-top:26px;
+
+    padding:
+
+        12px 23px;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color:var(--gold-light);
+
+    text-decoration:none;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+
+}
+
+.map-btn:hover{
+
+    background:var(--gold);
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
+   MOMENTS
+===================================================== */
+
+.moments-section{
+
+    background:var(--cream);
+
+    color:var(--dark-text);
+
+    padding:
+
+        82px 20px
+        90px;
+
+}
+
+.moments-section .section-label{
+
+    color:var(--gold);
+
+}
+
+.moments-section .section-title{
+
+    color:var(--dark-text);
+
+}
+
+.moment-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:13px;
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+.moment{
+
+    aspect-ratio:1/1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(184,148,77,.35);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.55),
+            rgba(239,224,199,.3)
+        );
+
+}
+
+.moment span{
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:31px;
+
+    color:var(--gold);
+
+}
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp-section{
+
+    background:var(--green);
+
+    color:var(--cream);
+
+    padding:
+
+        85px 20px
+        95px;
+
+}
+
+.rsvp-text{
+
+    max-width:650px;
+
+    margin:
+
+        0 auto 32px;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+    opacity:.82;
+
+}
+
+.whatsapp-btn{
+
+    display:inline-block;
+
+    padding:
+
+        15px 30px;
+
+    background:var(--gold);
+
+    color:var(--green);
+
+    text-decoration:none;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+
+}
+
+.whatsapp-btn:hover{
+
+    background:var(--gold-light);
+
+}
+
+
+/* =====================================================
+   FINAL DUA
+===================================================== */
+
+.dua-section{
+
+    background:var(--green-dark);
+
+    padding:
+
+        90px 20px
+        100px;
+
+    text-align:center;
+
+    color:var(--cream);
+
+}
+
+.dua-ornament{
+
+    color:var(--gold-light);
+
+    font-size:19px;
+
+    letter-spacing:8px;
+
+    margin-bottom:30px;
+
+}
+
+.dua{
+
+    max-width:900px;
+
+    margin:auto;
+
+    direction:rtl;
+
+    font-family:"Amiri",serif;
+
+    font-size:
+        clamp(24px,6vw,40px);
+
+    line-height:2;
+
+    color:var(--cream);
+
+}
+
+.dua-meaning{
+
+    max-width:650px;
+
+    margin:
+
+        22px auto 0;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    opacity:.68;
+
+    font-style:italic;
+
+}
+
+.amin{
+
+    margin-top:25px;
+
+    direction:rtl;
+
+    font-family:"Amiri",serif;
+
+    font-size:23px;
+
+    color:var(--gold-light);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#06130f;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+}
+
+.footer-ayah{
+
+    direction:rtl;
+
+    font-family:"Amiri",serif;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:var(--gold-light);
+
+}
+
+.footer-reference{
+
+    margin-top:10px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:rgba(255,255,255,.45);
+
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+
+        opacity .9s ease,
+        transform .9s ease;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+
+/* SETTINGS PANEL */
+.settings-open-btn{position:fixed;right:18px;bottom:22px;width:58px;height:58px;border-radius:50%;border:1px solid var(--gold-light);background:var(--gold);color:var(--green-dark);z-index:9997;font-size:25px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.28);transition:.25s ease}.settings-open-btn:active{transform:scale(.92)}
+.settings-backdrop{position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.48);opacity:0;visibility:hidden;transition:.35s ease;backdrop-filter:blur(3px)}.settings-backdrop.show{opacity:1;visibility:visible}
+.settings-panel{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);width:min(520px,calc(100% - 28px));max-height:calc(100vh - 40px);overflow:auto;z-index:9996;padding:28px 24px 22px;border:1px solid rgba(184,148,77,.65);border-radius:28px;background:rgba(18,24,21,.96);color:var(--cream);box-shadow:0 20px 70px rgba(0,0,0,.42);opacity:0;visibility:hidden;transition:.35s ease;backdrop-filter:blur(18px)}.settings-panel.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.settings-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.settings-heading{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--gold-light)}.settings-close{width:38px;height:38px;border-radius:50%;border:1px solid rgba(184,148,77,.55);background:transparent;color:var(--gold-light);font-size:22px;cursor:pointer}.settings-group{margin-top:20px}.settings-label{display:flex;align-items:center;gap:9px;font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px}.settings-options{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.settings-option{min-height:48px;border:1px solid rgba(255,255,255,.17);border-radius:14px;background:rgba(255,255,255,.045);color:var(--cream);font-family:"Montserrat",sans-serif;font-size:11px;cursor:pointer;transition:.25s ease}.settings-option.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold-light)}.music-row{display:flex;align-items:center;gap:12px}.music-control{width:52px;height:48px;flex:0 0 52px;border:1px solid rgba(184,148,77,.65);border-radius:14px;background:var(--gold);color:var(--green-dark);font-size:18px;cursor:pointer}.volume-control{width:100%;accent-color:var(--gold)}.settings-footer{margin-top:23px;padding-top:18px;border-top:1px solid rgba(184,148,77,.25);text-align:center;color:var(--gold-pale);font-family:"Montserrat",sans-serif;font-size:9px;letter-spacing:2.5px}.settings-footer span{font-size:15px;margin-right:6px}
+/* TOUCH BAARAKALLAH */
+/* TOUCH BAARAKALLAH */
+.touch-blessing{
+    position:fixed;
+    left:50%;
+    top:50%;
+    z-index:10000;
+    pointer-events:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    min-width:205px;
+    height:64px;
+    padding:0 28px;
+
+    border:1px solid rgba(184,148,77,.65);
+    border-radius:40px;
+
+    background:rgba(45,45,43,.88);
+
+    color:#eee8d8;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(24px,6vw,34px);
+    font-weight:500;
+    font-style:italic;
+    letter-spacing:.2px;
+    line-height:1;
+
+    box-shadow:
+        0 8px 28px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 0 12px rgba(213,183,111,.10);
+
+    text-shadow:
+        0 0 7px rgba(213,183,111,.28),
+        0 0 18px rgba(213,183,111,.12);
+
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.88);
+    white-space:nowrap;
+}
+
+.touch-blessing.show{
+    animation:baarakallahElegant 1.65s ease-out forwards;
+}
+
+@keyframes baarakallahElegant{
+
+    0%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.88);
+    }
+
+    15%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    70%{
+        opacity:1;
+        transform:translate(-50%,-51%) scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-54%) scale(1.015);
+    }
+}
+
+
+/* Reference-style floating hearts and sparkles */
+.touch-heart{
+    position:fixed;
+    z-index:9999;
+    pointer-events:none;
+
+    font-family:Georgia,serif;
+    font-weight:normal;
+
+    opacity:0;
+
+    animation:touchHeartFloat 1.5s ease-out forwards;
+}
+
+.touch-heart.gold{
+    color:#d6b76f;
+    text-shadow:0 0 8px rgba(213,183,111,.30);
+}
+
+.touch-heart.green{
+    color:#6fae9b;
+    text-shadow:0 0 8px rgba(111,174,155,.25);
+}
+
+.touch-heart.heart{
+    font-size:23px;
+}
+
+.touch-heart.sparkle{
+    font-size:20px;
+}
+
+.touch-heart.small{
+    font-size:14px;
+}
+
+@keyframes touchHeartFloat{
+
+    0%{
+        opacity:0;
+        transform:
+            translate(-50%,-50%)
+            scale(.45)
+            rotate(0deg);
+    }
+
+    18%{
+        opacity:.95;
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    65%{
+        opacity:.85;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(
+                calc(-50% + var(--drift-x)),
+                calc(-50% + var(--drift-y))
+            )
+            scale(.82)
+            rotate(var(--rotate));
+    }
+}
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    .countdown-section{
+
+        padding:
+
+            58px 18px
+            68px;
+
+    }
+
+    .countdown-description{
+
+        margin-bottom:38px;
+
+    }
+
+    .countdown{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:12px;
+
+        max-width:420px;
+
+    }
+
+    .time-box{
+
+        min-height:135px;
+
+    }
+
+    .save-date{
+
+        min-height:180px;
+
+        padding:60px 20px;
+
+    }
+
+    .events{
+
+        grid-template-columns:1fr;
+
+        max-width:500px;
+
+    }
+
+    .event-card{
+
+        padding:35px 18px;
+
+    }
+
+    .moment-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:370px){
+
+    .countdown{
+
+        gap:8px;
+
+    }
+
+    .time-box{
+
+        min-height:125px;
+
+    }
+
+    .time-number{
+
+        font-size:38px;
+
+    }
+
+    .time-label{
+
+        font-size:8px;
+
+        letter-spacing:2px;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
+
     }
 
 }
