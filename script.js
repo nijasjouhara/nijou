@@ -1,4 +1,9 @@
 /* =====================================================
+   WEDDING INVITATION — COMPLETE SCRIPT
+===================================================== */
+
+
+/* =====================================================
    OPENING
 ===================================================== */
 
@@ -18,8 +23,7 @@ function closeOpening(){
 
 
 /*
-   Opening automatically disappears
-   after 3 seconds.
+   Automatically hide opening after 3 seconds.
 */
 
 setTimeout(
@@ -38,16 +42,31 @@ const music =
 const musicBtn =
     document.getElementById("musicBtn");
 
+const panelMusicBtn =
+    document.getElementById("panelMusicBtn");
+
+const volumeControl =
+    document.getElementById("volumeControl");
+
 
 let musicStarted = false;
 
 
 /*
-   First touch anywhere on the page
-   attempts to start the music.
+   Start music after user interaction.
+
+   Browser autoplay policy requires
+   a user interaction before audio can play.
 */
 
 async function startMusic(){
+
+    if(!music){
+
+        return;
+
+    }
+
 
     if(musicStarted){
 
@@ -64,7 +83,7 @@ async function startMusic(){
 
         musicStarted = true;
 
-        musicBtn.innerHTML = "❚❚";
+        updateMusicButtons();
 
     }
 
@@ -80,7 +99,62 @@ async function startMusic(){
 
 
 /*
-   FIRST TOUCH / CLICK ANYWHERE
+   Synchronize both music buttons.
+*/
+
+function updateMusicButtons(){
+
+    if(!music){
+
+        return;
+
+    }
+
+
+    if(music.paused){
+
+        if(musicBtn){
+
+            musicBtn.innerHTML = "♪";
+
+        }
+
+
+        if(panelMusicBtn){
+
+            panelMusicBtn.innerHTML = "▶";
+
+        }
+
+    }
+
+    else{
+
+        if(musicBtn){
+
+            musicBtn.innerHTML = "❚❚";
+
+        }
+
+
+        if(panelMusicBtn){
+
+            panelMusicBtn.innerHTML = "❚❚";
+
+        }
+
+    }
+
+}
+
+
+/*
+   First pointer interaction.
+
+   This handles:
+   - Music
+   - Opening close
+   - Wake lock
 */
 
 document.addEventListener(
@@ -101,7 +175,7 @@ document.addEventListener(
 
 
 /*
-   Extra support for mobile touch.
+   Additional mobile touch support.
 */
 
 document.addEventListener(
@@ -121,88 +195,113 @@ document.addEventListener(
 );
 
 
-/*
-   Music button.
-*/
-
-musicBtn.addEventListener(
-    "click",
-    function(event){
-
-        event.stopPropagation();
-
-
-        if(music.paused){
-
-            music.play()
-                .then(function(){
-
-                    musicStarted = true;
-
-                    musicBtn.innerHTML =
-                        "❚❚";
-
-                })
-                .catch(function(error){
-
-                    console.log(error);
-
-                });
-
-        }
-
-        else{
-
-            music.pause();
-
-            musicBtn.innerHTML = "♪";
-
-        }
-
-    }
-);
-
-
-/*
-   Keep button synchronized.
-*/
-
-music.addEventListener(
-    "play",
-    function(){
-
-        musicBtn.innerHTML = "❚❚";
-
-    }
-);
-
-
-music.addEventListener(
-    "pause",
-    function(){
-
-        musicBtn.innerHTML = "♪";
-
-    }
-);
-
-
 /* =====================================================
-   HERO SCROLL
+   MAIN MUSIC BUTTON
 ===================================================== */
 
-document
-    .getElementById("heroScroll")
-    .addEventListener(
+if(musicBtn){
+
+    musicBtn.addEventListener(
         "click",
         function(event){
 
             event.stopPropagation();
 
+
+            if(!music){
+
+                return;
+
+            }
+
+
+            if(music.paused){
+
+                music.play()
+                    .then(
+                        function(){
+
+                            musicStarted = true;
+
+                            updateMusicButtons();
+
+                        }
+                    )
+                    .catch(
+                        function(error){
+
+                            console.log(error);
+
+                        }
+                    );
+
+            }
+
+            else{
+
+                music.pause();
+
+                updateMusicButtons();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   MUSIC EVENTS
+===================================================== */
+
+if(music){
+
+    music.addEventListener(
+        "play",
+        function(){
+
+            musicStarted = true;
+
+            updateMusicButtons();
+
+        }
+    );
+
+
+    music.addEventListener(
+        "pause",
+        function(){
+
+            updateMusicButtons();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   HERO SCROLL BUTTON
+===================================================== */
+
+const heroScroll =
+    document.getElementById("heroScroll");
+
+
+if(heroScroll){
+
+    heroScroll.addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
+
+
             window.scrollBy({
 
                 top:
-                    window.innerHeight * .85,
+                    window.innerHeight * 0.85,
 
                 behavior:"smooth"
 
@@ -211,10 +310,20 @@ document
         }
     );
 
+}
+
 
 /* =====================================================
    COUNTDOWN
 ===================================================== */
+
+
+/*
+   Wedding / Nikah:
+   21 September 2026
+   11:00 AM
+   India Standard Time (+05:30)
+*/
 
 const weddingDate =
     new Date(
@@ -224,6 +333,31 @@ const weddingDate =
 
 function updateCountdown(){
 
+    const daysElement =
+        document.getElementById("days");
+
+    const hoursElement =
+        document.getElementById("hours");
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+
+    if(
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
+    ){
+
+        return;
+
+    }
+
+
     const now =
         new Date().getTime();
 
@@ -231,6 +365,11 @@ function updateCountdown(){
     let distance =
         weddingDate - now;
 
+
+    /*
+       Once the wedding time has passed,
+       keep the countdown at zero.
+    */
 
     if(distance < 0){
 
@@ -248,45 +387,47 @@ function updateCountdown(){
 
     const hours =
         Math.floor(
-            (distance /
-            (1000 * 60 * 60)) % 24
+            (
+                distance /
+                (1000 * 60 * 60)
+            ) % 24
         );
 
 
     const minutes =
         Math.floor(
-            (distance /
-            (1000 * 60)) % 60
+            (
+                distance /
+                (1000 * 60)
+            ) % 60
         );
 
 
     const seconds =
         Math.floor(
-            (distance /
-            1000) % 60
+            (
+                distance /
+                1000
+            ) % 60
         );
 
 
-    document.getElementById("days")
-        .textContent =
+    daysElement.textContent =
         String(days)
             .padStart(2,"0");
 
 
-    document.getElementById("hours")
-        .textContent =
+    hoursElement.textContent =
         String(hours)
             .padStart(2,"0");
 
 
-    document.getElementById("minutes")
-        .textContent =
+    minutesElement.textContent =
         String(minutes)
             .padStart(2,"0");
 
 
-    document.getElementById("seconds")
-        .textContent =
+    secondsElement.textContent =
         String(seconds)
             .padStart(2,"0");
 
@@ -310,43 +451,68 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 
-const observer =
-    new IntersectionObserver(
+/*
+   If IntersectionObserver is available,
+   animate sections when they enter the screen.
+*/
 
-        function(entries){
+if("IntersectionObserver" in window){
 
-            entries.forEach(
-                function(entry){
+    const observer =
+        new IntersectionObserver(
 
-                    if(
-                        entry.isIntersecting
-                    ){
+            function(entries){
 
-                        entry.target
-                            .classList
-                            .add("show");
+                entries.forEach(
+                    function(entry){
+
+                        if(
+                            entry.isIntersecting
+                        ){
+
+                            entry.target
+                                .classList
+                                .add("show");
+
+                        }
 
                     }
+                );
 
-                }
-            );
+            },
 
-        },
+            {
+                threshold:0.12
+            }
 
-        {
-            threshold:.12
+        );
+
+
+    revealElements.forEach(
+        function(element){
+
+            observer.observe(element);
+
         }
-
     );
 
+}
 
-revealElements.forEach(
-    function(element){
+else{
 
-        observer.observe(element);
+    /*
+       Fallback for older browsers.
+    */
 
-    }
-);
+    revealElements.forEach(
+        function(element){
+
+            element.classList.add("show");
+
+        }
+    );
+
+}
 
 
 /* =====================================================
@@ -369,6 +535,21 @@ async function requestWakeLock(){
                     .wakeLock
                     .request("screen");
 
+
+            /*
+               If the browser releases the lock,
+               clear the reference.
+            */
+
+            wakeLock.addEventListener(
+                "release",
+                function(){
+
+                    wakeLock = null;
+
+                }
+            );
+
         }
 
     }
@@ -385,7 +566,8 @@ async function requestWakeLock(){
 
 
 /*
-   Re-enable when page becomes visible.
+   Re-enable screen wake lock
+   when the page becomes visible again.
 */
 
 document.addEventListener(
@@ -409,20 +591,41 @@ document.addEventListener(
    AUTO SCROLL
 ===================================================== */
 
+
+/*
+   Auto-scroll is enabled by default.
+
+   User interaction pauses it.
+*/
+
 let autoScrolling = true;
 
 let resumeTimer = null;
 
 
 /*
-   Slow continuous scrolling.
+   Very slow scrolling speed.
 */
 
 const scrollSpeed = 0.65;
 
 
 /*
-   Pause when visitor interacts.
+   Delay before automatic scrolling begins.
+*/
+
+const autoScrollStartDelay = 5000;
+
+
+/*
+   Resume after 4 seconds without interaction.
+*/
+
+const autoScrollResumeDelay = 4000;
+
+
+/*
+   Pause automatic scrolling.
 */
 
 function pauseAutoScroll(){
@@ -435,27 +638,38 @@ function pauseAutoScroll(){
     );
 
 
-    /*
-       Resume after 4 seconds
-       without interaction.
-    */
-
     resumeTimer =
         setTimeout(
             function(){
 
-                autoScrolling = true;
+                /*
+                   Only resume if the user
+                   is still on the page.
+                */
+
+                if(
+                    document.visibilityState ===
+                    "visible"
+                ){
+
+                    autoScrolling = true;
+
+                    requestAnimationFrame(
+                        autoScroll
+                    );
+
+                }
 
             },
-            4000
+            autoScrollResumeDelay
         );
 
 }
 
 
-/*
-   Manual touch / scrolling
-*/
+/* =====================================================
+   USER INTERACTION EVENTS
+===================================================== */
 
 window.addEventListener(
     "touchstart",
@@ -484,10 +698,6 @@ window.addEventListener(
 );
 
 
-/*
-   Pointer interaction.
-*/
-
 window.addEventListener(
     "pointerdown",
     pauseAutoScroll,
@@ -498,10 +708,46 @@ window.addEventListener(
 
 
 /*
-   Automatic scrolling loop.
+   Keyboard scrolling also counts as
+   manual interaction.
 */
 
+window.addEventListener(
+    "keydown",
+    function(event){
+
+        const keys = [
+            "ArrowUp",
+            "ArrowDown",
+            "PageUp",
+            "PageDown",
+            "Home",
+            "End",
+            " "
+        ];
+
+
+        if(
+            keys.includes(event.key)
+        ){
+
+            pauseAutoScroll();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   AUTOMATIC SCROLL LOOP
+===================================================== */
+
 function autoScroll(){
+
+    /*
+       Keep animation loop alive while paused.
+    */
 
     if(!autoScrolling){
 
@@ -513,6 +759,10 @@ function autoScroll(){
 
     }
 
+
+    /*
+       Calculate current and maximum scroll.
+    */
 
     const current =
         window.scrollY;
@@ -526,8 +776,21 @@ function autoScroll(){
 
 
     /*
-       Stop permanently at bottom.
+       Stop permanently at the bottom.
     */
+
+    if(
+        maxScroll <= 0
+    ){
+
+        requestAnimationFrame(
+            autoScroll
+        );
+
+        return;
+
+    }
+
 
     if(
         current >=
@@ -540,6 +803,10 @@ function autoScroll(){
 
     }
 
+
+    /*
+       Scroll very slowly.
+    */
 
     window.scrollBy(
         0,
@@ -555,21 +822,32 @@ function autoScroll(){
 
 
 /*
-   Wait 5 seconds before
-   automatic scrolling starts.
+   Wait before starting auto-scroll.
 */
 
 setTimeout(
     function(){
 
-        autoScrolling = true;
+        /*
+           Don't start while the settings
+           panel is open or page is hidden.
+        */
 
-        requestAnimationFrame(
-            autoScroll
-        );
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            autoScrolling = true;
+
+            requestAnimationFrame(
+                autoScroll
+            );
+
+        }
 
     },
-    5000
+    autoScrollStartDelay
 );
 
 
@@ -577,41 +855,54 @@ setTimeout(
    LANGUAGE SWITCHER
 ===================================================== */
 
-const translations={
+const translations = {
 
-    en:{
+    en: {
 
-        settings:"Settings",
+        settings:
+            "Settings",
 
-        language:"Language",
+        language:
+            "Language",
 
-        theme:"Theme",
+        theme:
+            "Theme",
 
-        music:"Music",
+        music:
+            "Music",
 
-        madeWithLove:"MADE WITH LOVE",
+        madeWithLove:
+            "MADE WITH LOVE",
 
-        countdownLabel:"THE COUNTDOWN",
+        countdownLabel:
+            "THE COUNTDOWN",
 
-        countdownTitle:"Until Our Nikah",
+        countdownTitle:
+            "Until Our Nikah",
 
         countdownDescription:
             "A beautiful day is approaching. We look forward to celebrating this blessed beginning with you.",
 
-        joinUs:"JOIN US",
+        joinUs:
+            "JOIN US",
 
-        specialDay:"Our Special Day",
+        specialDay:
+            "Our Special Day",
 
-        nikah:"Nikah",
+        nikah:
+            "Nikah",
 
-        reception:"Reception",
+        reception:
+            "Reception",
 
         eventDate:
             "Monday · 21 September 2026",
 
-        nikahTime:"11:00 AM",
+        nikahTime:
+            "11:00 AM",
 
-        receptionTime:"4:00 PM",
+        receptionTime:
+            "4:00 PM",
 
         nikahPlace:
             "Chazhiyode Juma Masjid",
@@ -619,14 +910,17 @@ const translations={
         receptionPlace:
             "Pleasent Auditorium<br>Pandikkad",
 
-        openLocation:"Open Location",
+        openLocation:
+            "Open Location",
 
-        addReminder:"🔔 Add Reminder",
+        addReminder:
+            "🔔 Add Reminder",
 
         beautifulBeginning:
             "A BEAUTIFUL BEGINNING",
 
-        ourMoments:"Our Moments",
+        ourMoments:
+            "Our Moments",
 
         presenceMatters:
             "YOUR PRESENCE MATTERS",
@@ -636,20 +930,26 @@ const translations={
 
     },
 
-    ml:{
 
-        settings:"ക്രമീകരണങ്ങൾ",
+    ml: {
 
-        language:"ഭാഷ",
+        settings:
+            "ക്രമീകരണങ്ങൾ",
 
-        theme:"തീം",
+        language:
+            "ഭാഷ",
 
-        music:"സംഗീതം",
+        theme:
+            "തീം",
+
+        music:
+            "സംഗീതം",
 
         madeWithLove:
             "സ്നേഹത്തോടെ ഒരുക്കിയത്",
 
-        countdownLabel:"കാത്തിരിപ്പ്",
+        countdownLabel:
+            "കാത്തിരിപ്പ്",
 
         countdownTitle:
             "നമ്മുടെ നിക്കാഹിലേക്ക്",
@@ -663,9 +963,11 @@ const translations={
         specialDay:
             "ഞങ്ങളുടെ വിശേഷദിനം",
 
-        nikah:"നിക്കാഹ്",
+        nikah:
+            "നിക്കാഹ്",
 
-        reception:"റിസപ്ഷൻ",
+        reception:
+            "റിസപ്ഷൻ",
 
         eventDate:
             "തിങ്കൾ · 21 സെപ്റ്റംബർ 2026",
@@ -702,15 +1004,20 @@ const translations={
 
     },
 
-    ar:{
 
-        settings:"الإعدادات",
+    ar: {
 
-        language:"اللغة",
+        settings:
+            "الإعدادات",
 
-        theme:"المظهر",
+        language:
+            "اللغة",
 
-        music:"الموسيقى",
+        theme:
+            "المظهر",
+
+        music:
+            "الموسيقى",
 
         madeWithLove:
             "صُمِّمَ بِحُب",
@@ -730,9 +1037,11 @@ const translations={
         specialDay:
             "يومنا المميز",
 
-        nikah:"النكاح",
+        nikah:
+            "النكاح",
 
-        reception:"الاستقبال",
+        reception:
+            "الاستقبال",
 
         eventDate:
             "الاثنين · 21 سبتمبر 2026",
@@ -772,60 +1081,167 @@ const translations={
 };
 
 
+/* =====================================================
+   SETTINGS ELEMENTS
+===================================================== */
+
 const settingsOpen =
-    document.getElementById("settingsOpen");
+    document.getElementById(
+        "settingsOpen"
+    );
 
 const settingsClose =
-    document.getElementById("settingsClose");
+    document.getElementById(
+        "settingsClose"
+    );
 
 const settingsPanel =
-    document.getElementById("settingsPanel");
+    document.getElementById(
+        "settingsPanel"
+    );
 
 const settingsBackdrop =
-    document.getElementById("settingsBackdrop");
+    document.getElementById(
+        "settingsBackdrop"
+    );
 
+
+/* =====================================================
+   SETTINGS OPEN / CLOSE
+===================================================== */
 
 function openSettings(){
 
-    settingsPanel.classList.add("show");
+    if(settingsPanel){
 
-    settingsBackdrop.classList.add("show");
+        settingsPanel.classList.add(
+            "show"
+        );
+
+    }
+
+
+    if(settingsBackdrop){
+
+        settingsBackdrop.classList.add(
+            "show"
+        );
+
+    }
+
+
+    /*
+       Pause auto-scroll while
+       settings are open.
+    */
+
+    autoScrolling = false;
 
 }
 
 
 function closeSettings(){
 
-    settingsPanel.classList.remove("show");
+    if(settingsPanel){
 
-    settingsBackdrop.classList.remove("show");
+        settingsPanel.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    if(settingsBackdrop){
+
+        settingsBackdrop.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    /*
+       Resume after normal delay.
+    */
+
+    pauseAutoScroll();
 
 }
 
 
-settingsOpen.addEventListener(
-    "click",
-    e=>{
+/* =====================================================
+   SETTINGS BUTTON
+===================================================== */
 
-        e.stopPropagation();
+if(settingsOpen){
 
-        openSettings();
+    settingsOpen.addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
+
+            openSettings();
+
+        }
+    );
+
+}
+
+
+if(settingsClose){
+
+    settingsClose.addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
+
+            closeSettings();
+
+        }
+    );
+
+}
+
+
+if(settingsBackdrop){
+
+    settingsBackdrop.addEventListener(
+        "click",
+        function(){
+
+            closeSettings();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE TO CLOSE SETTINGS
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeSettings();
+
+        }
 
     }
 );
 
 
-settingsClose.addEventListener(
-    "click",
-    closeSettings
-);
-
-
-settingsBackdrop.addEventListener(
-    "click",
-    closeSettings
-);
-
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
 function applyLanguage(lang){
 
@@ -834,9 +1250,17 @@ function applyLanguage(lang){
         translations.en;
 
 
+    /*
+       Set HTML language.
+    */
+
     document.documentElement.lang =
         lang;
 
+
+    /*
+       Arabic uses RTL.
+    */
 
     document.documentElement.dir =
         lang === "ar"
@@ -844,21 +1268,25 @@ function applyLanguage(lang){
             : "ltr";
 
 
+    /*
+       Update all translated elements.
+    */
+
     document
         .querySelectorAll("[data-i18n]")
         .forEach(
-            el=>{
+            function(element){
 
-                const k =
-                    el.dataset.i18n;
+                const key =
+                    element.dataset.i18n;
 
 
                 if(
-                    t[k] !== undefined
+                    t[key] !== undefined
                 ){
 
-                    el.innerHTML =
-                        t[k];
+                    element.innerHTML =
+                        t[key];
 
                 }
 
@@ -866,46 +1294,102 @@ function applyLanguage(lang){
         );
 
 
-    document.getElementById(
-        "settingsHeading"
-    ).textContent =
-        t.settings;
+    /*
+       Settings headings.
+    */
+
+    const settingsHeading =
+        document.getElementById(
+            "settingsHeading"
+        );
 
 
-    document.getElementById(
-        "languageLabel"
-    ).textContent =
-        t.language;
+    const languageLabel =
+        document.getElementById(
+            "languageLabel"
+        );
 
 
-    document.getElementById(
-        "themeLabel"
-    ).textContent =
-        t.theme;
+    const themeLabel =
+        document.getElementById(
+            "themeLabel"
+        );
 
 
-    document.getElementById(
-        "musicLabel"
-    ).textContent =
-        t.music;
+    const musicLabel =
+        document.getElementById(
+            "musicLabel"
+        );
 
 
-    document.getElementById(
-        "madeWithLove"
-    ).textContent =
-        t.madeWithLove;
+    const madeWithLove =
+        document.getElementById(
+            "madeWithLove"
+        );
 
+
+    if(settingsHeading){
+
+        settingsHeading.textContent =
+            t.settings;
+
+    }
+
+
+    if(languageLabel){
+
+        languageLabel.textContent =
+            t.language;
+
+    }
+
+
+    if(themeLabel){
+
+        themeLabel.textContent =
+            t.theme;
+
+    }
+
+
+    if(musicLabel){
+
+        musicLabel.textContent =
+            t.music;
+
+    }
+
+
+    if(madeWithLove){
+
+        madeWithLove.textContent =
+            t.madeWithLove;
+
+    }
+
+
+    /*
+       Highlight selected language.
+    */
 
     document
         .querySelectorAll("[data-language]")
         .forEach(
-            b=>
-                b.classList.toggle(
+            function(button){
+
+                button.classList.toggle(
                     "active",
-                    b.dataset.language === lang
-                )
+                    button.dataset.language ===
+                    lang
+                );
+
+            }
         );
 
+
+    /*
+       Remember language.
+    */
 
     localStorage.setItem(
         "weddingLanguage",
@@ -915,24 +1399,36 @@ function applyLanguage(lang){
 }
 
 
+/* =====================================================
+   LANGUAGE BUTTONS
+===================================================== */
+
 document
     .querySelectorAll("[data-language]")
     .forEach(
-        b=>
-            b.addEventListener(
-                "click",
-                e=>{
+        function(button){
 
-                    e.stopPropagation();
+            button.addEventListener(
+                "click",
+                function(event){
+
+                    event.stopPropagation();
+
 
                     applyLanguage(
-                        b.dataset.language
+                        button.dataset.language
                     );
 
                 }
-            )
+            );
+
+        }
     );
 
+
+/*
+   Load saved language.
+*/
 
 applyLanguage(
     localStorage.getItem(
@@ -947,65 +1443,123 @@ applyLanguage(
 
 function applyTheme(theme){
 
-    const r =
+    const root =
         document.documentElement;
 
 
+    /*
+       Dark theme.
+    */
+
     if(theme === "dark"){
 
-        r.style.setProperty(
+        root.style.setProperty(
             "--cream",
             "#171914"
         );
 
-        r.style.setProperty(
+
+        root.style.setProperty(
             "--cream-light",
             "#211f19"
         );
 
-        r.style.setProperty(
+
+        root.style.setProperty(
             "--dark-text",
             "#f3ead8"
         );
 
-        r.style.setProperty(
+
+        root.style.setProperty(
             "--soft-text",
             "#b7ad9d"
         );
 
     }
 
-    else{
 
-        r.style.removeProperty(
+    /*
+       Light theme.
+    */
+
+    else if(theme === "light"){
+
+        root.style.removeProperty(
             "--cream"
         );
 
-        r.style.removeProperty(
+
+        root.style.removeProperty(
             "--cream-light"
         );
 
-        r.style.removeProperty(
+
+        root.style.removeProperty(
             "--dark-text"
         );
 
-        r.style.removeProperty(
+
+        root.style.removeProperty(
             "--soft-text"
         );
 
     }
 
 
+    /*
+       System theme.
+
+       Detect the device/browser
+       color scheme.
+    */
+
+    else{
+
+        root.style.removeProperty(
+            "--cream"
+        );
+
+
+        root.style.removeProperty(
+            "--cream-light"
+        );
+
+
+        root.style.removeProperty(
+            "--dark-text"
+        );
+
+
+        root.style.removeProperty(
+            "--soft-text"
+        );
+
+    }
+
+
+    /*
+       Highlight selected theme.
+    */
+
     document
         .querySelectorAll("[data-theme]")
         .forEach(
-            b=>
-                b.classList.toggle(
+            function(button){
+
+                button.classList.toggle(
                     "active",
-                    b.dataset.theme === theme
-                )
+                    button.dataset.theme ===
+                    theme
+                );
+
+            }
         );
 
+
+    /*
+       Remember theme.
+    */
 
     localStorage.setItem(
         "weddingTheme",
@@ -1015,24 +1569,89 @@ function applyTheme(theme){
 }
 
 
+/* =====================================================
+   SYSTEM THEME CHANGE
+===================================================== */
+
+const systemThemeQuery =
+    window.matchMedia
+        ? window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        )
+        : null;
+
+
+if(systemThemeQuery){
+
+    const savedTheme =
+        localStorage.getItem(
+            "weddingTheme"
+        );
+
+
+    if(
+        savedTheme === "system" ||
+        !savedTheme
+    ){
+
+        /*
+           No custom variable override is
+           required because system mode
+           uses the default theme.
+        */
+
+        systemThemeQuery.addEventListener(
+            "change",
+            function(){
+
+                if(
+                    localStorage.getItem(
+                        "weddingTheme"
+                    ) === "system"
+                ){
+
+                    applyTheme("system");
+
+                }
+
+            }
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   THEME BUTTONS
+===================================================== */
+
 document
     .querySelectorAll("[data-theme]")
     .forEach(
-        b=>
-            b.addEventListener(
-                "click",
-                e=>{
+        function(button){
 
-                    e.stopPropagation();
+            button.addEventListener(
+                "click",
+                function(event){
+
+                    event.stopPropagation();
+
 
                     applyTheme(
-                        b.dataset.theme
+                        button.dataset.theme
                     );
 
                 }
-            )
+            );
+
+        }
     );
 
+
+/*
+   Load saved theme.
+*/
 
 applyTheme(
     localStorage.getItem(
@@ -1042,90 +1661,84 @@ applyTheme(
 
 
 /* =====================================================
-   PANEL MUSIC
+   PANEL MUSIC BUTTON
 ===================================================== */
 
-const panelMusicBtn =
-    document.getElementById(
-        "panelMusicBtn"
-    );
+if(panelMusicBtn){
+
+    panelMusicBtn.addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
 
 
-const volumeControl =
-    document.getElementById(
-        "volumeControl"
-    );
+            if(!music){
+
+                return;
+
+            }
 
 
-panelMusicBtn.addEventListener(
-    "click",
-    e=>{
+            if(music.paused){
 
-        e.stopPropagation();
+                music.play()
+                    .then(
+                        function(){
 
+                            musicStarted = true;
 
-        if(music.paused){
+                            updateMusicButtons();
 
-            music.play()
-                .then(
-                    ()=>{
+                        }
+                    )
+                    .catch(
+                        function(error){
 
-                        musicStarted = true;
+                            console.log(error);
 
-                        panelMusicBtn.innerHTML =
-                            "❚❚";
+                        }
+                    );
 
-                        musicBtn.innerHTML =
-                            "❚❚";
+            }
 
-                    }
-                )
-                .catch(
-                    ()=>{}
-                );
+            else{
 
-        }
+                music.pause();
 
-        else{
+                updateMusicButtons();
 
-            music.pause();
-
-            panelMusicBtn.innerHTML =
-                "▶";
-
-            musicBtn.innerHTML =
-                "♪";
+            }
 
         }
+    );
 
-    }
-);
-
-
-volumeControl.addEventListener(
-    "input",
-    ()=>
-        music.volume =
-            Number(
-                volumeControl.value
-            )
-);
+}
 
 
-music.addEventListener(
-    "play",
-    ()=>
-        panelMusicBtn.innerHTML =
-            "❚❚"
-);
+/* =====================================================
+   VOLUME CONTROL
+===================================================== */
 
+if(volumeControl){
 
-music.addEventListener(
-    "pause",
-    ()=>
-        panelMusicBtn.innerHTML =
-            "▶"
-);
+    volumeControl.addEventListener(
+        "input",
+        function(){
+
+            if(music){
+
+                music.volume =
+                    Number(
+                        volumeControl.value
+                    );
+
+            }
+
+        }
+    );
+
+}
 
 
 /* =====================================================
@@ -1140,6 +1753,10 @@ const touchBlessing =
 
 let blessingTimer = null;
 
+
+/* =====================================================
+   CREATE TOUCH DECORATION
+===================================================== */
 
 function createTouchDecoration(
     x,
@@ -1158,7 +1775,7 @@ function createTouchDecoration(
 
 
     heart.className =
-        "touch-heart "+
+        "touch-heart " +
         type;
 
 
@@ -1167,36 +1784,36 @@ function createTouchDecoration(
 
 
     heart.style.left =
-        x+"px";
+        x + "px";
 
 
     heart.style.top =
-        y+"px";
+        y + "px";
 
 
     heart.style.setProperty(
         "--drift-x",
-        driftX+"px"
+        driftX + "px"
     );
 
 
     heart.style.setProperty(
         "--drift-y",
-        driftY+"px"
+        driftY + "px"
     );
 
 
     heart.style.setProperty(
         "--rotate",
-        rotate+"deg"
+        rotate + "deg"
     );
 
 
     /*
-      Gold / Green colour
+       Random gold / green appearance.
     */
 
-    if(Math.random() > .45){
+    if(Math.random() > 0.45){
 
         heart.classList.add(
             "gold"
@@ -1218,9 +1835,15 @@ function createTouchDecoration(
     );
 
 
+    /*
+       Remove after animation.
+    */
+
     setTimeout(
-        ()=>{
+        function(){
+
             heart.remove();
+
         },
         1600
     );
@@ -1228,10 +1851,21 @@ function createTouchDecoration(
 }
 
 
+/* =====================================================
+   SHOW TOUCH BLESSING
+===================================================== */
+
 function showTouchBlessing(
     x,
     y
 ){
+
+    if(!touchBlessing){
+
+        return;
+
+    }
+
 
     clearTimeout(
         blessingTimer
@@ -1239,7 +1873,7 @@ function showTouchBlessing(
 
 
     /*
-      Reset main Barakallah pill
+       Reset animation.
     */
 
     touchBlessing.classList.remove(
@@ -1250,12 +1884,16 @@ function showTouchBlessing(
     void touchBlessing.offsetWidth;
 
 
+    /*
+       Position blessing.
+    */
+
     touchBlessing.style.left =
-        x+"px";
+        x + "px";
 
 
     touchBlessing.style.top =
-        y+"px";
+        y + "px";
 
 
     touchBlessing.classList.add(
@@ -1264,8 +1902,7 @@ function showTouchBlessing(
 
 
     /*
-      Same type of arrangement
-      as the reference image
+       Floating hearts.
     */
 
     createTouchDecoration(
@@ -1289,6 +1926,10 @@ function showTouchBlessing(
         15
     );
 
+
+    /*
+       Sparkles.
+    */
 
     createTouchDecoration(
         x,
@@ -1356,12 +1997,18 @@ function showTouchBlessing(
     );
 
 
+    /*
+       Hide main blessing.
+    */
+
     blessingTimer =
         setTimeout(
-            ()=>{
+            function(){
+
                 touchBlessing.classList.remove(
                     "show"
                 );
+
             },
             1650
         );
@@ -1369,20 +2016,24 @@ function showTouchBlessing(
 }
 
 
+/* =====================================================
+   TOUCH BLESSING EVENT
+===================================================== */
+
 document.addEventListener(
     "pointerdown",
-    e=>{
+    function(event){
 
         /*
-          Don't trigger when pressing
-          buttons, links or settings.
+           Don't trigger the Barakallah
+           animation on controls.
         */
 
         if(
-            e.target.closest("button") ||
-            e.target.closest("a") ||
-            e.target.closest("input") ||
-            e.target.closest(".settings-panel")
+            event.target.closest("button") ||
+            event.target.closest("a") ||
+            event.target.closest("input") ||
+            event.target.closest(".settings-panel")
         ){
 
             return;
@@ -1391,12 +2042,86 @@ document.addEventListener(
 
 
         showTouchBlessing(
-            e.clientX,
-            e.clientY
+            event.clientX,
+            event.clientY
         );
 
     },
     {
         passive:true
+    }
+);
+
+
+/* =====================================================
+   PAGE LOAD SAFETY
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        /*
+           Make sure music controls
+           start synchronized.
+        */
+
+        updateMusicButtons();
+
+
+        /*
+           Request wake lock once page
+           has loaded, if supported.
+        */
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            requestWakeLock();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PAGE VISIBILITY
+===================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "hidden"
+        ){
+
+            /*
+               Stop automatic scrolling while
+               the page is not visible.
+            */
+
+            autoScrolling = false;
+
+        }
+
+        else{
+
+            /*
+               Restore normal auto-scroll behavior
+               after the normal interaction delay.
+            */
+
+            pauseAutoScroll();
+
+
+            requestWakeLock();
+
+        }
+
     }
 );
