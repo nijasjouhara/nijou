@@ -7,16 +7,12 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Asif Nijas Faizy & Jouhara Fathima</title>
-
 <meta name="theme-color" content="#0d241d">
 
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
+<title>Asif Nijas Faizy & Jouhara Fathima</title>
 
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet">
@@ -62,156 +58,97 @@ html{
 }
 
 body{
-
     margin:0;
-
     background:var(--cream);
-
     color:var(--dark-text);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
+    font-family:"Cormorant Garamond",serif;
     overflow-x:hidden;
-
 }
 
 
 /* =====================================================
-   OPENING SCREEN
+   OPENING
 ===================================================== */
 
 .opening{
-
     position:fixed;
-
     inset:0;
-
     z-index:9999;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
-
     padding:25px;
 
     background:
-
         radial-gradient(
             circle at center,
             rgba(184,148,77,.13),
             transparent 48%
         ),
-
         var(--green);
 
     transition:
-
         opacity 1s ease,
         visibility 1s ease;
-
 }
 
 .opening.hide{
-
     opacity:0;
-
     visibility:hidden;
-
     pointer-events:none;
-
 }
 
 .opening-content{
-
     width:100%;
-
     max-width:760px;
-
-    animation:
-        openingFade 1.6s ease;
-
+    animation:openingFade 1.6s ease;
 }
 
 .bismillah{
-
     font-family:"Amiri",serif;
-
-    font-size:
-        clamp(27px,7vw,50px);
-
+    font-size:clamp(27px,7vw,50px);
     line-height:1.7;
-
     color:var(--gold-light);
-
     margin-bottom:22px;
-
     direction:rtl;
-
 }
 
 .opening-ayah{
-
     font-family:"Amiri",serif;
-
-    font-size:
-        clamp(20px,5.2vw,36px);
-
+    font-size:clamp(20px,5.2vw,36px);
     line-height:2;
-
     color:var(--cream);
-
     direction:rtl;
-
 }
 
 .opening-reference{
-
     margin-top:14px;
-
     color:var(--gold-light);
-
     font-family:"Montserrat",sans-serif;
-
     font-size:9px;
-
     letter-spacing:3px;
-
 }
 
 .opening-line{
-
     width:65px;
-
     height:1px;
-
     background:var(--gold);
-
     margin:28px auto 0;
-
 }
 
 @keyframes openingFade{
 
     from{
-
         opacity:0;
-
         transform:translateY(18px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
@@ -222,48 +159,34 @@ body{
 ===================================================== */
 
 .music-btn{
-
     position:fixed;
-
     top:18px;
-
     right:18px;
 
     width:52px;
-
     height:52px;
 
     border-radius:50%;
+    border:1px solid rgba(184,148,77,.8);
 
-    border:
-        1px solid
-        rgba(184,148,77,.8);
-
-    background:
-        rgba(13,42,33,.96);
+    background:rgba(13,42,33,.96);
 
     color:var(--gold-light);
 
     z-index:9998;
 
     font-size:21px;
-
     cursor:pointer;
 
-    box-shadow:
-        0 5px 25px
-        rgba(0,0,0,.22);
+    box-shadow:0 5px 25px rgba(0,0,0,.22);
 
     backdrop-filter:blur(10px);
 
     transition:.25s;
-
 }
 
 .music-btn:active{
-
     transform:scale(.92);
-
 }
 
 
@@ -272,119 +195,115 @@ body{
 ===================================================== */
 
 .hero{
-
     position:relative;
-
     width:100%;
-
     height:auto;
-
     min-height:0;
-
     overflow:hidden;
-
     background:var(--cream);
-
     line-height:0;
-
 }
 
 .hero-image{
-
     display:block;
-
     width:100%;
-
     height:auto;
-
     max-width:none;
-
     object-fit:contain;
-
     object-position:center;
-
     margin:0;
-
     padding:0;
-
 }
 
 .hero-scroll{
-
     position:absolute;
-
     left:50%;
-
     bottom:20px;
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
     width:48px;
-
     height:48px;
 
     border-radius:50%;
+    border:1px solid rgba(184,148,77,.65);
 
-    border:
-        1px solid
-        rgba(184,148,77,.65);
-
-    background:
-        rgba(13,42,33,.70);
+    background:rgba(13,42,33,.70);
 
     color:#fff;
 
     font-size:21px;
-
     cursor:pointer;
 
     z-index:10;
 
-    animation:
-        scrollBounce 1.8s infinite;
-
+    animation:scrollBounce 1.8s infinite;
 }
 
 @keyframes scrollBounce{
 
     0%,100%{
-
-        transform:
-            translate(-50%,0);
-
+        transform:translate(-50%,0);
     }
 
     50%{
-
-        transform:
-            translate(-50%,8px);
-
+        transform:translate(-50%,8px);
     }
 
 }
 
 
 /* =====================================================
-   COMMON SECTION
+   COMMON
 ===================================================== */
 
 .section{
-
     position:relative;
-
     text-align:center;
-
 }
 
 .section-inner{
-
     width:100%;
-
     max-width:900px;
-
     margin:auto;
+}
 
+.section-label{
+    font-family:"Montserrat",sans-serif;
+    font-size:10px;
+    letter-spacing:5px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    margin-bottom:16px;
+}
+
+.section-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(40px,9vw,62px);
+    font-weight:500;
+    color:var(--gold-light);
+    line-height:1.1;
+}
+
+.gold-line{
+    width:65px;
+    height:1px;
+    background:var(--gold);
+    margin:25px auto 40px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 
@@ -393,130 +312,73 @@ body{
 ===================================================== */
 
 .countdown-section{
-
     background:var(--cream);
-
     color:var(--dark-text);
-
-    padding:
-
-        72px 22px
-        86px;
-
+    padding:72px 22px 86px;
 }
 
 .countdown-intro{
-
     max-width:700px;
-
     margin:auto;
-
 }
 
 .countdown-label{
-
     font-family:"Montserrat",sans-serif;
-
     font-size:10px;
-
     letter-spacing:5px;
-
     color:var(--gold);
-
     text-transform:uppercase;
-
     margin-bottom:18px;
-
 }
 
 .countdown-title{
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(43px,10vw,68px);
-
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(43px,10vw,68px);
     line-height:1;
-
     font-weight:500;
-
     color:var(--dark-text);
-
     margin-bottom:25px;
-
 }
 
 .small-ornament{
-
     color:var(--gold);
-
     font-size:25px;
-
     margin-bottom:27px;
-
 }
 
 .countdown-description{
-
     max-width:650px;
-
-    margin:
-
-        0 auto 48px;
+    margin:0 auto 48px;
 
     color:var(--soft-text);
 
-    font-family:
-        "Montserrat",
-        sans-serif;
+    font-family:"Montserrat",sans-serif;
 
-    font-size:
-        clamp(14px,3.8vw,18px);
+    font-size:clamp(14px,3.8vw,18px);
 
     line-height:1.9;
-
 }
 
-
-/* =====================================================
-   COUNTDOWN BOXES
-===================================================== */
-
 .countdown{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:14px;
 
     max-width:720px;
-
     margin:auto;
-
 }
 
 .time-box{
-
     min-height:152px;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
-    border:
-        1px solid
-        rgba(184,148,77,.48);
+    border:1px solid rgba(184,148,77,.48);
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.55),
@@ -524,43 +386,28 @@ body{
         );
 
     box-shadow:
-
-        0 10px 35px
-        rgba(95,73,40,.06);
-
+        0 10px 35px rgba(95,73,40,.06);
 }
 
 .time-number{
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(36px,8vw,54px);
-
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(36px,8vw,54px);
     line-height:1;
-
     font-weight:600;
-
     color:var(--dark-text);
-
 }
 
 .time-label{
-
     margin-top:13px;
 
     font-family:"Montserrat",sans-serif;
 
     font-size:9px;
-
     letter-spacing:3px;
 
     color:var(--soft-text);
 
     text-transform:uppercase;
-
 }
 
 
@@ -569,67 +416,48 @@ body{
 ===================================================== */
 
 .save-date{
-
     min-height:205px;
-
     padding:75px 25px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     background:var(--green);
-
     color:var(--cream);
 
     position:relative;
-
     overflow:hidden;
-
 }
 
 .save-date::after{
-
     content:"";
 
     position:absolute;
 
     width:330px;
-
     height:330px;
 
     border-radius:50%;
 
-    border:
-        1px solid
-        rgba(184,148,77,.18);
+    border:1px solid rgba(184,148,77,.18);
 
     right:-165px;
-
     top:-90px;
-
 }
 
 .save-date-content{
-
     position:relative;
-
     z-index:2;
-
 }
 
 .save-date-label{
-
     font-family:"Montserrat",sans-serif;
 
     font-size:10px;
-
     letter-spacing:5px;
 
     color:var(--gold-light);
-
 }
 
 
@@ -638,115 +466,42 @@ body{
 ===================================================== */
 
 .events-section{
-
     background:var(--green);
-
     color:var(--cream);
 
-    padding:
-
-        82px 20px
-        90px;
-
+    padding:82px 20px 90px;
 }
-
-.section-label{
-
-    font-family:"Montserrat",sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:5px;
-
-    color:var(--gold-light);
-
-    text-transform:uppercase;
-
-    margin-bottom:16px;
-
-}
-
-.section-title{
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(40px,9vw,62px);
-
-    font-weight:500;
-
-    color:var(--gold-light);
-
-    line-height:1.1;
-
-}
-
-.gold-line{
-
-    width:65px;
-
-    height:1px;
-
-    background:var(--gold);
-
-    margin:
-
-        25px auto
-        40px;
-
-}
-
-
-/* =====================================================
-   EVENT GRID
-===================================================== */
 
 .events{
-
     display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:22px;
 
     max-width:900px;
 
     margin:auto;
-
 }
 
 .event-card{
+    padding:42px 25px;
 
-    padding:
-        42px 25px;
+    border:1px solid rgba(184,148,77,.42);
 
-    border:
-        1px solid
-        rgba(184,148,77,.42);
-
-    background:
-        rgba(255,255,255,.025);
-
+    background:rgba(255,255,255,.025);
 }
 
 .event-symbol{
-
     color:var(--gold-light);
 
     font-size:28px;
 
     margin-bottom:12px;
-
 }
 
 .event-title{
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family:"Cormorant Garamond",serif;
 
     font-size:37px;
 
@@ -755,11 +510,9 @@ body{
     color:var(--gold-light);
 
     margin-bottom:18px;
-
 }
 
 .event-date{
-
     font-family:"Montserrat",sans-serif;
 
     font-size:10px;
@@ -773,21 +526,17 @@ body{
     opacity:.78;
 
     margin-bottom:17px;
-
 }
 
 .event-time{
-
     font-size:27px;
 
     margin-bottom:18px;
 
     color:var(--cream);
-
 }
 
 .event-place{
-
     font-size:19px;
 
     line-height:1.6;
@@ -795,89 +544,53 @@ body{
     color:var(--cream);
 
     opacity:.82;
+}
 
+.map-btn,
+.reminder-btn{
+    display:inline-block;
+
+    padding:12px 23px;
+
+    text-decoration:none;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
 }
 
 .map-btn{
-
-    display:inline-block;
-
     margin-top:26px;
 
-    padding:
-        12px 23px;
-
-    border:
-        1px solid
-        var(--gold);
+    border:1px solid var(--gold);
 
     color:var(--gold-light);
-
-    text-decoration:none;
-
-    font-family:"Montserrat",sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    transition:.3s;
-
 }
 
 .map-btn:hover{
-
     background:var(--gold);
-
     color:var(--green);
-
 }
 
-
-/* =====================================================
-   RECEPTION REMINDER
-===================================================== */
-
 .reminder-btn{
-
-    display:inline-block;
-
     margin-top:12px;
 
-    padding:
-        12px 23px;
+    border:1px solid rgba(184,148,77,.65);
 
-    border:
-        1px solid
-        rgba(184,148,77,.65);
-
-    background:
-        rgba(184,148,77,.08);
+    background:rgba(184,148,77,.08);
 
     color:var(--cream);
-
-    text-decoration:none;
-
-    font-family:"Montserrat",sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    transition:.3s;
-
 }
 
 .reminder-btn:hover{
-
     background:var(--gold);
-
     color:var(--green);
-
 }
 
 
@@ -886,79 +599,57 @@ body{
 ===================================================== */
 
 .moments-section{
-
     background:var(--cream);
 
     color:var(--dark-text);
 
-    padding:
-
-        82px 20px
-        90px;
-
+    padding:82px 20px 90px;
 }
 
 .moments-section .section-label{
-
     color:var(--gold);
-
 }
 
 .moments-section .section-title{
-
     color:var(--dark-text);
-
 }
 
 .moment-grid{
-
     display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:13px;
 
     max-width:800px;
 
     margin:auto;
-
 }
 
 .moment{
-
     aspect-ratio:1/1;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    border:
-        1px solid
-        rgba(184,148,77,.35);
+    border:1px solid rgba(184,148,77,.35);
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.55),
             rgba(239,224,199,.3)
         );
-
 }
 
 .moment span{
-
-    font-family:
-        "Great Vibes",
-        cursive;
+    font-family:"Great Vibes",cursive;
 
     font-size:31px;
 
     color:var(--gold);
-
 }
 
 
@@ -967,41 +658,29 @@ body{
 ===================================================== */
 
 .rsvp-section{
-
     background:var(--green);
 
     color:var(--cream);
 
-    padding:
-
-        85px 20px
-        95px;
-
+    padding:85px 20px 95px;
 }
 
 .rsvp-text{
-
     max-width:650px;
 
-    margin:
-
-        0 auto 32px;
+    margin:0 auto 32px;
 
     font-size:22px;
 
     line-height:1.7;
 
     opacity:.82;
-
 }
 
 .whatsapp-btn{
-
     display:inline-block;
 
-    padding:
-
-        15px 30px;
+    padding:15px 30px;
 
     background:var(--gold);
 
@@ -1020,37 +699,28 @@ body{
     text-transform:uppercase;
 
     transition:.3s;
-
 }
 
 .whatsapp-btn:hover{
-
     background:var(--gold-light);
-
 }
 
 
 /* =====================================================
-   FINAL DUA
+   DUA
 ===================================================== */
 
 .dua-section{
-
     background:var(--green-dark);
 
-    padding:
-
-        90px 20px
-        100px;
+    padding:90px 20px 100px;
 
     text-align:center;
 
     color:var(--cream);
-
 }
 
 .dua-ornament{
-
     color:var(--gold-light);
 
     font-size:19px;
@@ -1058,11 +728,9 @@ body{
     letter-spacing:8px;
 
     margin-bottom:30px;
-
 }
 
 .dua{
-
     max-width:900px;
 
     margin:auto;
@@ -1071,22 +739,17 @@ body{
 
     font-family:"Amiri",serif;
 
-    font-size:
-        clamp(24px,6vw,40px);
+    font-size:clamp(24px,6vw,40px);
 
     line-height:2;
 
     color:var(--cream);
-
 }
 
 .dua-meaning{
-
     max-width:650px;
 
-    margin:
-
-        22px auto 0;
+    margin:22px auto 0;
 
     font-size:17px;
 
@@ -1095,11 +758,9 @@ body{
     opacity:.68;
 
     font-style:italic;
-
 }
 
 .amin{
-
     margin-top:25px;
 
     direction:rtl;
@@ -1109,7 +770,6 @@ body{
     font-size:23px;
 
     color:var(--gold-light);
-
 }
 
 
@@ -1118,17 +778,14 @@ body{
 ===================================================== */
 
 footer{
-
     background:#06130f;
 
     padding:35px 20px;
 
     text-align:center;
-
 }
 
 .footer-ayah{
-
     direction:rtl;
 
     font-family:"Amiri",serif;
@@ -1138,11 +795,9 @@ footer{
     line-height:1.9;
 
     color:var(--gold-light);
-
 }
 
 .footer-reference{
-
     margin-top:10px;
 
     font-family:"Montserrat",sans-serif;
@@ -1152,34 +807,437 @@ footer{
     letter-spacing:3px;
 
     color:rgba(255,255,255,.45);
-
 }
 
 
 /* =====================================================
-   REVEAL
+   SETTINGS BUTTON
 ===================================================== */
 
-.reveal{
+.settings-open-btn{
+
+    position:fixed;
+
+    right:18px;
+    bottom:22px;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    border:1px solid var(--gold-light);
+
+    background:var(--gold);
+
+    color:var(--green-dark);
+
+    z-index:9997;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.28);
+
+    transition:.25s ease;
+}
+
+.settings-open-btn:active{
+    transform:scale(.92);
+}
+
+
+/* =====================================================
+   SETTINGS BACKDROP
+===================================================== */
+
+.settings-backdrop{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9990;
+
+    background:rgba(0,0,0,.48);
 
     opacity:0;
 
-    transform:
-        translateY(25px);
+    visibility:hidden;
 
-    transition:
+    transition:.35s ease;
 
-        opacity .9s ease,
-        transform .9s ease;
-
+    backdrop-filter:blur(3px);
 }
 
-.reveal.show{
+.settings-backdrop.show{
 
     opacity:1;
 
+    visibility:visible;
+}
+
+
+/* =====================================================
+   SETTINGS PANEL
+===================================================== */
+
+.settings-panel{
+
+    position:fixed;
+
+    left:50%;
+    bottom:20px;
+
     transform:
-        translateY(0);
+        translate(-50%,30px);
+
+    width:min(520px,calc(100% - 28px));
+
+    max-height:calc(100vh - 40px);
+
+    overflow:auto;
+
+    z-index:9996;
+
+    padding:28px 24px 22px;
+
+    border:
+        1px solid
+        rgba(184,148,77,.65);
+
+    border-radius:28px;
+
+    background:
+        rgba(18,24,21,.96);
+
+    color:var(--cream);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.42);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    backdrop-filter:blur(18px);
+}
+
+.settings-panel.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translate(-50%,0);
+}
+
+.settings-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:22px;
+}
+
+.settings-heading{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:30px;
+
+    color:var(--gold-light);
+}
+
+.settings-close{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(184,148,77,.55);
+
+    background:transparent;
+
+    color:var(--gold-light);
+
+    font-size:22px;
+
+    cursor:pointer;
+}
+
+.settings-group{
+
+    margin-top:20px;
+}
+
+.settings-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:var(--gold-light);
+
+    margin-bottom:12px;
+}
+
+.settings-options{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:9px;
+}
+
+.settings-option{
+
+    min-height:50px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.17);
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:var(--cream);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:11px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.settings-option.active{
+
+    background:var(--gold);
+
+    color:var(--green-dark);
+
+    border-color:var(--gold-light);
+}
+
+.music-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.music-control{
+
+    width:52px;
+    height:48px;
+
+    flex:0 0 52px;
+
+    border:
+        1px solid
+        rgba(184,148,77,.65);
+
+    border-radius:14px;
+
+    background:var(--gold);
+
+    color:var(--green-dark);
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+.volume-control{
+
+    width:100%;
+
+    accent-color:var(--gold);
+}
+
+.settings-footer{
+
+    margin-top:23px;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(184,148,77,.25);
+
+    text-align:center;
+
+    color:var(--gold-pale);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2.5px;
+}
+
+.settings-footer span{
+
+    font-size:15px;
+
+    margin-right:6px;
+}
+
+
+/* =====================================================
+   BAARAKALLAH TOUCH EFFECT
+===================================================== */
+
+.touch-blessing{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    z-index:10000;
+
+    pointer-events:none;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.75);
+
+    opacity:0;
+
+    color:var(--gold-light);
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(34px,9vw,58px);
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 0 8px rgba(213,183,111,.5),
+        0 0 28px rgba(213,183,111,.28);
+}
+
+.touch-blessing.show{
+
+    animation:
+        blessingPop 1.55s ease forwards;
+}
+
+@keyframes blessingPop{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.65);
+    }
+
+    18%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    70%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-65%)
+            scale(1.04);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-82%)
+            scale(1.1);
+    }
+
+}
+
+.touch-heart{
+
+    position:fixed;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    color:var(--gold-light);
+
+    font-size:18px;
+
+    animation:
+        heartFloat 1.5s ease-out forwards;
+
+    text-shadow:
+        0 0 10px
+        rgba(213,183,111,.45);
+}
+
+@keyframes heartFloat{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.4);
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(
+                calc(-50% + var(--drift)),
+                calc(-50% - 100px)
+            )
+            scale(1.2);
+    }
 
 }
 
@@ -1193,16 +1251,13 @@ footer{
     .countdown-section{
 
         padding:
-
             58px 18px
             68px;
-
     }
 
     .countdown-description{
 
         margin-bottom:38px;
-
     }
 
     .countdown{
@@ -1213,13 +1268,11 @@ footer{
         gap:12px;
 
         max-width:420px;
-
     }
 
     .time-box{
 
         min-height:135px;
-
     }
 
     .save-date{
@@ -1227,7 +1280,6 @@ footer{
         min-height:180px;
 
         padding:60px 20px;
-
     }
 
     .events{
@@ -1235,20 +1287,28 @@ footer{
         grid-template-columns:1fr;
 
         max-width:500px;
-
     }
 
     .event-card{
 
         padding:35px 18px;
-
     }
 
     .moment-grid{
 
         grid-template-columns:
             repeat(2,1fr);
+    }
 
+    .settings-panel{
+
+        bottom:12px;
+
+        max-height:
+            calc(100vh - 24px);
+
+        padding:
+            23px 18px 18px;
     }
 
 }
@@ -1263,19 +1323,16 @@ footer{
     .countdown{
 
         gap:8px;
-
     }
 
     .time-box{
 
         min-height:125px;
-
     }
 
     .time-number{
 
         font-size:38px;
-
     }
 
     .time-label{
@@ -1283,7 +1340,6 @@ footer{
         font-size:8px;
 
         letter-spacing:2px;
-
     }
 
 }
@@ -1304,7 +1360,6 @@ footer{
         scroll-behavior:auto !important;
 
         transition-duration:.01ms !important;
-
     }
 
 }
@@ -1331,7 +1386,6 @@ footer{
 
         </div>
 
-
         <div class="opening-ayah">
 
             ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
@@ -1339,13 +1393,11 @@ footer{
 
         </div>
 
-
         <div class="opening-reference">
 
             الرُّوم · ٢١
 
         </div>
-
 
         <div class="opening-line"></div>
 
@@ -1396,7 +1448,6 @@ footer{
         decoding="async"
     >
 
-
     <button
         class="hero-scroll"
         id="heroScroll"
@@ -1416,22 +1467,24 @@ footer{
 <section
     class="section countdown-section">
 
-    <div class="section-inner countdown-intro reveal">
+    <div
+        class="section-inner countdown-intro reveal">
 
-
-        <div class="countdown-label">
+        <div
+            class="countdown-label"
+            data-i18n="countdownLabel">
 
             THE COUNTDOWN
 
         </div>
 
-
-        <h1 class="countdown-title">
+        <h1
+            class="countdown-title"
+            data-i18n="countdownTitle">
 
             Until Our Nikah
 
         </h1>
-
 
         <div class="small-ornament">
 
@@ -1439,8 +1492,9 @@ footer{
 
         </div>
 
-
-        <p class="countdown-description">
+        <p
+            class="countdown-description"
+            data-i18n="countdownDescription">
 
             A beautiful day is approaching.
             We look forward to celebrating this
@@ -1566,14 +1620,18 @@ footer{
 
         <div class="reveal">
 
-            <div class="section-label">
+            <div
+                class="section-label"
+                data-i18n="joinUs">
 
                 JOIN US
 
             </div>
 
 
-            <h2 class="section-title">
+            <h2
+                class="section-title"
+                data-i18n="specialDay">
 
                 Our Special Day
 
@@ -1588,7 +1646,9 @@ footer{
         <div class="events">
 
 
-            <!-- NIKAH -->
+            <!-- =================================================
+                 NIKAH
+            ================================================= -->
 
             <div class="event-card reveal">
 
@@ -1599,28 +1659,36 @@ footer{
                 </div>
 
 
-                <h3 class="event-title">
+                <h3
+                    class="event-title"
+                    data-i18n="nikah">
 
                     Nikah
 
                 </h3>
 
 
-                <div class="event-date">
+                <div
+                    class="event-date"
+                    data-i18n="eventDate">
 
                     Monday · 21 September 2026
 
                 </div>
 
 
-                <div class="event-time">
+                <div
+                    class="event-time"
+                    data-i18n="nikahTime">
 
                     11:00 AM
 
                 </div>
 
 
-                <div class="event-place">
+                <div
+                    class="event-place"
+                    data-i18n="nikahPlace">
 
                     Chazhiyode Juma Masjid
 
@@ -1633,14 +1701,20 @@ footer{
                     target="_blank"
                     rel="noopener">
 
-                    Open Location
+                    <span data-i18n="openLocation">
+
+                        Open Location
+
+                    </span>
 
                 </a>
 
             </div>
 
 
-            <!-- RECEPTION -->
+            <!-- =================================================
+                 RECEPTION
+            ================================================= -->
 
             <div class="event-card reveal">
 
@@ -1651,28 +1725,36 @@ footer{
                 </div>
 
 
-                <h3 class="event-title">
+                <h3
+                    class="event-title"
+                    data-i18n="reception">
 
                     Reception
 
                 </h3>
 
 
-                <div class="event-date">
+                <div
+                    class="event-date"
+                    data-i18n="eventDate">
 
                     Monday · 21 September 2026
 
                 </div>
 
 
-                <div class="event-time">
+                <div
+                    class="event-time"
+                    data-i18n="receptionTime">
 
                     4:00 PM
 
                 </div>
 
 
-                <div class="event-place">
+                <div
+                    class="event-place"
+                    data-i18n="receptionPlace">
 
                     Pleasent Auditorium<br>
                     Pandikkad
@@ -1680,7 +1762,7 @@ footer{
                 </div>
 
 
-                <!-- RECEPTION MAP -->
+                <!-- MAP -->
 
                 <a
                     class="map-btn"
@@ -1688,7 +1770,11 @@ footer{
                     target="_blank"
                     rel="noopener">
 
-                    Open Location
+                    <span data-i18n="openLocation">
+
+                        Open Location
+
+                    </span>
 
                 </a>
 
@@ -1701,12 +1787,15 @@ footer{
                     target="_blank"
                     rel="noopener">
 
-                    🔔 Add Reminder
+                    <span data-i18n="addReminder">
+
+                        🔔 Add Reminder
+
+                    </span>
 
                 </a>
 
             </div>
-
 
         </div>
 
@@ -1722,17 +1811,22 @@ footer{
 <section
     class="section moments-section">
 
-    <div class="section-inner moments-content reveal">
+    <div
+        class="section-inner moments-content reveal">
 
 
-        <div class="section-label">
+        <div
+            class="section-label"
+            data-i18n="beautifulBeginning">
 
             A BEAUTIFUL BEGINNING
 
         </div>
 
 
-        <h2 class="section-title">
+        <h2
+            class="section-title"
+            data-i18n="ourMoments">
 
             Our Moments
 
@@ -1825,10 +1919,13 @@ footer{
 <section
     class="section rsvp-section">
 
-    <div class="section-inner rsvp-content reveal">
+    <div
+        class="section-inner rsvp-content reveal">
 
 
-        <div class="section-label">
+        <div
+            class="section-label"
+            data-i18n="presenceMatters">
 
             YOUR PRESENCE MATTERS
 
@@ -1859,7 +1956,11 @@ footer{
             target="_blank"
             rel="noopener">
 
-            Confirm Your Presence
+            <span data-i18n="confirmPresence">
+
+                Confirm Your Presence
+
+            </span>
 
         </a>
 
@@ -1875,6 +1976,7 @@ footer{
 
 <section
     class="dua-section">
+
 
     <div class="dua-ornament">
 
@@ -1936,6 +2038,237 @@ footer{
 </footer>
 
 
+<!-- =====================================================
+     SETTINGS BUTTON
+===================================================== -->
+
+<button
+    class="settings-open-btn"
+    id="settingsOpen"
+    aria-label="Open settings">
+
+    ✦
+
+</button>
+
+
+<div
+    class="settings-backdrop"
+    id="settingsBackdrop">
+</div>
+
+
+<!-- =====================================================
+     SETTINGS PANEL
+===================================================== -->
+
+<div
+    class="settings-panel"
+    id="settingsPanel">
+
+
+    <div class="settings-top">
+
+        <div
+            class="settings-heading"
+            id="settingsHeading">
+
+            Settings
+
+        </div>
+
+
+        <button
+            class="settings-close"
+            id="settingsClose"
+            aria-label="Close settings">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <!-- LANGUAGE -->
+
+    <div class="settings-group">
+
+        <div class="settings-label">
+
+            <span>◎</span>
+
+            <span id="languageLabel">
+
+                Language
+
+            </span>
+
+        </div>
+
+
+        <div class="settings-options">
+
+
+            <button
+                class="settings-option active"
+                data-language="en">
+
+                EN
+
+            </button>
+
+
+            <button
+                class="settings-option"
+                data-language="ml">
+
+                മലയാളം
+
+            </button>
+
+
+            <button
+                class="settings-option"
+                data-language="ar">
+
+                عربي
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- THEME -->
+
+    <div class="settings-group">
+
+        <div class="settings-label">
+
+            <span>◐</span>
+
+            <span id="themeLabel">
+
+                Theme
+
+            </span>
+
+        </div>
+
+
+        <div class="settings-options">
+
+
+            <button
+                class="settings-option active"
+                data-theme="system">
+
+                ◉<br>
+                System
+
+            </button>
+
+
+            <button
+                class="settings-option"
+                data-theme="light">
+
+                ☼<br>
+                Light
+
+            </button>
+
+
+            <button
+                class="settings-option"
+                data-theme="dark">
+
+                ☾<br>
+                Dark
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- MUSIC -->
+
+    <div class="settings-group">
+
+        <div class="settings-label">
+
+            <span>♫</span>
+
+            <span id="musicLabel">
+
+                Music
+
+            </span>
+
+        </div>
+
+
+        <div class="music-row">
+
+
+            <button
+                class="music-control"
+                id="panelMusicBtn">
+
+                ▶
+
+            </button>
+
+
+            <input
+                class="volume-control"
+                id="volumeControl"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.55">
+
+        </div>
+
+    </div>
+
+
+    <div class="settings-footer">
+
+        <span>♡</span>
+
+        <span id="madeWithLove">
+
+            MADE WITH LOVE
+
+        </span>
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     TOUCH BAARAKALLAH
+===================================================== -->
+
+<div
+    class="touch-blessing"
+    id="touchBlessing">
+
+    ♡ Baarakallah
+
+</div>
+
+
 
 <script>
 
@@ -1958,8 +2291,6 @@ function closeOpening(){
 }
 
 
-/* Automatically disappear after 3 seconds */
-
 setTimeout(
     closeOpening,
     3000
@@ -1976,6 +2307,12 @@ const music =
 const musicBtn =
     document.getElementById("musicBtn");
 
+const panelMusicBtn =
+    document.getElementById("panelMusicBtn");
+
+const volumeControl =
+    document.getElementById("volumeControl");
+
 let musicStarted = false;
 
 
@@ -1989,13 +2326,18 @@ async function startMusic(){
 
     try{
 
-        music.volume = 0.55;
+        music.volume =
+            Number(volumeControl.value);
 
         await music.play();
 
         musicStarted = true;
 
-        musicBtn.innerHTML = "❚❚";
+        musicBtn.innerHTML =
+            "❚❚";
+
+        panelMusicBtn.innerHTML =
+            "❚❚";
 
     }
 
@@ -2010,29 +2352,10 @@ async function startMusic(){
 }
 
 
-/* First touch anywhere */
+/* Start music on first touch */
 
 document.addEventListener(
     "pointerdown",
-    function(){
-
-        closeOpening();
-
-        startMusic();
-
-        requestWakeLock();
-
-    },
-    {
-        passive:true
-    }
-);
-
-
-/* Extra mobile touch support */
-
-document.addEventListener(
-    "touchstart",
     function(){
 
         closeOpening();
@@ -2066,6 +2389,9 @@ musicBtn.addEventListener(
                     musicBtn.innerHTML =
                         "❚❚";
 
+                    panelMusicBtn.innerHTML =
+                        "❚❚";
+
                 })
                 .catch(function(error){
 
@@ -2079,7 +2405,11 @@ musicBtn.addEventListener(
 
             music.pause();
 
-            musicBtn.innerHTML = "♪";
+            musicBtn.innerHTML =
+                "♪";
+
+            panelMusicBtn.innerHTML =
+                "▶";
 
         }
 
@@ -2087,23 +2417,60 @@ musicBtn.addEventListener(
 );
 
 
-/* Keep button synchronized */
+/* Panel music button */
 
-music.addEventListener(
-    "play",
-    function(){
+panelMusicBtn.addEventListener(
+    "click",
+    function(event){
 
-        musicBtn.innerHTML = "❚❚";
+        event.stopPropagation();
+
+        if(music.paused){
+
+            music.play()
+                .then(function(){
+
+                    musicStarted = true;
+
+                    musicBtn.innerHTML =
+                        "❚❚";
+
+                    panelMusicBtn.innerHTML =
+                        "❚❚";
+
+                })
+                .catch(function(error){
+
+                    console.log(error);
+
+                });
+
+        }
+
+        else{
+
+            music.pause();
+
+            musicBtn.innerHTML =
+                "♪";
+
+            panelMusicBtn.innerHTML =
+                "▶";
+
+        }
 
     }
 );
 
 
-music.addEventListener(
-    "pause",
+/* Volume */
+
+volumeControl.addEventListener(
+    "input",
     function(){
 
-        musicBtn.innerHTML = "♪";
+        music.volume =
+            Number(volumeControl.value);
 
     }
 );
@@ -2148,7 +2515,6 @@ function updateCountdown(){
 
     const now =
         new Date().getTime();
-
 
     let distance =
         weddingDate - now;
@@ -2306,8 +2672,6 @@ async function requestWakeLock(){
 }
 
 
-/* Re-enable when page becomes visible */
-
 document.addEventListener(
     "visibilitychange",
     function(){
@@ -2333,25 +2697,18 @@ let autoScrolling = true;
 
 let resumeTimer = null;
 
+const scrollSpeed =
+    0.65;
 
-/* Slow continuous scrolling */
-
-const scrollSpeed = 0.65;
-
-
-/* Pause when visitor interacts */
 
 function pauseAutoScroll(){
 
     autoScrolling = false;
 
-
     clearTimeout(
         resumeTimer
     );
 
-
-    /* Resume after 4 seconds */
 
     resumeTimer =
         setTimeout(
@@ -2365,8 +2722,6 @@ function pauseAutoScroll(){
 
 }
 
-
-/* Manual touch */
 
 window.addEventListener(
     "touchstart",
@@ -2386,8 +2741,6 @@ window.addEventListener(
 );
 
 
-/* Mouse wheel */
-
 window.addEventListener(
     "wheel",
     pauseAutoScroll,
@@ -2397,8 +2750,6 @@ window.addEventListener(
 );
 
 
-/* Pointer interaction */
-
 window.addEventListener(
     "pointerdown",
     pauseAutoScroll,
@@ -2407,8 +2758,6 @@ window.addEventListener(
     }
 );
 
-
-/* Automatic scrolling loop */
 
 function autoScroll(){
 
@@ -2433,8 +2782,6 @@ function autoScroll(){
         -
         window.innerHeight;
 
-
-    /* Stop at bottom */
 
     if(
         current >=
@@ -2461,8 +2808,6 @@ function autoScroll(){
 }
 
 
-/* Start after 5 seconds */
-
 setTimeout(
     function(){
 
@@ -2474,6 +2819,685 @@ setTimeout(
 
     },
     5000
+);
+
+
+/* =====================================================
+   SETTINGS PANEL
+===================================================== */
+
+const settingsOpen =
+    document.getElementById(
+        "settingsOpen"
+    );
+
+const settingsClose =
+    document.getElementById(
+        "settingsClose"
+    );
+
+const settingsPanel =
+    document.getElementById(
+        "settingsPanel"
+    );
+
+const settingsBackdrop =
+    document.getElementById(
+        "settingsBackdrop"
+    );
+
+
+function openSettings(){
+
+    settingsPanel.classList.add(
+        "show"
+    );
+
+    settingsBackdrop.classList.add(
+        "show"
+    );
+
+}
+
+
+function closeSettings(){
+
+    settingsPanel.classList.remove(
+        "show"
+    );
+
+    settingsBackdrop.classList.remove(
+        "show"
+    );
+
+}
+
+
+settingsOpen.addEventListener(
+    "click",
+    function(event){
+
+        event.stopPropagation();
+
+        openSettings();
+
+    }
+);
+
+
+settingsClose.addEventListener(
+    "click",
+    closeSettings
+);
+
+
+settingsBackdrop.addEventListener(
+    "click",
+    closeSettings
+);
+
+
+/* =====================================================
+   LANGUAGE SWITCHER
+===================================================== */
+
+const translations = {
+
+    en:{
+
+        settings:
+            "Settings",
+
+        language:
+            "Language",
+
+        theme:
+            "Theme",
+
+        music:
+            "Music",
+
+        madeWithLove:
+            "MADE WITH LOVE",
+
+        countdownLabel:
+            "THE COUNTDOWN",
+
+        countdownTitle:
+            "Until Our Nikah",
+
+        countdownDescription:
+            "A beautiful day is approaching. We look forward to celebrating this blessed beginning with you.",
+
+        joinUs:
+            "JOIN US",
+
+        specialDay:
+            "Our Special Day",
+
+        nikah:
+            "Nikah",
+
+        reception:
+            "Reception",
+
+        eventDate:
+            "Monday · 21 September 2026",
+
+        nikahTime:
+            "11:00 AM",
+
+        receptionTime:
+            "4:00 PM",
+
+        nikahPlace:
+            "Chazhiyode Juma Masjid",
+
+        receptionPlace:
+            "Pleasent Auditorium<br>Pandikkad",
+
+        openLocation:
+            "Open Location",
+
+        addReminder:
+            "🔔 Add Reminder",
+
+        beautifulBeginning:
+            "A BEAUTIFUL BEGINNING",
+
+        ourMoments:
+            "Our Moments",
+
+        presenceMatters:
+            "YOUR PRESENCE MATTERS",
+
+        confirmPresence:
+            "Confirm Your Presence"
+
+    },
+
+
+    ml:{
+
+        settings:
+            "ക്രമീകരണങ്ങൾ",
+
+        language:
+            "ഭാഷ",
+
+        theme:
+            "തീം",
+
+        music:
+            "സംഗീതം",
+
+        madeWithLove:
+            "സ്നേഹത്തോടെ ഒരുക്കിയത്",
+
+        countdownLabel:
+            "കാത്തിരിപ്പ്",
+
+        countdownTitle:
+            "നമ്മുടെ നിക്കാഹിലേക്ക്",
+
+        countdownDescription:
+            "അനുഗ്രഹീതമായ ഈ പുതിയ തുടക്കത്തിനായി ഞങ്ങൾ കാത്തിരിക്കുന്നു. ഈ സന്തോഷദിനം നിങ്ങളോടൊപ്പം ആഘോഷിക്കാൻ ആഗ്രഹിക്കുന്നു.",
+
+        joinUs:
+            "ഞങ്ങളോടൊപ്പം ചേരുക",
+
+        specialDay:
+            "ഞങ്ങളുടെ വിശേഷദിനം",
+
+        nikah:
+            "നിക്കാഹ്",
+
+        reception:
+            "റിസപ്ഷൻ",
+
+        eventDate:
+            "തിങ്കൾ · 21 സെപ്റ്റംബർ 2026",
+
+        nikahTime:
+            "രാവിലെ 11:00",
+
+        receptionTime:
+            "വൈകിട്ട് 4:00",
+
+        nikahPlace:
+            "ചാഴിയോട് ജുമാ മസ്ജിദ്",
+
+        receptionPlace:
+            "പ്ലീസന്റ് ഓഡിറ്റോറിയം<br>പാണ്ടിക്കാട്",
+
+        openLocation:
+            "ലൊക്കേഷൻ കാണുക",
+
+        addReminder:
+            "🔔 റിമൈൻഡർ ചേർക്കുക",
+
+        beautifulBeginning:
+            "മനോഹരമായൊരു തുടക്കം",
+
+        ourMoments:
+            "ഞങ്ങളുടെ നിമിഷങ്ങൾ",
+
+        presenceMatters:
+            "നിങ്ങളുടെ സാന്നിധ്യം വിലപ്പെട്ടതാണ്",
+
+        confirmPresence:
+            "സാന്നിധ്യം സ്ഥിരീകരിക്കുക"
+
+    },
+
+
+    ar:{
+
+        settings:
+            "الإعدادات",
+
+        language:
+            "اللغة",
+
+        theme:
+            "المظهر",
+
+        music:
+            "الموسيقى",
+
+        madeWithLove:
+            "صُمِّمَ بِحُب",
+
+        countdownLabel:
+            "العد التنازلي",
+
+        countdownTitle:
+            "حتى نكاحنا",
+
+        countdownDescription:
+            "يقترب يوم جميل. نتطلع إلى الاحتفال معكم بهذه البداية المباركة.",
+
+        joinUs:
+            "انضموا إلينا",
+
+        specialDay:
+            "يومنا المميز",
+
+        nikah:
+            "النكاح",
+
+        reception:
+            "الاستقبال",
+
+        eventDate:
+            "الاثنين · 21 سبتمبر 2026",
+
+        nikahTime:
+            "11:00 صباحًا",
+
+        receptionTime:
+            "4:00 مساءً",
+
+        nikahPlace:
+            "مسجد جومعة تشازهيود",
+
+        receptionPlace:
+            "قاعة بليزنت<br>باندِكّاد",
+
+        openLocation:
+            "فتح الموقع",
+
+        addReminder:
+            "🔔 إضافة تذكير",
+
+        beautifulBeginning:
+            "بداية جميلة",
+
+        ourMoments:
+            "لحظاتنا",
+
+        presenceMatters:
+            "حضوركم يعني لنا الكثير",
+
+        confirmPresence:
+            "تأكيد الحضور"
+
+    }
+
+};
+
+
+function applyLanguage(language){
+
+    const t =
+        translations[language] ||
+        translations.en;
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document.documentElement.dir =
+        language === "ar"
+            ? "rtl"
+            : "ltr";
+
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(
+            function(element){
+
+                const key =
+                    element.dataset.i18n;
+
+
+                if(
+                    t[key] !== undefined
+                ){
+
+                    element.innerHTML =
+                        t[key];
+
+                }
+
+            }
+        );
+
+
+    document.getElementById(
+        "settingsHeading"
+    ).textContent =
+        t.settings;
+
+
+    document.getElementById(
+        "languageLabel"
+    ).textContent =
+        t.language;
+
+
+    document.getElementById(
+        "themeLabel"
+    ).textContent =
+        t.theme;
+
+
+    document.getElementById(
+        "musicLabel"
+    ).textContent =
+        t.music;
+
+
+    document.getElementById(
+        "madeWithLove"
+    ).textContent =
+        t.madeWithLove;
+
+
+    document
+        .querySelectorAll("[data-language]")
+        .forEach(
+            function(button){
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.language ===
+                    language
+                );
+
+            }
+        );
+
+
+    localStorage.setItem(
+        "weddingLanguage",
+        language
+    );
+
+}
+
+
+document
+    .querySelectorAll("[data-language]")
+    .forEach(
+        function(button){
+
+            button.addEventListener(
+                "click",
+                function(event){
+
+                    event.stopPropagation();
+
+                    applyLanguage(
+                        button.dataset.language
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+applyLanguage(
+    localStorage.getItem(
+        "weddingLanguage"
+    ) || "en"
+);
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+function applyTheme(theme){
+
+    const root =
+        document.documentElement;
+
+
+    if(theme === "dark"){
+
+        root.style.setProperty(
+            "--cream",
+            "#171914"
+        );
+
+        root.style.setProperty(
+            "--cream-light",
+            "#211f19"
+        );
+
+        root.style.setProperty(
+            "--dark-text",
+            "#f3ead8"
+        );
+
+        root.style.setProperty(
+            "--soft-text",
+            "#b7ad9d"
+        );
+
+    }
+
+    else{
+
+        root.style.removeProperty(
+            "--cream"
+        );
+
+        root.style.removeProperty(
+            "--cream-light"
+        );
+
+        root.style.removeProperty(
+            "--dark-text"
+        );
+
+        root.style.removeProperty(
+            "--soft-text"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll("[data-theme]")
+        .forEach(
+            function(button){
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.theme ===
+                    theme
+                );
+
+            }
+        );
+
+
+    localStorage.setItem(
+        "weddingTheme",
+        theme
+    );
+
+}
+
+
+document
+    .querySelectorAll("[data-theme]")
+    .forEach(
+        function(button){
+
+            button.addEventListener(
+                "click",
+                function(event){
+
+                    event.stopPropagation();
+
+                    applyTheme(
+                        button.dataset.theme
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+applyTheme(
+    localStorage.getItem(
+        "weddingTheme"
+    ) || "system"
+);
+
+
+/* =====================================================
+   BAARAKALLAH TOUCH EFFECT
+===================================================== */
+
+const touchBlessing =
+    document.getElementById(
+        "touchBlessing"
+    );
+
+let blessingTimer = null;
+
+
+function showTouchBlessing(x,y){
+
+    clearTimeout(
+        blessingTimer
+    );
+
+
+    touchBlessing.classList.remove(
+        "show"
+    );
+
+
+    touchBlessing.style.left =
+        x + "px";
+
+
+    touchBlessing.style.top =
+        y + "px";
+
+
+    void touchBlessing.offsetWidth;
+
+
+    touchBlessing.classList.add(
+        "show"
+    );
+
+
+    for(
+        let i = 0;
+        i < 5;
+        i++
+    ){
+
+        const heart =
+            document.createElement(
+                "span"
+            );
+
+
+        heart.className =
+            "touch-heart";
+
+
+        heart.textContent =
+            Math.random() > .5
+                ? "♡"
+                : "✦";
+
+
+        heart.style.left =
+            x + "px";
+
+
+        heart.style.top =
+            y + "px";
+
+
+        heart.style.setProperty(
+            "--drift",
+            (
+                (Math.random() * 100) -
+                50
+            ) + "px"
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function(){
+
+                heart.remove();
+
+            },
+            1600
+        );
+
+    }
+
+
+    blessingTimer =
+        setTimeout(
+            function(){
+
+                touchBlessing.classList.remove(
+                    "show"
+                );
+
+            },
+            1550
+        );
+
+}
+
+
+/* Touch anywhere except buttons,
+   links and settings */
+
+document.addEventListener(
+    "pointerdown",
+    function(event){
+
+        const target =
+            event.target;
+
+
+        if(
+            target.closest("button") ||
+            target.closest("a") ||
+            target.closest("input") ||
+            target.closest(".settings-panel")
+        ){
+
+            return;
+
+        }
+
+
+        showTouchBlessing(
+            event.clientX,
+            event.clientY
+        );
+
+    },
+    {
+        passive:true
+    }
 );
 
 </script>
