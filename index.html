@@ -236,12 +236,10 @@ body{
     border-radius:50%;
 
     border:
-
         1px solid
         rgba(184,148,77,.8);
 
     background:
-
         rgba(13,42,33,.96);
 
     color:var(--gold-light);
@@ -253,7 +251,6 @@ body{
     cursor:pointer;
 
     box-shadow:
-
         0 5px 25px
         rgba(0,0,0,.22);
 
@@ -568,7 +565,7 @@ body{
 
 
 /* =====================================================
-   SAVE THE DATE TRANSITION
+   SAVE THE DATE
 ===================================================== */
 
 .save-date{
@@ -724,7 +721,6 @@ body{
 .event-card{
 
     padding:
-
         42px 25px;
 
     border:
@@ -809,7 +805,6 @@ body{
     margin-top:26px;
 
     padding:
-
         12px 23px;
 
     border:
@@ -833,6 +828,51 @@ body{
 }
 
 .map-btn:hover{
+
+    background:var(--gold);
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
+   RECEPTION REMINDER
+===================================================== */
+
+.reminder-btn{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:
+        12px 23px;
+
+    border:
+        1px solid
+        rgba(184,148,77,.65);
+
+    background:
+        rgba(184,148,77,.08);
+
+    color:var(--cream);
+
+    text-decoration:none;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+
+}
+
+.reminder-btn:hover{
 
     background:var(--gold);
 
@@ -1350,7 +1390,7 @@ footer{
 
     <img
         class="hero-image"
-        src="weddinghero.webp"
+        src="weddinghero.png"
         alt="Wedding Invitation"
         loading="eager"
         decoding="async"
@@ -1640,6 +1680,8 @@ footer{
                 </div>
 
 
+                <!-- RECEPTION MAP -->
+
                 <a
                     class="map-btn"
                     href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad"
@@ -1647,6 +1689,19 @@ footer{
                     rel="noopener">
 
                     Open Location
+
+                </a>
+
+
+                <!-- RECEPTION ONLY REMINDER -->
+
+                <a
+                    class="reminder-btn"
+                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20%E2%80%94%20Asif%20Nijas%20Faizy&dates=20260921T103000Z%2F20260921T120000Z&details=Reception%20of%20Asif%20Nijas%20Faizy%20%26%20Jouhara%20Fathima.&location=Pleasent%20Auditorium%2C%20Pandikkad"
+                    target="_blank"
+                    rel="noopener">
+
+                    🔔 Add Reminder
 
                 </a>
 
@@ -1903,10 +1958,7 @@ function closeOpening(){
 }
 
 
-/*
-   Opening automatically disappears
-   after 3 seconds.
-*/
+/* Automatically disappear after 3 seconds */
 
 setTimeout(
     closeOpening,
@@ -1924,14 +1976,8 @@ const music =
 const musicBtn =
     document.getElementById("musicBtn");
 
-
 let musicStarted = false;
 
-
-/*
-   First touch anywhere on the page
-   attempts to start the music.
-*/
 
 async function startMusic(){
 
@@ -1940,7 +1986,6 @@ async function startMusic(){
         return;
 
     }
-
 
     try{
 
@@ -1965,9 +2010,7 @@ async function startMusic(){
 }
 
 
-/*
-   FIRST TOUCH / CLICK ANYWHERE
-*/
+/* First touch anywhere */
 
 document.addEventListener(
     "pointerdown",
@@ -1986,9 +2029,7 @@ document.addEventListener(
 );
 
 
-/*
-   Extra support for mobile touch.
-*/
+/* Extra mobile touch support */
 
 document.addEventListener(
     "touchstart",
@@ -2007,16 +2048,13 @@ document.addEventListener(
 );
 
 
-/*
-   Music button.
-*/
+/* Music button */
 
 musicBtn.addEventListener(
     "click",
     function(event){
 
         event.stopPropagation();
-
 
         if(music.paused){
 
@@ -2049,9 +2087,7 @@ musicBtn.addEventListener(
 );
 
 
-/*
-   Keep button synchronized.
-*/
+/* Keep button synchronized */
 
 music.addEventListener(
     "play",
@@ -2270,9 +2306,7 @@ async function requestWakeLock(){
 }
 
 
-/*
-   Re-enable when page becomes visible.
-*/
+/* Re-enable when page becomes visible */
 
 document.addEventListener(
     "visibilitychange",
@@ -2300,16 +2334,12 @@ let autoScrolling = true;
 let resumeTimer = null;
 
 
-/*
-   Slow continuous scrolling.
-*/
+/* Slow continuous scrolling */
 
 const scrollSpeed = 0.65;
 
 
-/*
-   Pause when visitor interacts.
-*/
+/* Pause when visitor interacts */
 
 function pauseAutoScroll(){
 
@@ -2321,10 +2351,7 @@ function pauseAutoScroll(){
     );
 
 
-    /*
-       Resume after 4 seconds
-       without interaction.
-    */
+    /* Resume after 4 seconds */
 
     resumeTimer =
         setTimeout(
@@ -2339,9 +2366,7 @@ function pauseAutoScroll(){
 }
 
 
-/*
-   Manual touch / scrolling
-*/
+/* Manual touch */
 
 window.addEventListener(
     "touchstart",
@@ -2361,6 +2386,8 @@ window.addEventListener(
 );
 
 
+/* Mouse wheel */
+
 window.addEventListener(
     "wheel",
     pauseAutoScroll,
@@ -2370,9 +2397,7 @@ window.addEventListener(
 );
 
 
-/*
-   Pointer interaction.
-*/
+/* Pointer interaction */
 
 window.addEventListener(
     "pointerdown",
@@ -2383,9 +2408,7 @@ window.addEventListener(
 );
 
 
-/*
-   Automatic scrolling loop.
-*/
+/* Automatic scrolling loop */
 
 function autoScroll(){
 
@@ -2411,9 +2434,7 @@ function autoScroll(){
         window.innerHeight;
 
 
-    /*
-       Stop permanently at bottom.
-    */
+    /* Stop at bottom */
 
     if(
         current >=
@@ -2440,10 +2461,7 @@ function autoScroll(){
 }
 
 
-/*
-   Wait 5 seconds before
-   automatic scrolling starts.
-*/
+/* Start after 5 seconds */
 
 setTimeout(
     function(){
