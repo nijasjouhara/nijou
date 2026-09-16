@@ -1151,8 +1151,147 @@ footer{
 .settings-panel{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);width:min(520px,calc(100% - 28px));max-height:calc(100vh - 40px);overflow:auto;z-index:9996;padding:28px 24px 22px;border:1px solid rgba(184,148,77,.65);border-radius:28px;background:rgba(18,24,21,.96);color:var(--cream);box-shadow:0 20px 70px rgba(0,0,0,.42);opacity:0;visibility:hidden;transition:.35s ease;backdrop-filter:blur(18px)}.settings-panel.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 .settings-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.settings-heading{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--gold-light)}.settings-close{width:38px;height:38px;border-radius:50%;border:1px solid rgba(184,148,77,.55);background:transparent;color:var(--gold-light);font-size:22px;cursor:pointer}.settings-group{margin-top:20px}.settings-label{display:flex;align-items:center;gap:9px;font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px}.settings-options{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.settings-option{min-height:48px;border:1px solid rgba(255,255,255,.17);border-radius:14px;background:rgba(255,255,255,.045);color:var(--cream);font-family:"Montserrat",sans-serif;font-size:11px;cursor:pointer;transition:.25s ease}.settings-option.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold-light)}.music-row{display:flex;align-items:center;gap:12px}.music-control{width:52px;height:48px;flex:0 0 52px;border:1px solid rgba(184,148,77,.65);border-radius:14px;background:var(--gold);color:var(--green-dark);font-size:18px;cursor:pointer}.volume-control{width:100%;accent-color:var(--gold)}.settings-footer{margin-top:23px;padding-top:18px;border-top:1px solid rgba(184,148,77,.25);text-align:center;color:var(--gold-pale);font-family:"Montserrat",sans-serif;font-size:9px;letter-spacing:2.5px}.settings-footer span{font-size:15px;margin-right:6px}
 /* TOUCH BAARAKALLAH */
-.touch-blessing{position:fixed;left:50%;top:50%;z-index:10000;pointer-events:none;transform:translate(-50%,-50%) scale(.75);opacity:0;color:var(--gold-light);font-family:"Cormorant Garamond",serif;font-size:clamp(24px,6vw,38px);font-weight:500;font-style:italic;letter-spacing:1px;white-space:nowrap;text-shadow:0 0 7px rgba(213,183,111,.42),0 0 20px rgba(213,183,111,.20)}.touch-blessing.show{animation:blessingPop 1.55s ease forwards}@keyframes blessingPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.65)}18%{opacity:1;transform:translate(-50%,-50%) scale(1)}70%{opacity:1;transform:translate(-50%,-65%) scale(1.04)}100%{opacity:0;transform:translate(-50%,-82%) scale(1.1)}}.touch-heart{position:fixed;z-index:9999;pointer-events:none;color:var(--gold-light);font-size:18px;animation:heartFloat 1.5s ease-out forwards;text-shadow:0 0 10px rgba(213,183,111,.45)}@keyframes heartFloat{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--drift)),calc(-50% - 100px)) scale(1.2)}}
+/* TOUCH BAARAKALLAH */
+.touch-blessing{
+    position:fixed;
+    left:50%;
+    top:50%;
+    z-index:10000;
+    pointer-events:none;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    min-width:205px;
+    height:64px;
+    padding:0 28px;
+
+    border:1px solid rgba(184,148,77,.65);
+    border-radius:40px;
+
+    background:rgba(45,45,43,.88);
+
+    color:#eee8d8;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(24px,6vw,34px);
+    font-weight:500;
+    font-style:italic;
+    letter-spacing:.2px;
+    line-height:1;
+
+    box-shadow:
+        0 8px 28px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 0 12px rgba(213,183,111,.10);
+
+    text-shadow:
+        0 0 7px rgba(213,183,111,.28),
+        0 0 18px rgba(213,183,111,.12);
+
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.88);
+    white-space:nowrap;
+}
+
+.touch-blessing.show{
+    animation:baarakallahElegant 1.65s ease-out forwards;
+}
+
+@keyframes baarakallahElegant{
+
+    0%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.88);
+    }
+
+    15%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    70%{
+        opacity:1;
+        transform:translate(-50%,-51%) scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-54%) scale(1.015);
+    }
+}
+
+
+/* Reference-style floating hearts and sparkles */
+.touch-heart{
+    position:fixed;
+    z-index:9999;
+    pointer-events:none;
+
+    font-family:Georgia,serif;
+    font-weight:normal;
+
+    opacity:0;
+
+    animation:touchHeartFloat 1.5s ease-out forwards;
+}
+
+.touch-heart.gold{
+    color:#d6b76f;
+    text-shadow:0 0 8px rgba(213,183,111,.30);
+}
+
+.touch-heart.green{
+    color:#6fae9b;
+    text-shadow:0 0 8px rgba(111,174,155,.25);
+}
+
+.touch-heart.heart{
+    font-size:23px;
+}
+
+.touch-heart.sparkle{
+    font-size:20px;
+}
+
+.touch-heart.small{
+    font-size:14px;
+}
+
+@keyframes touchHeartFloat{
+
+    0%{
+        opacity:0;
+        transform:
+            translate(-50%,-50%)
+            scale(.45)
+            rotate(0deg);
+    }
+
+    18%{
+        opacity:.95;
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    65%{
+        opacity:.85;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(
+                calc(-50% + var(--drift-x)),
+                calc(-50% + var(--drift-y))
+            )
+            scale(.82)
+            rotate(var(--rotate));
+    }
+}
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -1902,8 +2041,10 @@ footer{
   <div class="settings-group"><div class="settings-label"><span>♫</span><span id="musicLabel">Music</span></div><div class="music-row"><button class="music-control" id="panelMusicBtn">▶</button><input class="volume-control" id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.55"></div></div>
   <div class="settings-footer"><span>♡</span><span id="madeWithLove">MADE WITH LOVE</span></div>
 </div>
-<div class="touch-blessing" id="touchBlessing">♡ Baarakallah</div>
-
+<div class="touch-blessing" id="touchBlessing">
+    <span>♡</span>
+    <span>Barakallah!</span>
+</div>
 <script>
 
 /* =====================================================
@@ -2491,7 +2632,185 @@ function applyTheme(theme){const r=document.documentElement;if(theme==="dark"){r
 /* PANEL MUSIC */
 const panelMusicBtn=document.getElementById("panelMusicBtn"),volumeControl=document.getElementById("volumeControl");panelMusicBtn.addEventListener("click",e=>{e.stopPropagation();if(music.paused){music.play().then(()=>{musicStarted=true;panelMusicBtn.innerHTML="❚❚";musicBtn.innerHTML="❚❚"}).catch(()=>{})}else{music.pause();panelMusicBtn.innerHTML="▶";musicBtn.innerHTML="♪"}});volumeControl.addEventListener("input",()=>music.volume=Number(volumeControl.value));music.addEventListener("play",()=>panelMusicBtn.innerHTML="❚❚");music.addEventListener("pause",()=>panelMusicBtn.innerHTML="▶");
 /* TOUCH BAARAKALLAH */
-const touchBlessing=document.getElementById("touchBlessing");let blessingTimer=null;function showTouchBlessing(x,y){clearTimeout(blessingTimer);touchBlessing.classList.remove("show");touchBlessing.style.left=x+"px";touchBlessing.style.top=y+"px";void touchBlessing.offsetWidth;touchBlessing.classList.add("show");for(let i=0;i<5;i++){const heart=document.createElement("span");heart.className="touch-heart";heart.textContent=Math.random()>.5?"♡":"✦";heart.style.left=x+"px";heart.style.top=y+"px";heart.style.setProperty("--drift",((Math.random()*100)-50)+"px");document.body.appendChild(heart);setTimeout(()=>heart.remove(),1600)}blessingTimer=setTimeout(()=>touchBlessing.classList.remove("show"),1550)}document.addEventListener("pointerdown",e=>{if(e.target.closest("button")||e.target.closest("a")||e.target.closest("input")||e.target.closest(".settings-panel"))return;showTouchBlessing(e.clientX,e.clientY)},{passive:true});
+const touchBlessing=document.getElementById("touchBlessing");
+
+let blessingTimer=null;
+
+function createTouchDecoration(x,y,symbol,type,driftX,driftY,rotate){
+
+    const heart=document.createElement("span");
+
+    heart.className=
+        "touch-heart "+
+        type;
+
+    heart.textContent=symbol;
+
+    heart.style.left=x+"px";
+    heart.style.top=y+"px";
+
+    heart.style.setProperty(
+        "--drift-x",
+        driftX+"px"
+    );
+
+    heart.style.setProperty(
+        "--drift-y",
+        driftY+"px"
+    );
+
+    heart.style.setProperty(
+        "--rotate",
+        rotate+"deg"
+    );
+
+    /*
+      Gold / Green colour
+    */
+    if(Math.random()>.45){
+
+        heart.classList.add("gold");
+
+    }else{
+
+        heart.classList.add("green");
+
+    }
+
+    document.body.appendChild(heart);
+
+    setTimeout(
+        ()=>{
+            heart.remove();
+        },
+        1600
+    );
+}
+
+
+function showTouchBlessing(x,y){
+
+    clearTimeout(blessingTimer);
+
+    /*
+      Reset main Barakallah pill
+    */
+    touchBlessing.classList.remove("show");
+
+    void touchBlessing.offsetWidth;
+
+    touchBlessing.style.left=x+"px";
+    touchBlessing.style.top=y+"px";
+
+    touchBlessing.classList.add("show");
+
+
+    /*
+      Same type of arrangement
+      as the reference image
+    */
+
+    createTouchDecoration(
+        x,y,
+        "♡",
+        "heart",
+        -62,-48,
+        -15
+    );
+
+    createTouchDecoration(
+        x,y,
+        "♡",
+        "heart",
+        62,-50,
+        15
+    );
+
+    createTouchDecoration(
+        x,y,
+        "✦",
+        "sparkle",
+        -78,-8,
+        -12
+    );
+
+    createTouchDecoration(
+        x,y,
+        "✦",
+        "sparkle",
+        78,-10,
+        12
+    );
+
+    createTouchDecoration(
+        x,y,
+        "✧",
+        "sparkle",
+        -45,45,
+        -8
+    );
+
+    createTouchDecoration(
+        x,y,
+        "✧",
+        "sparkle",
+        48,43,
+        10
+    );
+
+    createTouchDecoration(
+        x,y,
+        "♡",
+        "heart",
+        -28,-70,
+        -12
+    );
+
+    createTouchDecoration(
+        x,y,
+        "♡",
+        "heart",
+        30,-70,
+        12
+    );
+
+
+    blessingTimer=setTimeout(
+        ()=>{
+            touchBlessing.classList.remove("show");
+        },
+        1650
+    );
+}
+
+
+document.addEventListener(
+    "pointerdown",
+    e=>{
+
+        /*
+          Don't trigger when pressing
+          buttons, links or settings.
+        */
+        if(
+            e.target.closest("button")||
+            e.target.closest("a")||
+            e.target.closest("input")||
+            e.target.closest(".settings-panel")
+        ){
+            return;
+        }
+
+        showTouchBlessing(
+            e.clientX,
+            e.clientY
+        );
+
+    },
+    {
+        passive:true
+    }
+);
 </script>
 
 
