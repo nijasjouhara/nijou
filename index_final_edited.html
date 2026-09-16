@@ -1,0 +1,2581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Asif Nijas Faizy & Jouhara Fathima</title>
+
+<meta name="theme-color" content="#0d241d">
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --green:#0d2a21;
+    --green-dark:#081b16;
+    --green-soft:#12352b;
+
+    --cream:#f8f0e2;
+    --cream-light:#fbf6ec;
+
+    --gold:#b8944d;
+    --gold-light:#d5b76f;
+    --gold-pale:#e2cf9e;
+
+    --dark-text:#142820;
+    --soft-text:#827564;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    background:var(--cream);
+
+    color:var(--dark-text);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    overflow-x:hidden;
+
+}
+
+
+/* =====================================================
+   OPENING SCREEN
+===================================================== */
+
+.opening{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(184,148,77,.13),
+            transparent 48%
+        ),
+
+        var(--green);
+
+    transition:
+
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+.opening.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+.opening-content{
+
+    width:100%;
+
+    max-width:760px;
+
+    animation:
+        openingFade 1.6s ease;
+
+}
+
+.bismillah{
+
+    font-family:"Amiri",serif;
+
+    font-size:
+        clamp(27px,7vw,50px);
+
+    line-height:1.7;
+
+    color:var(--gold-light);
+
+    margin-bottom:22px;
+
+    direction:rtl;
+
+}
+
+.opening-ayah{
+
+    font-family:"Amiri",serif;
+
+    font-size:
+        clamp(20px,5.2vw,36px);
+
+    line-height:2;
+
+    color:var(--cream);
+
+    direction:rtl;
+
+}
+
+.opening-reference{
+
+    margin-top:14px;
+
+    color:var(--gold-light);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+}
+
+.opening-line{
+
+    width:65px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:28px auto 0;
+
+}
+
+@keyframes openingFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-btn{
+
+    position:fixed;
+
+    top:18px;
+
+    right:18px;
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    border:
+
+        1px solid
+        rgba(184,148,77,.8);
+
+    background:
+
+        rgba(13,42,33,.96);
+
+    color:var(--gold-light);
+
+    z-index:9998;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    box-shadow:
+
+        0 5px 25px
+        rgba(0,0,0,.22);
+
+    backdrop-filter:blur(10px);
+
+    transition:.25s;
+
+}
+
+.music-btn:active{
+
+    transform:scale(.92);
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:auto;
+
+    min-height:0;
+
+    overflow:hidden;
+
+    background:var(--cream);
+
+    line-height:0;
+
+}
+
+.hero-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:none;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.hero-scroll{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:20px;
+
+    transform:
+        translateX(-50%);
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(184,148,77,.65);
+
+    background:
+        rgba(13,42,33,.70);
+
+    color:#fff;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    animation:
+        scrollBounce 1.8s infinite;
+
+}
+
+@keyframes scrollBounce{
+
+    0%,100%{
+
+        transform:
+            translate(-50%,0);
+
+    }
+
+    50%{
+
+        transform:
+            translate(-50%,8px);
+
+    }
+
+}
+
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+.section{
+
+    position:relative;
+
+    text-align:center;
+
+}
+
+.section-inner{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section{
+
+    background:var(--cream);
+
+    color:var(--dark-text);
+
+    padding:
+
+        72px 22px
+        86px;
+
+}
+
+.countdown-intro{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.countdown-label{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+
+}
+
+.countdown-title{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(43px,10vw,68px);
+
+    line-height:1;
+
+    font-weight:500;
+
+    color:var(--dark-text);
+
+    margin-bottom:25px;
+
+}
+
+.small-ornament{
+
+    color:var(--gold);
+
+    font-size:25px;
+
+    margin-bottom:27px;
+
+}
+
+.countdown-description{
+
+    max-width:650px;
+
+    margin:
+
+        0 auto 48px;
+
+    color:var(--soft-text);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        clamp(14px,3.8vw,18px);
+
+    line-height:1.9;
+
+}
+
+
+/* =====================================================
+   COUNTDOWN BOXES
+===================================================== */
+
+.countdown{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+
+.time-box{
+
+    min-height:152px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:
+        1px solid
+        rgba(184,148,77,.48);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.55),
+            rgba(245,235,216,.35)
+        );
+
+    box-shadow:
+
+        0 10px 35px
+        rgba(95,73,40,.06);
+
+}
+
+.time-number{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(36px,8vw,54px);
+
+    line-height:1;
+
+    font-weight:600;
+
+    color:var(--dark-text);
+
+}
+
+.time-label{
+
+    margin-top:13px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:var(--soft-text);
+
+    text-transform:uppercase;
+
+}
+
+
+/* =====================================================
+   SAVE THE DATE TRANSITION
+===================================================== */
+
+.save-date{
+
+    min-height:205px;
+
+    padding:75px 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--green);
+
+    color:var(--cream);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.save-date::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+
+    height:330px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(184,148,77,.18);
+
+    right:-165px;
+
+    top:-90px;
+
+}
+
+.save-date-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.save-date-label{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold-light);
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+.events-section{
+
+    background:var(--green);
+
+    color:var(--cream);
+
+    padding:
+
+        82px 20px
+        90px;
+
+}
+
+.section-label{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold-light);
+
+    text-transform:uppercase;
+
+    margin-bottom:16px;
+
+}
+
+.section-title{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(40px,9vw,62px);
+
+    font-weight:500;
+
+    color:var(--gold-light);
+
+    line-height:1.1;
+
+}
+
+.gold-line{
+
+    width:65px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:
+
+        25px auto
+        40px;
+
+}
+
+
+/* =====================================================
+   EVENT GRID
+===================================================== */
+
+.events{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.event-card{
+
+    padding:
+
+        42px 25px;
+
+    border:
+        1px solid
+        rgba(184,148,77,.42);
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+.event-symbol{
+
+    color:var(--gold-light);
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+.event-title{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:37px;
+
+    font-weight:500;
+
+    color:var(--gold-light);
+
+    margin-bottom:18px;
+
+}
+
+.event-date{
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+
+    color:var(--cream);
+
+    opacity:.78;
+
+    margin-bottom:17px;
+
+}
+
+.event-time{
+
+    font-size:27px;
+
+    margin-bottom:18px;
+
+    color:var(--cream);
+
+}
+
+.event-place{
+
+    font-size:19px;
+
+    line-height:1.6;
+
+    color:var(--cream);
+
+    opacity:.82;
+
+}
+
+.map-btn{
+
+    display:inline-block;
+
+    margin-top:26px;
+
+    padding:
+
+        12px 23px;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color:var(--gold-light);
+
+    text-decoration:none;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+
+}
+
+.map-btn:hover{
+
+    background:var(--gold);
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
+   MOMENTS
+===================================================== */
+
+.moments-section{
+
+    background:var(--cream);
+
+    color:var(--dark-text);
+
+    padding:
+
+        82px 20px
+        90px;
+
+}
+
+.moments-section .section-label{
+
+    color:var(--gold);
+
+}
+
+.moments-section .section-title{
+
+    color:var(--dark-text);
+
+}
+
+.moment-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:13px;
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+.moment{
+
+    aspect-ratio:1/1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(184,148,77,.35);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.55),
+            rgba(239,224,199,.3)
+        );
+
+}
+
+.moment span{
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:31px;
+
+    color:var(--gold);
+
+}
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp-section{
+
+    background:var(--green);
+
+    color:var(--cream);
+
+    padding:
+
+        85px 20px
+        95px;
+
+}
+
+.rsvp-text{
+
+    max-width:650px;
+
+    margin:
+
+        0 auto 32px;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+    opacity:.82;
+
+}
+
+.whatsapp-btn{
+
+    display:inline-block;
+
+    padding:
+
+        15px 30px;
+
+    background:var(--gold);
+
+    color:var(--green);
+
+    text-decoration:none;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+
+}
+
+.whatsapp-btn:hover{
+
+    background:var(--gold-light);
+
+}
+
+
+/* =====================================================
+   FINAL DUA
+===================================================== */
+
+.dua-section{
+
+    background:var(--green-dark);
+
+    padding:
+
+        90px 20px
+        100px;
+
+    text-align:center;
+
+    color:var(--cream);
+
+}
+
+.dua-ornament{
+
+    color:var(--gold-light);
+
+    font-size:19px;
+
+    letter-spacing:8px;
+
+    margin-bottom:30px;
+
+}
+
+.dua{
+
+    max-width:900px;
+
+    margin:auto;
+
+    direction:rtl;
+
+    font-family:"Amiri",serif;
+
+    font-size:
+        clamp(24px,6vw,40px);
+
+    line-height:2;
+
+    color:var(--cream);
+
+}
+
+.dua-meaning{
+
+    max-width:650px;
+
+    margin:
+
+        22px auto 0;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    opacity:.68;
+
+    font-style:italic;
+
+}
+
+.amin{
+
+    margin-top:25px;
+
+    direction:rtl;
+
+    font-family:"Amiri",serif;
+
+    font-size:23px;
+
+    color:var(--gold-light);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#06130f;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+}
+
+.footer-ayah{
+
+    direction:rtl;
+
+    font-family:"Amiri",serif;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:var(--gold-light);
+
+}
+
+.footer-reference{
+
+    margin-top:10px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:rgba(255,255,255,.45);
+
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+
+        opacity .9s ease,
+        transform .9s ease;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+
+/* SETTINGS PANEL */
+.settings-open-btn{position:fixed;right:18px;bottom:22px;width:58px;height:58px;border-radius:50%;border:1px solid var(--gold-light);background:var(--gold);color:var(--green-dark);z-index:9997;font-size:25px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.28);transition:.25s ease}.settings-open-btn:active{transform:scale(.92)}
+.settings-backdrop{position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.48);opacity:0;visibility:hidden;transition:.35s ease;backdrop-filter:blur(3px)}.settings-backdrop.show{opacity:1;visibility:visible}
+.settings-panel{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);width:min(520px,calc(100% - 28px));max-height:calc(100vh - 40px);overflow:auto;z-index:9996;padding:28px 24px 22px;border:1px solid rgba(184,148,77,.65);border-radius:28px;background:rgba(18,24,21,.96);color:var(--cream);box-shadow:0 20px 70px rgba(0,0,0,.42);opacity:0;visibility:hidden;transition:.35s ease;backdrop-filter:blur(18px)}.settings-panel.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.settings-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.settings-heading{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--gold-light)}.settings-close{width:38px;height:38px;border-radius:50%;border:1px solid rgba(184,148,77,.55);background:transparent;color:var(--gold-light);font-size:22px;cursor:pointer}.settings-group{margin-top:20px}.settings-label{display:flex;align-items:center;gap:9px;font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px}.settings-options{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.settings-option{min-height:48px;border:1px solid rgba(255,255,255,.17);border-radius:14px;background:rgba(255,255,255,.045);color:var(--cream);font-family:"Montserrat",sans-serif;font-size:11px;cursor:pointer;transition:.25s ease}.settings-option.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold-light)}.music-row{display:flex;align-items:center;gap:12px}.music-control{width:52px;height:48px;flex:0 0 52px;border:1px solid rgba(184,148,77,.65);border-radius:14px;background:var(--gold);color:var(--green-dark);font-size:18px;cursor:pointer}.volume-control{width:100%;accent-color:var(--gold)}.settings-footer{margin-top:23px;padding-top:18px;border-top:1px solid rgba(184,148,77,.25);text-align:center;color:var(--gold-pale);font-family:"Montserrat",sans-serif;font-size:9px;letter-spacing:2.5px}.settings-footer span{font-size:15px;margin-right:6px}
+
+.settings-open-btn::after{content:"";position:absolute;inset:-6px;border:1px solid rgba(213,183,111,.35);border-radius:50%;animation:settingsPulse 2.4s ease-out infinite;pointer-events:none}
+@keyframes settingsPulse{0%{opacity:.8;transform:scale(.92)}100%{opacity:0;transform:scale(1.28)}}
+
+/* TOUCH BAARAKALLAH */
+.touch-blessing{position:fixed;left:50%;top:50%;z-index:10000;pointer-events:none;transform:translate(-50%,-50%) scale(.75);opacity:0;color:var(--gold-light);font-family:"Cormorant Garamond",serif;font-size:clamp(24px,6vw,38px);font-weight:500;font-style:italic;letter-spacing:1px;white-space:nowrap;text-shadow:0 0 7px rgba(213,183,111,.42),0 0 20px rgba(213,183,111,.20)}.touch-blessing.show{animation:blessingPop 1.55s ease forwards}@keyframes blessingPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.65)}18%{opacity:1;transform:translate(-50%,-50%) scale(1)}70%{opacity:1;transform:translate(-50%,-65%) scale(1.04)}100%{opacity:0;transform:translate(-50%,-82%) scale(1.1)}}.touch-heart{position:fixed;z-index:9999;pointer-events:none;color:var(--gold-light);font-size:18px;animation:heartFloat 1.5s ease-out forwards;text-shadow:0 0 10px rgba(213,183,111,.45)}@keyframes heartFloat{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--drift)),calc(-50% - 100px)) scale(1.2)}}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    .countdown-section{
+
+        padding:
+
+            58px 18px
+            68px;
+
+    }
+
+    .countdown-description{
+
+        margin-bottom:38px;
+
+    }
+
+    .countdown{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:12px;
+
+        max-width:420px;
+
+    }
+
+    .time-box{
+
+        min-height:135px;
+
+    }
+
+    .save-date{
+
+        min-height:180px;
+
+        padding:60px 20px;
+
+    }
+
+    .events{
+
+        grid-template-columns:1fr;
+
+        max-width:500px;
+
+    }
+
+    .event-card{
+
+        padding:35px 18px;
+
+    }
+
+    .moment-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:370px){
+
+    .countdown{
+
+        gap:8px;
+
+    }
+
+    .time-box{
+
+        min-height:125px;
+
+    }
+
+    .time-number{
+
+        font-size:38px;
+
+    }
+
+    .time-label{
+
+        font-size:8px;
+
+        letter-spacing:2px;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
+
+    }
+
+}
+
+
+html[dir="rtl"] .settings-top{direction:rtl}
+html[dir="rtl"] .settings-options{direction:rtl}
+html[dir="rtl"] .event-card{text-align:center}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div class="bismillah">
+
+            بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+
+        </div>
+
+
+        <div class="opening-ayah">
+
+            ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
+            أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا ﴾
+
+        </div>
+
+
+        <div class="opening-reference">
+
+            الرُّوم · ٢١
+
+        </div>
+
+
+        <div class="opening-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+    id="weddingMusic"
+    loop
+    preload="auto">
+
+    <source
+        src="weddingmusic.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    aria-label="Music">
+
+    ♪
+
+</button>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home">
+
+    <img
+        class="hero-image"
+        src="weddinghero.webp"
+        alt="Wedding Invitation"
+        loading="eager"
+        decoding="async"
+    >
+
+
+    <button
+        class="hero-scroll"
+        id="heroScroll"
+        aria-label="Scroll down">
+
+        ↓
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section
+    class="section countdown-section">
+
+    <div class="section-inner countdown-intro reveal">
+
+
+        <div class="countdown-label" data-i18n="countdownLabel">
+
+            THE COUNTDOWN
+
+        </div>
+
+
+        <h1 class="countdown-title" data-i18n="countdownTitle">
+
+            Until Our Nikah
+
+        </h1>
+
+
+        <div class="small-ornament">
+
+            ✦
+
+        </div>
+
+
+        <p class="countdown-description" data-i18n="countdownDescription">
+
+            A beautiful day is approaching.
+            We look forward to celebrating this
+            blessed beginning with you.
+
+        </p>
+
+
+        <div class="countdown">
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="days">
+
+                    00
+
+                </span>
+
+                <span class="time-label" data-i18n="days">
+
+                    Days
+
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="hours">
+
+                    00
+
+                </span>
+
+                <span class="time-label" data-i18n="hours">
+
+                    Hours
+
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="minutes">
+
+                    00
+
+                </span>
+
+                <span class="time-label" data-i18n="minutes">
+
+                    Minutes
+
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="seconds">
+
+                    00
+
+                </span>
+
+                <span class="time-label" data-i18n="seconds">
+
+                    Seconds
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SAVE THE DATE
+===================================================== -->
+
+<section class="save-date">
+
+    <div class="save-date-content reveal">
+
+        <div class="save-date-label" data-i18n="saveDate">
+
+            SAVE THE DATE
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EVENTS
+===================================================== -->
+
+<section
+    class="section events-section">
+
+    <div class="section-inner">
+
+
+        <div class="reveal">
+
+            <div class="section-label" data-i18n="joinUs">
+
+                JOIN US
+
+            </div>
+
+
+            <h2 class="section-title" data-i18n="specialDay">
+
+                Our Special Day
+
+            </h2>
+
+
+            <div class="gold-line"></div>
+
+        </div>
+
+
+        <div class="events">
+
+
+            <!-- NIKAH -->
+
+            <div class="event-card reveal">
+
+                <div class="event-symbol">
+
+                    ✦
+
+                </div>
+
+
+                <h3 class="event-title" data-i18n="nikah">
+
+                    Nikah
+
+                </h3>
+
+
+                <div class="event-date" data-i18n="eventDate">
+
+                    Monday · 21 September 2026
+
+                </div>
+
+
+                <div class="event-time" data-i18n="nikahTime">
+
+                    11:00 AM
+
+                </div>
+
+
+                <div class="event-place" data-i18n="nikahPlace">
+
+                    Chazhiyode Juma Masjid
+
+                </div>
+
+
+                <a
+                    class="map-btn"
+                    href="https://maps.app.goo.gl/yzJwYugfeQbWYxUu7?g_st=ac"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span data-i18n="openLocation">Open Location</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- RECEPTION -->
+
+            <div class="event-card reveal">
+
+                <div class="event-symbol">
+
+                    ✦
+
+                </div>
+
+
+                <h3 class="event-title" data-i18n="reception">
+
+                    Reception
+
+                </h3>
+
+
+                <div class="event-date" data-i18n="eventDate">
+
+                    Monday · 21 September 2026
+
+                </div>
+
+
+                <div class="event-time" data-i18n="receptionTime">
+
+                    4:00 PM
+
+                </div>
+
+
+                <div class="event-place" data-i18n="receptionPlace">
+
+                    Pleasent Auditorium<br>
+                    Pandikkad
+
+                </div>
+
+
+                <a
+                    class="map-btn"
+                    href="https://www.google.com/maps/search/?api=1&query=Pleasent%20Auditorium%20Pandikkad"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span data-i18n="openLocation">Open Location</span>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OUR MOMENTS
+===================================================== -->
+
+<section
+    class="section moments-section">
+
+    <div class="section-inner moments-content reveal">
+
+
+        <div class="section-label" data-i18n="beautifulBeginning">
+
+            A BEAUTIFUL BEGINNING
+
+        </div>
+
+
+        <h2 class="section-title" data-i18n="ourMoments">
+
+            Our Moments
+
+        </h2>
+
+
+        <div class="gold-line"></div>
+
+
+        <div class="moment-grid">
+
+
+            <div class="moment">
+
+                <span data-i18n="love">
+
+                    Love
+
+                </span>
+
+            </div>
+
+
+            <div class="moment">
+
+                <span data-i18n="faith">
+
+                    Faith
+
+                </span>
+
+            </div>
+
+
+            <div class="moment">
+
+                <span data-i18n="forever">
+
+                    Forever
+
+                </span>
+
+            </div>
+
+
+            <div class="moment">
+
+                <span data-i18n="us">
+
+                    Us
+
+                </span>
+
+            </div>
+
+
+            <div class="moment">
+
+                <span data-i18n="together">
+
+                    Together
+
+                </span>
+
+            </div>
+
+
+            <div class="moment">
+
+                <span data-i18n="always">
+
+                    Always
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RSVP
+===================================================== -->
+
+<section
+    class="section rsvp-section">
+
+    <div class="section-inner rsvp-content reveal">
+
+
+        <div class="section-label" data-i18n="presenceMatters">
+
+            YOUR PRESENCE MATTERS
+
+        </div>
+
+
+        <h2 class="section-title" data-i18n="rsvpTitle">
+
+            RSVP
+
+        </h2>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="rsvp-text" data-i18n="rsvpText">
+
+            We would be honoured to have you with us
+            as we begin this beautiful journey together.
+
+        </p>
+
+
+        <a
+            class="whatsapp-btn"
+            href="https://wa.me/919745556452?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20confirm%20my%20presence%20at%20the%20Nikah%20of%20Asif%20Nijas%20Faizy%20%26%20Jouhara%20Fathima."
+            target="_blank"
+            rel="noopener">
+
+            <span data-i18n="confirmPresence">Confirm Your Presence</span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL DUA
+===================================================== -->
+
+<section
+    class="dua-section">
+
+    <div class="dua-ornament">
+
+        ✦ ✦ ✦
+
+    </div>
+
+
+    <div class="reveal">
+
+
+        <div class="dua">
+
+            بَارَكَ اللهُ لَكُمَا، وَبَارَكَ عَلَيْكُمَا،
+            وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+
+        </div>
+
+
+        <div class="dua-meaning" data-i18n="duaMeaning">
+
+            May Allah bless you both, shower His blessings
+            upon you, and unite you both in goodness.
+
+        </div>
+
+
+        <div class="amin">
+
+            آمِينَ يَا رَبَّ الْعَالَمِينَ
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-ayah" data-i18n="footerAyah">
+
+        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
+
+    </div>
+
+
+    <div class="footer-reference" data-i18n="footerReference">
+
+        AR-RUM · 21
+
+    </div>
+
+</footer>
+
+
+
+
+<!-- SETTINGS -->
+<button class="settings-open-btn" id="settingsOpen" aria-label="Open settings">✦</button>
+<div class="settings-backdrop" id="settingsBackdrop"></div>
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-top"><div class="settings-heading" id="settingsHeading">Settings</div><button class="settings-close" id="settingsClose" aria-label="Close settings">×</button></div>
+  <div class="settings-group"><div class="settings-label"><span>◎</span><span id="languageLabel">Language</span></div><div class="settings-options"><button class="settings-option active" data-language="en">EN</button><button class="settings-option" data-language="ml">മലയാളം</button><button class="settings-option" data-language="ar">عربي</button></div></div>
+  <div class="settings-group"><div class="settings-label"><span>◐</span><span id="themeLabel">Theme</span></div><div class="settings-options"><button class="settings-option active" data-theme="system">◉<br>System</button><button class="settings-option" data-theme="light">☼<br>Light</button><button class="settings-option" data-theme="dark">☾<br>Dark</button></div></div>
+  <div class="settings-group"><div class="settings-label"><span>♫</span><span id="musicLabel">Music</span></div><div class="music-row"><button class="music-control" id="panelMusicBtn">▶</button><input class="volume-control" id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.55"></div></div>
+  <div class="settings-footer"><span>♡</span><span id="madeWithLove">MADE WITH LOVE</span></div>
+</div>
+<div class="touch-blessing" id="touchBlessing">♡ Baarakallah</div>
+
+<script>
+
+/* =====================================================
+   OPENING
+===================================================== */
+
+const opening =
+    document.getElementById("opening");
+
+
+function closeOpening(){
+
+    if(opening){
+
+        opening.classList.add("hide");
+
+    }
+
+}
+
+
+/*
+   Opening automatically disappears
+   after 3 seconds.
+*/
+
+setTimeout(closeOpening,3000);
+document.addEventListener("pointerdown",closeOpening,{once:true,passive:true});
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+const music =
+    document.getElementById("weddingMusic");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+
+let musicStarted = false;
+
+
+/*
+   First touch anywhere on the page
+   attempts to start the music.
+*/
+
+async function startMusic(){
+
+    if(musicStarted){
+
+        return;
+
+    }
+
+
+    try{
+
+        music.volume = 0.55;
+
+        await music.play();
+
+        musicStarted = true;
+
+        musicBtn.innerHTML = "❚❚";
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Music waiting for user interaction."
+        );
+
+    }
+
+}
+
+
+/*
+   FIRST TOUCH / CLICK ANYWHERE
+*/
+
+document.addEventListener(
+    "pointerdown",
+    function(){
+
+        closeOpening();
+
+        startMusic();
+
+        requestWakeLock();
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/*
+   Extra support for mobile touch.
+*/
+
+document.addEventListener(
+    "touchstart",
+    function(){
+
+        closeOpening();
+
+        startMusic();
+
+        requestWakeLock();
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/*
+   Music button.
+*/
+
+musicBtn.addEventListener(
+    "click",
+    function(event){
+
+        event.stopPropagation();
+
+
+        if(music.paused){
+
+            music.play()
+                .then(function(){
+
+                    musicStarted = true;
+
+                    musicBtn.innerHTML =
+                        "❚❚";
+
+                })
+                .catch(function(error){
+
+                    console.log(error);
+
+                });
+
+        }
+
+        else{
+
+            music.pause();
+
+            musicBtn.innerHTML = "♪";
+
+        }
+
+    }
+);
+
+
+/*
+   Keep button synchronized.
+*/
+
+music.addEventListener(
+    "play",
+    function(){
+
+        musicBtn.innerHTML = "❚❚";
+
+    }
+);
+
+
+music.addEventListener(
+    "pause",
+    function(){
+
+        musicBtn.innerHTML = "♪";
+
+    }
+);
+
+
+/* =====================================================
+   HERO SCROLL
+===================================================== */
+
+document
+    .getElementById("heroScroll")
+    .addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
+
+            window.scrollBy({
+
+                top:
+                    window.innerHeight * .85,
+
+                behavior:"smooth"
+
+            });
+
+        }
+    );
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+const weddingDate =
+    new Date(
+        "2026-09-21T11:00:00+05:30"
+    ).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+
+    let distance =
+        weddingDate - now;
+
+
+    if(distance < 0){
+
+        distance = 0;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance /
+            (1000 * 60)) % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance /
+            1000) % 60
+        );
+
+
+    document.getElementById("days")
+        .textContent =
+        String(days)
+            .padStart(2,"0");
+
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours)
+            .padStart(2,"0");
+
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes)
+            .padStart(2,"0");
+
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds)
+            .padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(
+                function(entry){
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+revealElements.forEach(
+    function(element){
+
+        observer.observe(element);
+
+    }
+);
+
+
+/* =====================================================
+   SCREEN WAKE LOCK
+===================================================== */
+
+let wakeLock = null;
+
+
+async function requestWakeLock(){
+
+    try{
+
+        if(
+            "wakeLock" in navigator
+        ){
+
+            wakeLock =
+                await navigator
+                    .wakeLock
+                    .request("screen");
+
+        }
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Wake Lock unavailable."
+        );
+
+    }
+
+}
+
+
+/*
+   Re-enable when page becomes visible.
+*/
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            requestWakeLock();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   AUTO SCROLL
+===================================================== */
+
+let autoScrolling = true;
+
+let resumeTimer = null;
+
+
+/*
+   Slow continuous scrolling.
+*/
+
+const scrollSpeed = 0.65;
+
+
+/*
+   Pause when visitor interacts.
+*/
+
+function pauseAutoScroll(){
+
+    autoScrolling = false;
+
+
+    clearTimeout(
+        resumeTimer
+    );
+
+
+    /*
+       Resume after 4 seconds
+       without interaction.
+    */
+
+    resumeTimer =
+        setTimeout(
+            function(){
+
+                autoScrolling = true;
+
+            },
+            4000
+        );
+
+}
+
+
+/*
+   Manual touch / scrolling
+*/
+
+window.addEventListener(
+    "touchstart",
+    pauseAutoScroll,
+    {
+        passive:true
+    }
+);
+
+
+window.addEventListener(
+    "touchmove",
+    pauseAutoScroll,
+    {
+        passive:true
+    }
+);
+
+
+window.addEventListener(
+    "wheel",
+    pauseAutoScroll,
+    {
+        passive:true
+    }
+);
+
+
+/*
+   Pointer interaction.
+*/
+
+window.addEventListener(
+    "pointerdown",
+    pauseAutoScroll,
+    {
+        passive:true
+    }
+);
+
+
+/*
+   Automatic scrolling loop.
+*/
+
+function autoScroll(){
+
+    if(!autoScrolling){
+
+        requestAnimationFrame(
+            autoScroll
+        );
+
+        return;
+
+    }
+
+
+    const current =
+        window.scrollY;
+
+
+    const maxScroll =
+        document.documentElement
+            .scrollHeight
+        -
+        window.innerHeight;
+
+
+    /*
+       Stop permanently at bottom.
+    */
+
+    if(
+        current >=
+        maxScroll - 2
+    ){
+
+        autoScrolling = false;
+
+        return;
+
+    }
+
+
+    window.scrollBy(
+        0,
+        scrollSpeed
+    );
+
+
+    requestAnimationFrame(
+        autoScroll
+    );
+
+}
+
+
+/*
+   Wait 5 seconds before
+   automatic scrolling starts.
+*/
+
+setTimeout(
+    function(){
+
+        autoScrolling = true;
+
+        requestAnimationFrame(
+            autoScroll
+        );
+
+    },
+    5000
+);
+
+
+/* LANGUAGE SWITCHER */
+const translations={
+en:{
+settings:"Settings",language:"Language",theme:"Theme",music:"Music",madeWithLove:"MADE WITH LOVE",
+countdownLabel:"THE COUNTDOWN",countdownTitle:"Until Our Nikah",
+countdownDescription:"A beautiful day is approaching. We look forward to celebrating this blessed beginning with you.",
+days:"Days",hours:"Hours",minutes:"Minutes",seconds:"Seconds",saveDate:"SAVE THE DATE",
+joinUs:"JOIN US",specialDay:"Our Special Day",nikah:"Nikah",reception:"Reception",
+eventDate:"Monday · 21 September 2026",nikahTime:"11:00 AM",receptionTime:"4:00 PM",
+nikahPlace:"Chazhiyode Juma Masjid",receptionPlace:"Pleasent Auditorium<br>Pandikkad",
+openLocation:"Open Location",beautifulBeginning:"A BEAUTIFUL BEGINNING",ourMoments:"Our Moments",
+love:"Love",faith:"Faith",forever:"Forever",us:"Us",together:"Together",always:"Always",
+presenceMatters:"YOUR PRESENCE MATTERS",rsvpTitle:"RSVP",
+rsvpText:"We would be honoured to have you with us as we begin this beautiful journey together.",
+confirmPresence:"Confirm Your Presence",
+duaMeaning:"May Allah bless you both, shower His blessings upon you, and unite you both in goodness.",
+footerAyah:"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا",
+footerReference:"AR-RUM · 21"
+},
+ml:{
+settings:"ക്രമീകരണങ്ങൾ",language:"ഭാഷ",theme:"തീം",music:"സംഗീതം",madeWithLove:"സ്നേഹത്തോടെ ഒരുക്കിയത്",
+countdownLabel:"കാത്തിരിപ്പ്",countdownTitle:"നമ്മുടെ നിക്കാഹിലേക്ക്",
+countdownDescription:"അനുഗ്രഹീതമായ ഈ പുതിയ തുടക്കത്തിനായി ഞങ്ങൾ കാത്തിരിക്കുന്നു. ഈ സന്തോഷദിനം നിങ്ങളോടൊപ്പം ആഘോഷിക്കാൻ ആഗ്രഹിക്കുന്നു.",
+days:"ദിവസങ്ങൾ",hours:"മണിക്കൂറുകൾ",minutes:"മിനിറ്റുകൾ",seconds:"സെക്കൻഡുകൾ",saveDate:"തീയതി ഓർത്തുവെക്കൂ",
+joinUs:"ഞങ്ങളോടൊപ്പം ചേരുക",specialDay:"ഞങ്ങളുടെ വിശേഷദിനം",nikah:"നിക്കാഹ്",reception:"റിസപ്ഷൻ",
+eventDate:"തിങ്കൾ · 21 സെപ്റ്റംബർ 2026",nikahTime:"രാവിലെ 11:00",receptionTime:"വൈകിട്ട് 4:00",
+nikahPlace:"ചാഴിയോട് ജുമാ മസ്ജിദ്",receptionPlace:"പ്ലീസന്റ് ഓഡിറ്റോറിയം<br>പാണ്ടിക്കാട്",
+openLocation:"ലൊക്കേഷൻ കാണുക",beautifulBeginning:"മനോഹരമായൊരു തുടക്കം",ourMoments:"ഞങ്ങളുടെ നിമിഷങ്ങൾ",
+love:"സ്നേഹം",faith:"വിശ്വാസം",forever:"എന്നെന്നും",us:"നമ്മൾ",together:"ഒരുമിച്ച്",always:"എപ്പോഴും",
+presenceMatters:"നിങ്ങളുടെ സാന്നിധ്യം വിലപ്പെട്ടതാണ്",rsvpTitle:"സാന്നിധ്യം അറിയിക്കുക",
+rsvpText:"ഞങ്ങളുടെ മനോഹരമായ ഈ പുതിയ യാത്രയുടെ തുടക്കത്തിൽ നിങ്ങളും ഞങ്ങളോടൊപ്പം ഉണ്ടാകണമെന്ന് ആഗ്രഹിക്കുന്നു.",
+confirmPresence:"സാന്നിധ്യം സ്ഥിരീകരിക്കുക",
+duaMeaning:"അല്ലാഹു നിങ്ങൾ ഇരുവർക്കും അനുഗ്രഹം നൽകുകയും, തന്റെ അനുഗ്രഹങ്ങൾ ചൊരിയുകയും, നന്മയിൽ നിങ്ങളെ ഒരുമിപ്പിക്കുകയും ചെയ്യട്ടെ.",
+footerAyah:"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا",
+footerReference:"അർ-റൂം · 21"
+},
+ar:{
+settings:"الإعدادات",language:"اللغة",theme:"المظهر",music:"الموسيقى",madeWithLove:"صُمِّمَ بِحُب",
+countdownLabel:"العد التنازلي",countdownTitle:"حتى نكاحنا",
+countdownDescription:"يقترب يوم جميل. نتطلع إلى الاحتفال معكم بهذه البداية المباركة.",
+days:"أيام",hours:"ساعات",minutes:"دقائق",seconds:"ثوانٍ",saveDate:"احفظوا التاريخ",
+joinUs:"انضموا إلينا",specialDay:"يومنا المميز",nikah:"النكاح",reception:"الاستقبال",
+eventDate:"الاثنين · 21 سبتمبر 2026",nikahTime:"11:00 صباحًا",receptionTime:"4:00 مساءً",
+nikahPlace:"مسجد جومعة تشازهيود",receptionPlace:"قاعة بليزنت<br>باندِكّاد",
+openLocation:"فتح الموقع",beautifulBeginning:"بداية جميلة",ourMoments:"لحظاتنا",
+love:"الحب",faith:"الإيمان",forever:"إلى الأبد",us:"نحن",together:"معًا",always:"دائمًا",
+presenceMatters:"حضوركم يعني لنا الكثير",rsvpTitle:"تأكيد الحضور",
+rsvpText:"يسعدنا ويشرّفنا أن تكونوا معنا ونحن نبدأ هذه الرحلة الجميلة معًا.",
+confirmPresence:"تأكيد الحضور",
+duaMeaning:"بارك الله لكما، وبارك عليكما، وجمع بينكما في خير.",
+footerAyah:"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا",
+footerReference:"الروم · ٢١"
+}
+};
+const settingsOpen=document.getElementById("settingsOpen"),settingsClose=document.getElementById("settingsClose"),settingsPanel=document.getElementById("settingsPanel"),settingsBackdrop=document.getElementById("settingsBackdrop");
+function openSettings(){settingsPanel.classList.add("show");settingsBackdrop.classList.add("show")}function closeSettings(){settingsPanel.classList.remove("show");settingsBackdrop.classList.remove("show")}settingsOpen.addEventListener("click",e=>{e.stopPropagation();openSettings()});settingsClose.addEventListener("click",closeSettings);settingsBackdrop.addEventListener("click",closeSettings);
+function applyLanguage(lang){const t=translations[lang]||translations.en;document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t[k]!==undefined)el.innerHTML=t[k]});document.getElementById("settingsHeading").textContent=t.settings;document.getElementById("languageLabel").textContent=t.language;document.getElementById("themeLabel").textContent=t.theme;document.getElementById("musicLabel").textContent=t.music;document.getElementById("madeWithLove").textContent=t.madeWithLove;document.querySelectorAll("[data-language]").forEach(b=>b.classList.toggle("active",b.dataset.language===lang));localStorage.setItem("weddingLanguage",lang)}document.querySelectorAll("[data-language]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();applyLanguage(b.dataset.language)}));applyLanguage(localStorage.getItem("weddingLanguage")||"en");
+/* THEME */
+function applyTheme(theme){
+const r=document.documentElement;
+r.dataset.theme=theme;
+if(theme==="dark"){
+r.style.setProperty("--cream","#171914");r.style.setProperty("--cream-light","#211f19");
+r.style.setProperty("--dark-text","#f3ead8");r.style.setProperty("--soft-text","#b7ad9d");
+}else if(theme==="light"){
+r.style.removeProperty("--cream");r.style.removeProperty("--cream-light");
+r.style.removeProperty("--dark-text");r.style.removeProperty("--soft-text");
+}else{
+r.style.removeProperty("--cream");r.style.removeProperty("--cream-light");
+r.style.removeProperty("--dark-text");r.style.removeProperty("--soft-text");
+}
+document.querySelectorAll("[data-theme]").forEach(b=>b.classList.toggle("active",b.dataset.theme===theme));
+localStorage.setItem("weddingTheme",theme)
+}document.querySelectorAll("[data-theme]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();applyTheme(b.dataset.theme)}));applyTheme(localStorage.getItem("weddingTheme")||"system");
+/* PANEL MUSIC */
+const panelMusicBtn=document.getElementById("panelMusicBtn"),volumeControl=document.getElementById("volumeControl");
+music.volume=Number(volumeControl.value);panelMusicBtn.addEventListener("click",e=>{e.stopPropagation();if(music.paused){music.play().then(()=>{musicStarted=true;panelMusicBtn.innerHTML="❚❚";musicBtn.innerHTML="❚❚"}).catch(()=>{})}else{music.pause();panelMusicBtn.innerHTML="▶";musicBtn.innerHTML="♪"}});volumeControl.addEventListener("input",()=>music.volume=Number(volumeControl.value));music.addEventListener("play",()=>panelMusicBtn.innerHTML="❚❚");music.addEventListener("pause",()=>panelMusicBtn.innerHTML="▶");
+
+.settings-open-btn::after{content:"";position:absolute;inset:-6px;border:1px solid rgba(213,183,111,.35);border-radius:50%;animation:settingsPulse 2.4s ease-out infinite;pointer-events:none}
+@keyframes settingsPulse{0%{opacity:.8;transform:scale(.92)}100%{opacity:0;transform:scale(1.28)}}
+
+/* TOUCH BAARAKALLAH */
+const touchBlessing=document.getElementById("touchBlessing");let blessingTimer=null;function showTouchBlessing(x,y){clearTimeout(blessingTimer);touchBlessing.classList.remove("show");touchBlessing.style.left=x+"px";touchBlessing.style.top=y+"px";void touchBlessing.offsetWidth;touchBlessing.classList.add("show");for(let i=0;i<5;i++){const heart=document.createElement("span");heart.className="touch-heart";heart.textContent=Math.random()>.5?"♡":"✦";heart.style.left=x+"px";heart.style.top=y+"px";heart.style.setProperty("--drift",((Math.random()*100)-50)+"px");document.body.appendChild(heart);setTimeout(()=>heart.remove(),1600)}blessingTimer=setTimeout(()=>touchBlessing.classList.remove("show"),1550)}document.addEventListener("pointerdown",e=>{
+if(e.target.closest("button")||e.target.closest("a")||e.target.closest("input")||e.target.closest(".settings-panel"))return;
+showTouchBlessing(e.clientX,e.clientY);
+},{passive:true});
+</script>
+
+
+</body>
+</html>
