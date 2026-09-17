@@ -1,11 +1,10 @@
 /* =====================================================
-   WEDDING INVITATION
-   COMPLETE STYLE SHEET
+   WEDDING INVITATION — COMPLETE CSS
 ===================================================== */
 
 
 /* =====================================================
-   ROOT VARIABLES
+   ROOT
 ===================================================== */
 
 :root{
@@ -34,7 +33,6 @@
 *{
 
     margin:0;
-
     padding:0;
 
     box-sizing:border-box;
@@ -67,7 +65,7 @@ body{
 
 
 /* =====================================================
-   OPENING SCREEN
+   OPENING
 ===================================================== */
 
 .opening{
@@ -99,7 +97,6 @@ body{
         var(--green);
 
     transition:
-
         opacity 1s ease,
         visibility 1s ease;
 
@@ -197,8 +194,7 @@ body{
 
         opacity:0;
 
-        transform:
-            translateY(18px);
+        transform:translateY(18px);
 
     }
 
@@ -206,8 +202,7 @@ body{
 
         opacity:1;
 
-        transform:
-            translateY(0);
+        transform:translateY(0);
 
     }
 
@@ -223,11 +218,9 @@ body{
     position:fixed;
 
     top:18px;
-
     right:18px;
 
     width:52px;
-
     height:52px;
 
     border-radius:50%;
@@ -268,7 +261,7 @@ body{
 
 
 /* =====================================================
-   WEDDING INTRO / PRE HERO
+   WEDDING INTRO
 ===================================================== */
 
 .pre-hero{
@@ -287,8 +280,7 @@ body{
 
     text-align:center;
 
-    padding:
-        60px 20px;
+    padding:60px 20px;
 
     background:
 
@@ -306,10 +298,6 @@ body{
 
 }
 
-
-/*
-   Subtle geometric background.
-*/
 
 .pre-hero::before{
 
@@ -344,10 +332,6 @@ body{
 }
 
 
-/*
-   Soft center glow.
-*/
-
 .pre-hero::after{
 
     content:"";
@@ -361,7 +345,6 @@ body{
     border-radius:50%;
 
     left:50%;
-
     top:50%;
 
     transform:
@@ -393,10 +376,6 @@ body{
 }
 
 
-/*
-   Arabic Bismillah.
-*/
-
 .pre-hero-bismillah{
 
     font-family:"Amiri",serif;
@@ -415,10 +394,6 @@ body{
 }
 
 
-/*
-   Main ornament.
-*/
-
 .pre-hero-ornament{
 
     color:var(--gold-light);
@@ -431,13 +406,6 @@ body{
 
 }
 
-
-/*
-   Names.
-
-   Pinyon Script gives the elegant
-   handwritten wedding look.
-*/
 
 .pre-hero-name{
 
@@ -465,10 +433,6 @@ body{
 }
 
 
-/*
-   WEDS text.
-*/
-
 .pre-hero-weds{
 
     font-family:"Montserrat",sans-serif;
@@ -480,15 +444,10 @@ body{
     color:
         rgba(248,240,226,.72);
 
-    margin:
-        24px 0;
+    margin:24px 0;
 
 }
 
-
-/*
-   Gold divider.
-*/
 
 .pre-hero-line{
 
@@ -504,10 +463,6 @@ body{
 
 }
 
-
-/*
-   Wedding date.
-*/
 
 .pre-hero-date{
 
@@ -525,10 +480,6 @@ body{
 
 }
 
-
-/*
-   Ceremony label.
-*/
 
 .pre-hero-ceremony{
 
@@ -568,12 +519,6 @@ body{
 }
 
 
-/*
-   IMPORTANT:
-   Keep intrinsic image ratio.
-   Do NOT use height:100vh.
-*/
-
 .hero-image{
 
     display:block;
@@ -594,10 +539,6 @@ body{
 
 }
 
-
-/*
-   Hero scroll button.
-*/
 
 .hero-scroll{
 
@@ -833,7 +774,6 @@ body{
         );
 
     box-shadow:
-
         0 10px 35px
         rgba(95,73,40,.06);
 
@@ -881,10 +821,10 @@ body{
 
 .save-date{
 
-    min-height:225px;
+    min-height:205px;
 
     padding:
-        70px 25px;
+        65px 20px;
 
     display:flex;
 
@@ -982,32 +922,17 @@ body{
         serif;
 
     font-size:
-        clamp(28px,7vw,42px);
+        clamp(22px,6vw,34px);
 
     font-weight:500;
 
-    letter-spacing:5px;
+    letter-spacing:4px;
 
     line-height:1;
 
     color:var(--cream);
 
-}
-
-
-.save-date-weekday{
-
-    margin-top:10px;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:4px;
-
-    color:var(--gold-light);
+    white-space:nowrap;
 
 }
 
@@ -1186,7 +1111,7 @@ body{
 
 
 /* =====================================================
-   MAP / REMINDER BUTTONS
+   MAP BUTTON
 ===================================================== */
 
 .map-btn{
@@ -1214,8 +1139,7 @@ body{
 
     text-transform:uppercase;
 
-    transition:
-        .3s ease;
+    transition:.3s ease;
 
 }
 
@@ -1235,10 +1159,6 @@ body{
 
 }
 
-
-/*
-   Reception reminder spacing.
-*/
 
 .reception-reminder{
 
@@ -1540,7 +1460,7 @@ footer{
 
 
 /* =====================================================
-   REVEAL ANIMATION
+   REVEAL
 ===================================================== */
 
 .reveal{
@@ -1551,9 +1471,7 @@ footer{
         translateY(25px);
 
     transition:
-
         opacity .9s ease,
-
         transform .9s ease;
 
 }
@@ -1605,8 +1523,7 @@ footer{
         0 8px 30px
         rgba(0,0,0,.28);
 
-    transition:
-        .25s ease;
+    transition:.25s ease;
 
 }
 
@@ -1637,8 +1554,7 @@ footer{
 
     visibility:hidden;
 
-    transition:
-        .35s ease;
+    transition:.35s ease;
 
     backdrop-filter:blur(3px);
 
@@ -1707,8 +1623,7 @@ footer{
 
     visibility:hidden;
 
-    transition:
-        .35s ease;
+    transition:.35s ease;
 
     backdrop-filter:blur(18px);
 
@@ -1728,10 +1643,6 @@ footer{
 
 }
 
-
-/* =====================================================
-   SETTINGS TOP
-===================================================== */
 
 .settings-top{
 
@@ -1781,10 +1692,6 @@ footer{
 
 }
 
-
-/* =====================================================
-   SETTINGS GROUP
-===================================================== */
 
 .settings-group{
 
@@ -1849,8 +1756,7 @@ footer{
 
     cursor:pointer;
 
-    transition:
-        .25s ease;
+    transition:.25s ease;
 
 }
 
@@ -1868,8 +1774,7 @@ footer{
 
     color:var(--green-dark);
 
-    border-color:
-        var(--gold-light);
+    border-color:var(--gold-light);
 
 }
 
@@ -1895,8 +1800,7 @@ footer{
 
     height:48px;
 
-    flex:
-        0 0 52px;
+    flex:0 0 52px;
 
     border:
         1px solid
@@ -1961,7 +1865,8 @@ footer{
 
 
 /* =====================================================
-   TOUCH BAARAKALLAH
+   TOUCH BARAKALLAH
+   13PX / 100PX
 ===================================================== */
 
 .touch-blessing{
@@ -1969,7 +1874,6 @@ footer{
     position:fixed;
 
     left:50%;
-
     top:50%;
 
     z-index:10000;
@@ -1982,20 +1886,21 @@ footer{
 
     justify-content:center;
 
-    gap:8px;
+    gap:3px;
 
-    min-width:205px;
+    width:100px;
 
-    height:64px;
+    min-width:100px;
 
-    padding:
-        0 28px;
+    height:28px;
+
+    padding:0 6px;
 
     border:
         1px solid
-        rgba(184,148,77,.65);
+        rgba(184,148,77,.50);
 
-    border-radius:40px;
+    border-radius:16px;
 
     background:
         rgba(45,45,43,.88);
@@ -2006,35 +1911,27 @@ footer{
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        clamp(24px,6vw,34px);
+    font-size:13px;
 
     font-weight:500;
 
     font-style:italic;
 
-    letter-spacing:.2px;
+    letter-spacing:0;
 
     line-height:1;
 
     box-shadow:
 
-        0 8px 28px
-        rgba(0,0,0,.28),
+        0 3px 12px
+        rgba(0,0,0,.22),
 
         inset 0 1px 0
-        rgba(255,255,255,.06),
-
-        0 0 12px
-        rgba(213,183,111,.10);
+        rgba(255,255,255,.05);
 
     text-shadow:
-
-        0 0 7px
-        rgba(213,183,111,.28),
-
-        0 0 18px
-        rgba(213,183,111,.12);
+        0 0 4px
+        rgba(213,183,111,.16);
 
     opacity:0;
 
@@ -2106,7 +2003,7 @@ footer{
 
 
 /* =====================================================
-   TOUCH FLOATING HEARTS / SPARKLES
+   FLOATING HEARTS / SPARKLES
 ===================================================== */
 
 .touch-heart{
@@ -2117,9 +2014,7 @@ footer{
 
     pointer-events:none;
 
-    font-family:
-        Georgia,
-        serif;
+    font-family:Georgia,serif;
 
     font-weight:normal;
 
@@ -2138,8 +2033,8 @@ footer{
     color:#d6b76f;
 
     text-shadow:
-        0 0 8px
-        rgba(213,183,111,.30);
+        0 0 6px
+        rgba(213,183,111,.25);
 
 }
 
@@ -2149,29 +2044,29 @@ footer{
     color:#6fae9b;
 
     text-shadow:
-        0 0 8px
-        rgba(111,174,155,.25);
+        0 0 6px
+        rgba(111,174,155,.20);
 
 }
 
 
 .touch-heart.heart{
 
-    font-size:23px;
+    font-size:14px;
 
 }
 
 
 .touch-heart.sparkle{
 
-    font-size:20px;
+    font-size:13px;
 
 }
 
 
 .touch-heart.small{
 
-    font-size:14px;
+    font-size:11px;
 
 }
 
@@ -2271,10 +2166,24 @@ footer{
 
     .save-date{
 
-        min-height:200px;
+        min-height:190px;
 
         padding:
-            60px 20px;
+            58px 15px;
+
+    }
+
+
+    .save-date-date{
+
+        font-size:
+            clamp(
+                20px,
+                6vw,
+                29px
+            );
+
+        letter-spacing:3px;
 
     }
 
@@ -2306,8 +2215,7 @@ footer{
 
     .pre-hero{
 
-        min-height:
-            100svh;
+        min-height:100svh;
 
         padding:
             50px 18px;
@@ -2342,6 +2250,8 @@ footer{
 
 
     .pre-hero-date{
+
+        font-size:18px;
 
         letter-spacing:2px;
 
@@ -2404,14 +2314,24 @@ footer{
     }
 
 
+    /*
+       Keep Barakallah at exactly
+       the small desktop/mobile size.
+    */
+
     .touch-blessing{
 
-        min-width:190px;
+        width:100px;
 
-        height:58px;
+        min-width:100px;
 
-        padding:
-            0 22px;
+        height:28px;
+
+        padding:0 6px;
+
+        font-size:13px;
+
+        gap:3px;
 
     }
 
@@ -2475,6 +2395,15 @@ footer{
     }
 
 
+    .save-date-date{
+
+        font-size:19px;
+
+        letter-spacing:2px;
+
+    }
+
+
     .settings-options{
 
         gap:6px;
@@ -2485,6 +2414,19 @@ footer{
     .settings-option{
 
         font-size:10px;
+
+    }
+
+
+    .touch-blessing{
+
+        width:100px;
+
+        min-width:100px;
+
+        height:28px;
+
+        font-size:13px;
 
     }
 
@@ -2499,17 +2441,13 @@ footer{
 
     *{
 
-        animation-duration:
-            .01ms !important;
+        animation-duration:.01ms !important;
 
-        animation-iteration-count:
-            1 !important;
+        animation-iteration-count:1 !important;
 
-        scroll-behavior:
-            auto !important;
+        scroll-behavior:auto !important;
 
-        transition-duration:
-            .01ms !important;
+        transition-duration:.01ms !important;
 
     }
 
