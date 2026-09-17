@@ -1,5 +1,6 @@
 /* =====================================================
-   WEDDING INVITATION — COMPLETE SCRIPT
+   WEDDING INVITATION
+   COMPLETE JAVASCRIPT
 ===================================================== */
 
 
@@ -23,7 +24,7 @@ function closeOpening(){
 
 
 /*
-   Automatically hide opening after 3 seconds.
+   Automatically close opening after 3 seconds.
 */
 
 setTimeout(
@@ -52,12 +53,9 @@ const volumeControl =
 let musicStarted = false;
 
 
-/*
-   Start music after user interaction.
-
-   Browser autoplay policy requires
-   a user interaction before audio can play.
-*/
+/* =====================================================
+   START MUSIC
+===================================================== */
 
 async function startMusic(){
 
@@ -98,9 +96,9 @@ async function startMusic(){
 }
 
 
-/*
-   Synchronize both music buttons.
-*/
+/* =====================================================
+   MUSIC BUTTON SYNC
+===================================================== */
 
 function updateMusicButtons(){
 
@@ -148,14 +146,9 @@ function updateMusicButtons(){
 }
 
 
-/*
-   First pointer interaction.
-
-   This handles:
-   - Music
-   - Opening close
-   - Wake lock
-*/
+/* =====================================================
+   FIRST USER INTERACTION
+===================================================== */
 
 document.addEventListener(
     "pointerdown",
@@ -173,10 +166,6 @@ document.addEventListener(
     }
 );
 
-
-/*
-   Additional mobile touch support.
-*/
 
 document.addEventListener(
     "touchstart",
@@ -282,7 +271,7 @@ if(music){
 
 
 /* =====================================================
-   HERO SCROLL BUTTON
+   HERO SCROLL
 ===================================================== */
 
 const heroScroll =
@@ -316,14 +305,6 @@ if(heroScroll){
 /* =====================================================
    COUNTDOWN
 ===================================================== */
-
-
-/*
-   Wedding / Nikah:
-   21 September 2026
-   11:00 AM
-   India Standard Time (+05:30)
-*/
 
 const weddingDate =
     new Date(
@@ -365,11 +346,6 @@ function updateCountdown(){
     let distance =
         weddingDate - now;
 
-
-    /*
-       Once the wedding time has passed,
-       keep the countdown at zero.
-    */
 
     if(distance < 0){
 
@@ -451,11 +427,6 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 
-/*
-   If IntersectionObserver is available,
-   animate sections when they enter the screen.
-*/
-
 if("IntersectionObserver" in window){
 
     const observer =
@@ -500,10 +471,6 @@ if("IntersectionObserver" in window){
 
 else{
 
-    /*
-       Fallback for older browsers.
-    */
-
     revealElements.forEach(
         function(element){
 
@@ -536,11 +503,6 @@ async function requestWakeLock(){
                     .request("screen");
 
 
-            /*
-               If the browser releases the lock,
-               clear the reference.
-            */
-
             wakeLock.addEventListener(
                 "release",
                 function(){
@@ -565,10 +527,9 @@ async function requestWakeLock(){
 }
 
 
-/*
-   Re-enable screen wake lock
-   when the page becomes visible again.
-*/
+/* =====================================================
+   VISIBILITY / WAKE LOCK
+===================================================== */
 
 document.addEventListener(
     "visibilitychange",
@@ -591,42 +552,26 @@ document.addEventListener(
    AUTO SCROLL
 ===================================================== */
 
-
-/*
-   Auto-scroll is enabled by default.
-
-   User interaction pauses it.
-*/
-
 let autoScrolling = true;
 
 let resumeTimer = null;
 
 
-/*
-   Very slow scrolling speed.
-*/
-
-const scrollSpeed = 0.65;
+const scrollSpeed =
+    0.65;
 
 
-/*
-   Delay before automatic scrolling begins.
-*/
-
-const autoScrollStartDelay = 5000;
+const autoScrollStartDelay =
+    5000;
 
 
-/*
-   Resume after 4 seconds without interaction.
-*/
-
-const autoScrollResumeDelay = 4000;
+const autoScrollResumeDelay =
+    4000;
 
 
-/*
-   Pause automatic scrolling.
-*/
+/* =====================================================
+   PAUSE AUTO SCROLL
+===================================================== */
 
 function pauseAutoScroll(){
 
@@ -641,11 +586,6 @@ function pauseAutoScroll(){
     resumeTimer =
         setTimeout(
             function(){
-
-                /*
-                   Only resume if the user
-                   is still on the page.
-                */
 
                 if(
                     document.visibilityState ===
@@ -668,7 +608,7 @@ function pauseAutoScroll(){
 
 
 /* =====================================================
-   USER INTERACTION EVENTS
+   USER SCROLL / TOUCH
 ===================================================== */
 
 window.addEventListener(
@@ -707,16 +647,12 @@ window.addEventListener(
 );
 
 
-/*
-   Keyboard scrolling also counts as
-   manual interaction.
-*/
-
 window.addEventListener(
     "keydown",
     function(event){
 
         const keys = [
+
             "ArrowUp",
             "ArrowDown",
             "PageUp",
@@ -724,6 +660,7 @@ window.addEventListener(
             "Home",
             "End",
             " "
+
         ];
 
 
@@ -740,14 +677,10 @@ window.addEventListener(
 
 
 /* =====================================================
-   AUTOMATIC SCROLL LOOP
+   AUTO SCROLL LOOP
 ===================================================== */
 
 function autoScroll(){
-
-    /*
-       Keep animation loop alive while paused.
-    */
 
     if(!autoScrolling){
 
@@ -760,10 +693,6 @@ function autoScroll(){
     }
 
 
-    /*
-       Calculate current and maximum scroll.
-    */
-
     const current =
         window.scrollY;
 
@@ -775,13 +704,7 @@ function autoScroll(){
         window.innerHeight;
 
 
-    /*
-       Stop permanently at the bottom.
-    */
-
-    if(
-        maxScroll <= 0
-    ){
+    if(maxScroll <= 0){
 
         requestAnimationFrame(
             autoScroll
@@ -804,10 +727,6 @@ function autoScroll(){
     }
 
 
-    /*
-       Scroll very slowly.
-    */
-
     window.scrollBy(
         0,
         scrollSpeed
@@ -821,17 +740,12 @@ function autoScroll(){
 }
 
 
-/*
-   Wait before starting auto-scroll.
-*/
+/* =====================================================
+   START AUTO SCROLL
+===================================================== */
 
 setTimeout(
     function(){
-
-        /*
-           Don't start while the settings
-           panel is open or page is hidden.
-        */
 
         if(
             document.visibilityState ===
@@ -852,10 +766,11 @@ setTimeout(
 
 
 /* =====================================================
-   LANGUAGE SWITCHER
+   TRANSLATIONS
 ===================================================== */
 
 const translations = {
+
 
     en: {
 
@@ -1090,15 +1005,18 @@ const settingsOpen =
         "settingsOpen"
     );
 
+
 const settingsClose =
     document.getElementById(
         "settingsClose"
     );
 
+
 const settingsPanel =
     document.getElementById(
         "settingsPanel"
     );
+
 
 const settingsBackdrop =
     document.getElementById(
@@ -1107,7 +1025,7 @@ const settingsBackdrop =
 
 
 /* =====================================================
-   SETTINGS OPEN / CLOSE
+   OPEN SETTINGS
 ===================================================== */
 
 function openSettings(){
@@ -1130,15 +1048,14 @@ function openSettings(){
     }
 
 
-    /*
-       Pause auto-scroll while
-       settings are open.
-    */
-
     autoScrolling = false;
 
 }
 
+
+/* =====================================================
+   CLOSE SETTINGS
+===================================================== */
 
 function closeSettings(){
 
@@ -1160,17 +1077,13 @@ function closeSettings(){
     }
 
 
-    /*
-       Resume after normal delay.
-    */
-
     pauseAutoScroll();
 
 }
 
 
 /* =====================================================
-   SETTINGS BUTTON
+   SETTINGS EVENTS
 ===================================================== */
 
 if(settingsOpen){
@@ -1220,7 +1133,7 @@ if(settingsBackdrop){
 
 
 /* =====================================================
-   ESCAPE TO CLOSE SETTINGS
+   ESCAPE KEY
 ===================================================== */
 
 document.addEventListener(
@@ -1240,7 +1153,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   LANGUAGE
+   APPLY LANGUAGE
 ===================================================== */
 
 function applyLanguage(lang){
@@ -1250,27 +1163,15 @@ function applyLanguage(lang){
         translations.en;
 
 
-    /*
-       Set HTML language.
-    */
-
     document.documentElement.lang =
         lang;
 
-
-    /*
-       Arabic uses RTL.
-    */
 
     document.documentElement.dir =
         lang === "ar"
             ? "rtl"
             : "ltr";
 
-
-    /*
-       Update all translated elements.
-    */
 
     document
         .querySelectorAll("[data-i18n]")
@@ -1293,10 +1194,6 @@ function applyLanguage(lang){
             }
         );
 
-
-    /*
-       Settings headings.
-    */
 
     const settingsHeading =
         document.getElementById(
@@ -1368,10 +1265,6 @@ function applyLanguage(lang){
     }
 
 
-    /*
-       Highlight selected language.
-    */
-
     document
         .querySelectorAll("[data-language]")
         .forEach(
@@ -1386,10 +1279,6 @@ function applyLanguage(lang){
             }
         );
 
-
-    /*
-       Remember language.
-    */
 
     localStorage.setItem(
         "weddingLanguage",
@@ -1426,10 +1315,6 @@ document
     );
 
 
-/*
-   Load saved language.
-*/
-
 applyLanguage(
     localStorage.getItem(
         "weddingLanguage"
@@ -1446,10 +1331,6 @@ function applyTheme(theme){
     const root =
         document.documentElement;
 
-
-    /*
-       Dark theme.
-    */
 
     if(theme === "dark"){
 
@@ -1478,42 +1359,6 @@ function applyTheme(theme){
 
     }
 
-
-    /*
-       Light theme.
-    */
-
-    else if(theme === "light"){
-
-        root.style.removeProperty(
-            "--cream"
-        );
-
-
-        root.style.removeProperty(
-            "--cream-light"
-        );
-
-
-        root.style.removeProperty(
-            "--dark-text"
-        );
-
-
-        root.style.removeProperty(
-            "--soft-text"
-        );
-
-    }
-
-
-    /*
-       System theme.
-
-       Detect the device/browser
-       color scheme.
-    */
-
     else{
 
         root.style.removeProperty(
@@ -1538,10 +1383,6 @@ function applyTheme(theme){
     }
 
 
-    /*
-       Highlight selected theme.
-    */
-
     document
         .querySelectorAll("[data-theme]")
         .forEach(
@@ -1557,67 +1398,10 @@ function applyTheme(theme){
         );
 
 
-    /*
-       Remember theme.
-    */
-
     localStorage.setItem(
         "weddingTheme",
         theme
     );
-
-}
-
-
-/* =====================================================
-   SYSTEM THEME CHANGE
-===================================================== */
-
-const systemThemeQuery =
-    window.matchMedia
-        ? window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        )
-        : null;
-
-
-if(systemThemeQuery){
-
-    const savedTheme =
-        localStorage.getItem(
-            "weddingTheme"
-        );
-
-
-    if(
-        savedTheme === "system" ||
-        !savedTheme
-    ){
-
-        /*
-           No custom variable override is
-           required because system mode
-           uses the default theme.
-        */
-
-        systemThemeQuery.addEventListener(
-            "change",
-            function(){
-
-                if(
-                    localStorage.getItem(
-                        "weddingTheme"
-                    ) === "system"
-                ){
-
-                    applyTheme("system");
-
-                }
-
-            }
-        );
-
-    }
 
 }
 
@@ -1649,10 +1433,6 @@ document
     );
 
 
-/*
-   Load saved theme.
-*/
-
 applyTheme(
     localStorage.getItem(
         "weddingTheme"
@@ -1661,7 +1441,7 @@ applyTheme(
 
 
 /* =====================================================
-   PANEL MUSIC BUTTON
+   PANEL MUSIC
 ===================================================== */
 
 if(panelMusicBtn){
@@ -1717,7 +1497,7 @@ if(panelMusicBtn){
 
 
 /* =====================================================
-   VOLUME CONTROL
+   VOLUME
 ===================================================== */
 
 if(volumeControl){
@@ -1742,7 +1522,7 @@ if(volumeControl){
 
 
 /* =====================================================
-   TOUCH BAARAKALLAH
+   TOUCH BARAKALLAH
 ===================================================== */
 
 const touchBlessing =
@@ -1809,10 +1589,6 @@ function createTouchDecoration(
     );
 
 
-    /*
-       Random gold / green appearance.
-    */
-
     if(Math.random() > 0.45){
 
         heart.classList.add(
@@ -1835,10 +1611,6 @@ function createTouchDecoration(
     );
 
 
-    /*
-       Remove after animation.
-    */
-
     setTimeout(
         function(){
 
@@ -1852,7 +1624,7 @@ function createTouchDecoration(
 
 
 /* =====================================================
-   SHOW TOUCH BLESSING
+   SHOW TOUCH BARAKALLAH
 ===================================================== */
 
 function showTouchBlessing(
@@ -1872,10 +1644,6 @@ function showTouchBlessing(
     );
 
 
-    /*
-       Reset animation.
-    */
-
     touchBlessing.classList.remove(
         "show"
     );
@@ -1883,10 +1651,6 @@ function showTouchBlessing(
 
     void touchBlessing.offsetWidth;
 
-
-    /*
-       Position blessing.
-    */
 
     touchBlessing.style.left =
         x + "px";
@@ -1902,7 +1666,7 @@ function showTouchBlessing(
 
 
     /*
-       Floating hearts.
+       Small surrounding decorations.
     */
 
     createTouchDecoration(
@@ -1910,8 +1674,8 @@ function showTouchBlessing(
         y,
         "♡",
         "heart",
-        -62,
-        -48,
+        -38,
+        -30,
         -15
     );
 
@@ -1921,23 +1685,19 @@ function showTouchBlessing(
         y,
         "♡",
         "heart",
-        62,
-        -50,
+        38,
+        -32,
         15
     );
 
-
-    /*
-       Sparkles.
-    */
 
     createTouchDecoration(
         x,
         y,
         "✦",
         "sparkle",
-        -78,
-        -8,
+        -50,
+        -5,
         -12
     );
 
@@ -1947,8 +1707,8 @@ function showTouchBlessing(
         y,
         "✦",
         "sparkle",
-        78,
-        -10,
+        50,
+        -7,
         12
     );
 
@@ -1958,8 +1718,8 @@ function showTouchBlessing(
         y,
         "✧",
         "sparkle",
-        -45,
-        45,
+        -30,
+        30,
         -8
     );
 
@@ -1969,37 +1729,11 @@ function showTouchBlessing(
         y,
         "✧",
         "sparkle",
-        48,
-        43,
+        32,
+        29,
         10
     );
 
-
-    createTouchDecoration(
-        x,
-        y,
-        "♡",
-        "heart",
-        -28,
-        -70,
-        -12
-    );
-
-
-    createTouchDecoration(
-        x,
-        y,
-        "♡",
-        "heart",
-        30,
-        -70,
-        12
-    );
-
-
-    /*
-       Hide main blessing.
-    */
 
     blessingTimer =
         setTimeout(
@@ -2025,8 +1759,8 @@ document.addEventListener(
     function(event){
 
         /*
-           Don't trigger the Barakallah
-           animation on controls.
+           Don't show Barakallah on
+           buttons, links, inputs or settings.
         */
 
         if(
@@ -2054,41 +1788,23 @@ document.addEventListener(
 
 
 /* =====================================================
-   PAGE LOAD SAFETY
+   PAGE LOAD
 ===================================================== */
 
 window.addEventListener(
     "load",
     function(){
 
-        /*
-           Make sure music controls
-           start synchronized.
-        */
-
         updateMusicButtons();
 
-
-        /*
-           Request wake lock once page
-           has loaded, if supported.
-        */
-
-        if(
-            document.visibilityState ===
-            "visible"
-        ){
-
-            requestWakeLock();
-
-        }
+        requestWakeLock();
 
     }
 );
 
 
 /* =====================================================
-   PAGE VISIBILITY
+   VISIBILITY / AUTO SCROLL
 ===================================================== */
 
 document.addEventListener(
@@ -2100,24 +1816,13 @@ document.addEventListener(
             "hidden"
         ){
 
-            /*
-               Stop automatic scrolling while
-               the page is not visible.
-            */
-
             autoScrolling = false;
 
         }
 
         else{
 
-            /*
-               Restore normal auto-scroll behavior
-               after the normal interaction delay.
-            */
-
             pauseAutoScroll();
-
 
             requestWakeLock();
 
