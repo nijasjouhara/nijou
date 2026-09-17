@@ -2656,3 +2656,101 @@ footer{
     }
 
 }
+
+/* =====================================================
+   MOBILE FIX — WEDDING HERO DOWNLOAD
+===================================================== */
+
+@media screen and (max-width: 600px){
+
+    section.hero-download{
+        display:block !important;
+        width:100% !important;
+        box-sizing:border-box !important;
+        padding:38px 18px 42px !important;
+        margin:0 !important;
+        background:var(--cream) !important;
+        text-align:center !important;
+        position:relative !important;
+        overflow:hidden !important;
+    }
+
+    .hero-download-content{
+        display:block !important;
+        width:100% !important;
+        max-width:600px !important;
+        margin:0 auto !important;
+        text-align:center !important;
+    }
+
+    .hero-download-ornament{
+        display:block !important;
+        margin:0 0 14px !important;
+        color:var(--gold) !important;
+        font-size:18px !important;
+        line-height:1 !important;
+    }
+
+    .hero-download-title{
+        display:block !important;
+        margin:0 0 10px !important;
+        font-family:"Montserrat",sans-serif !important;
+        font-size:9px !important;
+        font-weight:500 !important;
+        letter-spacing:3.5px !important;
+        line-height:1.3 !important;
+        color:var(--gold) !important;
+        text-transform:uppercase !important;
+    }
+
+    .hero-download-text{
+        display:block !important;
+        margin:0 0 22px !important;
+        font-family:"Cormorant Garamond",serif !important;
+        font-size:17px !important;
+        font-weight:400 !important;
+        line-height:1.4 !important;
+        color:var(--soft-text) !important;
+    }
+
+    a.hero-download-btn{
+        display:inline-flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        width:auto !important;
+        min-height:42px !important;
+        box-sizing:border-box !important;
+        padding:0 18px !important;
+
+        border:1px solid var(--gold) !important;
+        border-radius:0 !important;
+
+        background:transparent !important;
+        color:var(--dark-text) !important;
+
+        font-family:"Montserrat",sans-serif !important;
+        font-size:8.5px !important;
+        font-weight:500 !important;
+        letter-spacing:1.6px !important;
+        line-height:1 !important;
+        text-transform:uppercase !important;
+
+        text-decoration:none !important;
+        white-space:nowrap !important;
+    }
+
+    a.hero-download-btn:visited,
+    a.hero-download-btn:active,
+    a.hero-download-btn:focus{
+        color:var(--dark-text) !important;
+        text-decoration:none !important;
+    }
+
+    .hero-download-btn span:first-child{
+        display:inline-block !important;
+        font-family:Arial,sans-serif !important;
+        font-size:15px !important;
+        line-height:1 !important;
+        color:var(--gold) !important;
+    }
+}
